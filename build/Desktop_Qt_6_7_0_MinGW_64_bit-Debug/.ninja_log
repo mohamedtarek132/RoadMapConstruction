@@ -1,9 +1,16 @@
 # ninja log v5
 25	231	7366033737593957	untitled_autogen/timestamp	d8fa6ea1afe84b9c
-25	231	7366033737593957	C:/Users/hp/Documents/Programming projects/C++ Projects/untitled/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/untitled_autogen/mocs_compilation.cpp	d8fa6ea1afe84b9c
 613	2799	7360778250179369	CMakeFiles/untitled.dir/untitled_autogen/mocs_compilation.cpp.obj	f0e839106fb11f6d
 25	231	7366033737593957	untitled_autogen/mocs_compilation.cpp	d8fa6ea1afe84b9c
-25	231	7366033737593957	C:/Users/hp/Documents/Programming projects/C++ Projects/untitled/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/untitled_autogen/timestamp	d8fa6ea1afe84b9c
 389	5171	7366029289184862	CMakeFiles/untitled.dir/main.cpp.obj	546d2b85f9b0584a
 243	2293	7366033758230478	CMakeFiles/untitled.dir/mainwindow.cpp.obj	7ff38846f38805b6
 2293	2478	7366033760021670	untitled.exe	661a74156738a20c
+5	1379	7368875378713144	untitled_autogen/timestamp	c7450e53ec6c744e
+5	1379	7368875378713144	untitled_autogen/mocs_compilation.cpp	c7450e53ec6c744e
+5	1379	7368875378713144	C:/Users/Anyone/Documents/DS-Project/RoadMapConstruction/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/untitled_autogen/timestamp	c7450e53ec6c744e
+5	1379	7368875378713144	C:/Users/Anyone/Documents/DS-Project/RoadMapConstruction/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/untitled_autogen/mocs_compilation.cpp	c7450e53ec6c744e
+1409	5280	7368875418784283	CMakeFiles/untitled.dir/graph.cpp.obj	f41f70212bf5a541
+1389	7700	7368875442984289	CMakeFiles/untitled.dir/main.cpp.obj	f677bf9cf6db8347
+1380	7829	7368875444364287	CMakeFiles/untitled.dir/untitled_autogen/mocs_compilation.cpp.obj	11d539154c7fe1c9
+1399	15792	7368875523939746	CMakeFiles/untitled.dir/mainwindow.cpp.obj	b4aaa5b0d1f257d5
+15800	17356	7368875539579749	untitled.exe	217d43ee23437a3c

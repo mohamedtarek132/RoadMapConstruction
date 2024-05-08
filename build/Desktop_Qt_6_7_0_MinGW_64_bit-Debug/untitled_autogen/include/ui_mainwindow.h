@@ -14,7 +14,6 @@
 #include <QtWidgets/QFrame>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
-#include <QtWidgets/QStatusBar>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -25,7 +24,6 @@ public:
     QWidget *centralwidget;
     QLabel *pageTitle;
     QFrame *frame;
-    QStatusBar *statusbar;
 
     void setupUi(QMainWindow *MainWindow)
     {
@@ -53,16 +51,14 @@ public:
         pageTitle->setIndent(0);
         frame = new QFrame(centralwidget);
         frame->setObjectName("frame");
-        frame->setGeometry(QRect(90, 149, 851, 491));
-        frame->setStyleSheet(QString::fromUtf8("border-color: rgb(223, 208, 184);\n"
-"border-width: 1000000000;"));
-        frame->setFrameShape(QFrame::StyledPanel);
+        frame->setGeometry(QRect(87, 175, 850, 490));
+        frame->setStyleSheet(QString::fromUtf8("background-color: rgb(223, 208, 184);\n"
+"\n"
+""));
+        frame->setFrameShape(QFrame::Box);
         frame->setFrameShadow(QFrame::Raised);
         frame->setLineWidth(10);
         MainWindow->setCentralWidget(centralwidget);
-        statusbar = new QStatusBar(MainWindow);
-        statusbar->setObjectName("statusbar");
-        MainWindow->setStatusBar(statusbar);
 
         retranslateUi(MainWindow);
 

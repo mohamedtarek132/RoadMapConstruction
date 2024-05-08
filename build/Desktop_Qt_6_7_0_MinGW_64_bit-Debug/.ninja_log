@@ -1,0 +1,9 @@
+# ninja log v5
+25	231	7366033737593957	untitled_autogen/timestamp	d8fa6ea1afe84b9c
+25	231	7366033737593957	C:/Users/hp/Documents/Programming projects/C++ Projects/untitled/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/untitled_autogen/mocs_compilation.cpp	d8fa6ea1afe84b9c
+613	2799	7360778250179369	CMakeFiles/untitled.dir/untitled_autogen/mocs_compilation.cpp.obj	f0e839106fb11f6d
+25	231	7366033737593957	untitled_autogen/mocs_compilation.cpp	d8fa6ea1afe84b9c
+25	231	7366033737593957	C:/Users/hp/Documents/Programming projects/C++ Projects/untitled/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/untitled_autogen/timestamp	d8fa6ea1afe84b9c
+389	5171	7366029289184862	CMakeFiles/untitled.dir/main.cpp.obj	546d2b85f9b0584a
+243	2293	7366033758230478	CMakeFiles/untitled.dir/mainwindow.cpp.obj	7ff38846f38805b6
+2293	2478	7366033760021670	untitled.exe	661a74156738a20c

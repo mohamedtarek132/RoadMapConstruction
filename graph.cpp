@@ -1,4 +1,4 @@
-//Yarab
+
 #include "graph.h"
 #include <vector>
 #include <iostream>

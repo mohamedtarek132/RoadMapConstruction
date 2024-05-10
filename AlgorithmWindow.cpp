@@ -29,10 +29,13 @@ void GraphDrawer::paintEvent(QPaintEvent* pQEvent)
     QPen vertexPen(Qt::black);
     QPen vertexNamePen(Qt::black);
 
+    int diameter = 6;
+    int radius = diameter/2;
+
     painter.setFont(QFont("times",22));
 
     edgePen.setWidth(4);
-    vertexPen.setWidth(10);
+    vertexPen.setWidth(diameter);
     vertexNamePen.setWidth(20);
 
     queue<Edge> copiedEdges = edges;
@@ -51,9 +54,6 @@ void GraphDrawer::paintEvent(QPaintEvent* pQEvent)
         int y1 = 205 + vertex1.second;
         int x2 = 117 + vertex2.first;
         int y2 = 205 + vertex2.second;
-
-        int diameter = 10;
-        int radius = diameter/2;
 
         painter.setPen(edgePen);
 

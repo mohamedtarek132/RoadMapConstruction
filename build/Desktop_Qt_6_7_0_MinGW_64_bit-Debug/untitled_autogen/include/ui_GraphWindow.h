@@ -27,6 +27,7 @@ public:
     QWidget *centralwidget;
     QLabel *label;
     QFrame *frame;
+    QFrame *frame_2;
     QLabel *label_2;
     QComboBox *comboBox;
     QComboBox *comboBox_2;
@@ -55,6 +56,7 @@ public:
     QLabel *label_14;
     QFrame *line_2;
     QPushButton *pushButton_4;
+    QPushButton *pushButton_5;
 
     void setupUi(QMainWindow *GraphWindow)
     {
@@ -78,6 +80,12 @@ public:
         frame->setFrameShape(QFrame::Box);
         frame->setFrameShadow(QFrame::Raised);
         frame->setLineWidth(8);
+        frame_2 = new QFrame(frame);
+        frame_2->setObjectName("frame_2");
+        frame_2->setGeometry(QRect(16, 16, 739, 429));
+        frame_2->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);"));
+        frame_2->setFrameShape(QFrame::StyledPanel);
+        frame_2->setFrameShadow(QFrame::Raised);
         label_2 = new QLabel(centralwidget);
         label_2->setObjectName("label_2");
         label_2->setGeometry(QRect(40, 580, 150, 50));
@@ -170,7 +178,7 @@ public:
         label_11->setGeometry(QRect(840, 270, 16, 20));
         label_12 = new QLabel(centralwidget);
         label_12->setObjectName("label_12");
-        label_12->setGeometry(QRect(810, 185, 41, 20));
+        label_12->setGeometry(QRect(815, 185, 41, 20));
         pushButton_3 = new QPushButton(centralwidget);
         pushButton_3->setObjectName("pushButton_3");
         pushButton_3->setGeometry(QRect(875, 310, 83, 29));
@@ -197,6 +205,13 @@ public:
         pushButton_4->setObjectName("pushButton_4");
         pushButton_4->setGeometry(QRect(710, 590, 83, 29));
         pushButton_4->setStyleSheet(QString::fromUtf8("background-color: rgb(53, 73, 84);"));
+        pushButton_5 = new QPushButton(centralwidget);
+        pushButton_5->setObjectName("pushButton_5");
+        pushButton_5->setGeometry(QRect(670, 50, 131, 41));
+        QFont font2;
+        font2.setPointSize(15);
+        pushButton_5->setFont(font2);
+        pushButton_5->setStyleSheet(QString::fromUtf8("background-color: rgb(53, 73, 84);"));
         GraphWindow->setCentralWidget(centralwidget);
 
         retranslateUi(GraphWindow);
@@ -231,6 +246,7 @@ public:
         label_13->setText(QCoreApplication::translate("GraphWindow", "Delete Vertex", nullptr));
         label_14->setText(QCoreApplication::translate("GraphWindow", "vertex", nullptr));
         pushButton_4->setText(QCoreApplication::translate("GraphWindow", "Delete", nullptr));
+        pushButton_5->setText(QCoreApplication::translate("GraphWindow", "Save", nullptr));
     } // retranslateUi
 
 };

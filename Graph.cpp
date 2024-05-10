@@ -163,6 +163,7 @@ queue<Edge> Graph::BFStraversal(string first_node)
 
     queue<string> nodes;
     nodes.push(first_node);
+    queue<Edge> edgeOrder;
 
     unordered_map<string, bool> visited;
     visited[first_node] = true;
@@ -174,25 +175,22 @@ queue<Edge> Graph::BFStraversal(string first_node)
         nodes.pop();
         for (auto i = adjacencyList[node].begin(); i != adjacencyList[node].end(); i++)
         {
-            if (!visited[i->getVertex1()])
-            {
-                nodes.push(i->getVertex1());
-                visited[i->getVertex1()] = true;
-            }
             if (!visited[i->getVertex2()])
             {
                 nodes.push(i->getVertex2());
                 visited[i->getVertex2()] = true;
+                edgeOrder.push(*i);
             }
         }
     }
+    return edgeOrder;
 }
 
 queue<Edge> Graph::DFStraversal(string first_node) {
 
     unordered_map<string,bool> visited;
     stack<string> edgeStack;
-    queue<Edge> sequence;
+    queue<Edge> edgeOrder;
 
     string current = first_node;
     edgeStack.push(current);
@@ -211,18 +209,13 @@ queue<Edge> Graph::DFStraversal(string first_node) {
 
         for (auto it = adjacencyList[current].begin(); it != adjacencyList[current].end(); it++)
         {
-            if (!visited[it->getVertex1()])
-            {
-                edgeStack.push(it->getVertex1());
-
-            }
             if (!visited[it->getVertex2()])
             {
                 edgeStack.push(it->getVertex2());
-
+                edgeOrder.push(*it);
             }
         }
     }
 
-    return sequence;
+    return edgeOrder;
 }

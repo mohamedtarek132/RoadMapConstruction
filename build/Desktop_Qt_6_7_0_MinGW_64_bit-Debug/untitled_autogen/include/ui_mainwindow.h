@@ -1,5 +1,5 @@
 /********************************************************************************
-** Form generated from reading UI file 'mainwindow.ui'
+** Form generated from reading UI file 'MainWindow.ui'
 **
 ** Created by: Qt User Interface Compiler version 6.7.0
 **
@@ -11,70 +11,39 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QFrame>
-#include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
 
-class Ui_MainWindow
+class Ui_MainWindow2
 {
 public:
     QWidget *centralwidget;
-    QLabel *pageTitle;
-    QFrame *frame;
 
-    void setupUi(QMainWindow *MainWindow)
+    void setupUi(QMainWindow *MainWindow2)
     {
-        if (MainWindow->objectName().isEmpty())
-            MainWindow->setObjectName("MainWindow");
-        MainWindow->resize(1024, 720);
-        MainWindow->setStyleSheet(QString::fromUtf8("background-color: rgb(21, 52, 72);"));
-        centralwidget = new QWidget(MainWindow);
+        if (MainWindow2->objectName().isEmpty())
+            MainWindow2->setObjectName("MainWindow2");
+        MainWindow2->resize(1024, 720);
+        centralwidget = new QWidget(MainWindow2);
         centralwidget->setObjectName("centralwidget");
-        pageTitle = new QLabel(centralwidget);
-        pageTitle->setObjectName("pageTitle");
-        pageTitle->setGeometry(QRect(122, 50, 780, 70));
-        QFont font;
-        font.setPointSize(32);
-        pageTitle->setFont(font);
-        pageTitle->setLayoutDirection(Qt::LeftToRight);
-        pageTitle->setStyleSheet(QString::fromUtf8("background-color: rgb(223, 208, 184);\n"
-"color: rgb(21, 52, 72);\n"
-" border-radius: 10px;"));
-        pageTitle->setTextFormat(Qt::AutoText);
-        pageTitle->setScaledContents(true);
-        pageTitle->setAlignment(Qt::AlignHCenter|Qt::AlignTop);
-        pageTitle->setWordWrap(false);
-        pageTitle->setMargin(0);
-        pageTitle->setIndent(0);
-        frame = new QFrame(centralwidget);
-        frame->setObjectName("frame");
-        frame->setGeometry(QRect(87, 175, 850, 490));
-        frame->setStyleSheet(QString::fromUtf8("background-color: rgb(223, 208, 184);\n"
-"\n"
-""));
-        frame->setFrameShape(QFrame::Box);
-        frame->setFrameShadow(QFrame::Raised);
-        frame->setLineWidth(10);
-        MainWindow->setCentralWidget(centralwidget);
+        MainWindow2->setCentralWidget(centralwidget);
 
-        retranslateUi(MainWindow);
+        retranslateUi(MainWindow2);
 
-        QMetaObject::connectSlotsByName(MainWindow);
+        QMetaObject::connectSlotsByName(MainWindow2);
     } // setupUi
 
-    void retranslateUi(QMainWindow *MainWindow)
+    void retranslateUi(QMainWindow *MainWindow2)
     {
-        MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
-        pageTitle->setText(QCoreApplication::translate("MainWindow", "Prim's  Minimum Spanning Tree", nullptr));
+        MainWindow2->setWindowTitle(QCoreApplication::translate("MainWindow2", "MainWindow", nullptr));
     } // retranslateUi
 
 };
 
 namespace Ui {
-    class MainWindow: public Ui_MainWindow {};
+    class MainWindow2: public Ui_MainWindow2 {};
 } // namespace Ui
 
 QT_END_NAMESPACE

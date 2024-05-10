@@ -279,7 +279,7 @@
      <string>Length</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit_2">
+   <widget class="QLineEdit" name="edgeLength">
     <property name="geometry">
      <rect>
       <x>282</x>
@@ -330,7 +330,7 @@
      <bool>false</bool>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit_3">
+   <widget class="QLineEdit" name="xPosition">
     <property name="geometry">
      <rect>
       <x>860</x>
@@ -347,7 +347,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit_4">
+   <widget class="QLineEdit" name="yPosition">
     <property name="geometry">
      <rect>
       <x>860</x>
@@ -364,7 +364,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit_5">
+   <widget class="QLineEdit" name="vertexName">
     <property name="geometry">
      <rect>
       <x>860</x>

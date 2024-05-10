@@ -33,16 +33,16 @@ QT_WARNING_DISABLE_GCC("-Wuseless-cast")
 namespace {
 
 #ifdef QT_MOC_HAS_STRINGDATA
-struct qt_meta_stringdata_CLASSGraphDrawerENDCLASS_t {};
-constexpr auto qt_meta_stringdata_CLASSGraphDrawerENDCLASS = QtMocHelpers::stringData(
-    "GraphDrawer"
+struct qt_meta_stringdata_CLASSStaticGraphDrawerENDCLASS_t {};
+constexpr auto qt_meta_stringdata_CLASSStaticGraphDrawerENDCLASS = QtMocHelpers::stringData(
+    "StaticGraphDrawer"
 );
 #else  // !QT_MOC_HAS_STRINGDATA
 #error "qtmochelpers.h not found or too old."
 #endif // !QT_MOC_HAS_STRINGDATA
 } // unnamed namespace
 
-Q_CONSTINIT static const uint qt_meta_data_CLASSGraphDrawerENDCLASS[] = {
+Q_CONSTINIT static const uint qt_meta_data_CLASSStaticGraphDrawerENDCLASS[] = {
 
  // content:
       12,       // revision
@@ -58,20 +58,20 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSGraphDrawerENDCLASS[] = {
        0        // eod
 };
 
-Q_CONSTINIT const QMetaObject GraphDrawer::staticMetaObject = { {
+Q_CONSTINIT const QMetaObject StaticGraphDrawer::staticMetaObject = { {
     QMetaObject::SuperData::link<QWidget::staticMetaObject>(),
-    qt_meta_stringdata_CLASSGraphDrawerENDCLASS.offsetsAndSizes,
-    qt_meta_data_CLASSGraphDrawerENDCLASS,
+    qt_meta_stringdata_CLASSStaticGraphDrawerENDCLASS.offsetsAndSizes,
+    qt_meta_data_CLASSStaticGraphDrawerENDCLASS,
     qt_static_metacall,
     nullptr,
-    qt_incomplete_metaTypeArray<qt_meta_stringdata_CLASSGraphDrawerENDCLASS_t,
+    qt_incomplete_metaTypeArray<qt_meta_stringdata_CLASSStaticGraphDrawerENDCLASS_t,
         // Q_OBJECT / Q_GADGET
-        QtPrivate::TypeAndForceComplete<GraphDrawer, std::true_type>
+        QtPrivate::TypeAndForceComplete<StaticGraphDrawer, std::true_type>
     >,
     nullptr
 } };
 
-void GraphDrawer::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+void StaticGraphDrawer::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
     (void)_o;
     (void)_id;
@@ -79,22 +79,115 @@ void GraphDrawer::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
     (void)_a;
 }
 
-const QMetaObject *GraphDrawer::metaObject() const
+const QMetaObject *StaticGraphDrawer::metaObject() const
 {
     return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
 }
 
-void *GraphDrawer::qt_metacast(const char *_clname)
+void *StaticGraphDrawer::qt_metacast(const char *_clname)
 {
     if (!_clname) return nullptr;
-    if (!strcmp(_clname, qt_meta_stringdata_CLASSGraphDrawerENDCLASS.stringdata0))
+    if (!strcmp(_clname, qt_meta_stringdata_CLASSStaticGraphDrawerENDCLASS.stringdata0))
         return static_cast<void*>(this);
     return QWidget::qt_metacast(_clname);
 }
 
-int GraphDrawer::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+int StaticGraphDrawer::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
     _id = QWidget::qt_metacall(_c, _id, _a);
+    return _id;
+}
+namespace {
+
+#ifdef QT_MOC_HAS_STRINGDATA
+struct qt_meta_stringdata_CLASSDynamicGraphDrawerENDCLASS_t {};
+constexpr auto qt_meta_stringdata_CLASSDynamicGraphDrawerENDCLASS = QtMocHelpers::stringData(
+    "DynamicGraphDrawer",
+    "callPaintEvent",
+    ""
+);
+#else  // !QT_MOC_HAS_STRINGDATA
+#error "qtmochelpers.h not found or too old."
+#endif // !QT_MOC_HAS_STRINGDATA
+} // unnamed namespace
+
+Q_CONSTINIT static const uint qt_meta_data_CLASSDynamicGraphDrawerENDCLASS[] = {
+
+ // content:
+      12,       // revision
+       0,       // classname
+       0,    0, // classinfo
+       1,   14, // methods
+       0,    0, // properties
+       0,    0, // enums/sets
+       0,    0, // constructors
+       0,       // flags
+       0,       // signalCount
+
+ // slots: name, argc, parameters, tag, flags, initial metatype offsets
+       1,    0,   20,    2, 0x0a,    1 /* Public */,
+
+ // slots: parameters
+    QMetaType::Void,
+
+       0        // eod
+};
+
+Q_CONSTINIT const QMetaObject DynamicGraphDrawer::staticMetaObject = { {
+    QMetaObject::SuperData::link<QWidget::staticMetaObject>(),
+    qt_meta_stringdata_CLASSDynamicGraphDrawerENDCLASS.offsetsAndSizes,
+    qt_meta_data_CLASSDynamicGraphDrawerENDCLASS,
+    qt_static_metacall,
+    nullptr,
+    qt_incomplete_metaTypeArray<qt_meta_stringdata_CLASSDynamicGraphDrawerENDCLASS_t,
+        // Q_OBJECT / Q_GADGET
+        QtPrivate::TypeAndForceComplete<DynamicGraphDrawer, std::true_type>,
+        // method 'callPaintEvent'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>
+    >,
+    nullptr
+} };
+
+void DynamicGraphDrawer::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        auto *_t = static_cast<DynamicGraphDrawer *>(_o);
+        (void)_t;
+        switch (_id) {
+        case 0: _t->callPaintEvent(); break;
+        default: ;
+        }
+    }
+    (void)_a;
+}
+
+const QMetaObject *DynamicGraphDrawer::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *DynamicGraphDrawer::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_meta_stringdata_CLASSDynamicGraphDrawerENDCLASS.stringdata0))
+        return static_cast<void*>(this);
+    return QWidget::qt_metacast(_clname);
+}
+
+int DynamicGraphDrawer::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QWidget::qt_metacall(_c, _id, _a);
+    if (_id < 0)
+        return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        if (_id < 1)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 1;
+    } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        if (_id < 1)
+            *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
+        _id -= 1;
+    }
     return _id;
 }
 namespace {

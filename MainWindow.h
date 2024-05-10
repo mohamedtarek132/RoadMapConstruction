@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QStackedWidget>
+#include <QTimer>
 
 namespace Ui {
 class MainWindow2;
@@ -21,6 +22,7 @@ public slots:
 private:
     Ui::MainWindow2 *ui;
     QStackedWidget *stackedWidget;
+    QTimer *timer;
 };
 
 #endif // MAINWINDOW_H

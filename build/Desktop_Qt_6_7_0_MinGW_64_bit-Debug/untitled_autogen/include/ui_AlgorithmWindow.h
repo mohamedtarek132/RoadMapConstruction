@@ -24,6 +24,7 @@ public:
     QWidget *centralwidget;
     QLabel *pageTitle;
     QFrame *frame;
+    QFrame *frame_2;
 
     void setupUi(QMainWindow *AlgorithmWindow)
     {
@@ -58,6 +59,12 @@ public:
         frame->setFrameShape(QFrame::Box);
         frame->setFrameShadow(QFrame::Raised);
         frame->setLineWidth(8);
+        frame_2 = new QFrame(frame);
+        frame_2->setObjectName("frame_2");
+        frame_2->setGeometry(QRect(16, 16, 818, 458));
+        frame_2->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);"));
+        frame_2->setFrameShape(QFrame::StyledPanel);
+        frame_2->setFrameShadow(QFrame::Raised);
         AlgorithmWindow->setCentralWidget(centralwidget);
 
         retranslateUi(AlgorithmWindow);

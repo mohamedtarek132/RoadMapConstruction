@@ -11,21 +11,22 @@
 #include <queue>
 #include <QString>
 #include <QFont>
+#include <QTimer>
 #include <iostream>
 using namespace std;
 
 
-GraphDrawer::GraphDrawer(QWidget *parent, int X1, int Y1, int X2, int Y2)
+StaticGraphDrawer::StaticGraphDrawer(QWidget *parent, int X1, int Y1, int X2, int Y2)
     : QWidget(parent), x1(X1), y1(Y1),x2(X2), y2(Y2){}
 
-GraphDrawer::GraphDrawer(QWidget *parent,  queue<Edge> Edges, Graph G)
+StaticGraphDrawer::StaticGraphDrawer(QWidget *parent,  queue<Edge> Edges, Graph G)
     : QWidget(parent),edges(Edges), graph(G){}
 
-void GraphDrawer::paintEvent(QPaintEvent* pQEvent)
+void StaticGraphDrawer::paintEvent(QPaintEvent* pQEvent)
 {
     QPainter painter(this);
 
-    QPen edgePen(Qt::white);
+    QPen edgePen(Qt::blue);
     QPen vertexPen(Qt::black);
     QPen vertexNamePen(Qt::black);
 
@@ -76,34 +77,125 @@ void GraphDrawer::paintEvent(QPaintEvent* pQEvent)
     }
 
 }
-AlgorithmWindow::AlgorithmWindow(QWidget *parent)
+
+
+DynamicGraphDrawer::DynamicGraphDrawer(QWidget *parent, int X1, int Y1, int X2, int Y2)
+    : QWidget(parent), x1(X1), y1(Y1),x2(X2), y2(Y2){}
+
+DynamicGraphDrawer::DynamicGraphDrawer(QWidget *parent,  queue<Edge> Edges, Graph G)
+    : QWidget(parent),edges(Edges), graph(G){}
+
+void DynamicGraphDrawer::paintEvent(QPaintEvent* pQEvent)
+{
+    static int counter = 0;
+
+    if(edges.size() <= (counter))
+    {
+        counter = 0;
+    }
+
+    queue<Edge>copiedEdges = edges;
+    queue<Edge>shownEdges;
+    for(int i = 0; i <= counter; i++)
+    {
+        shownEdges.push(copiedEdges.front());
+        copiedEdges.pop();
+    }
+
+    QPainter painter(this);
+
+    QPen edgePen(Qt::blue);
+    QPen vertexPen(Qt::black);
+    QPen vertexNamePen(Qt::black);
+
+    int diameter = 6;
+    int radius = diameter/2;
+
+    painter.setFont(QFont("times",22));
+
+    edgePen.setWidth(4);
+    vertexPen.setWidth(diameter);
+    vertexNamePen.setWidth(20);
+
+    while(!shownEdges.empty())
+    {
+        Edge edge = shownEdges.front();
+
+        string vertex1Name = edge.getVertex1();
+        string vertex2Name = edge.getVertex2();
+
+        pair<int, int> vertex1 = graph.positions[vertex1Name];
+        pair<int, int> vertex2 = graph.positions[vertex2Name];
+
+        int x1 = 117 + vertex1.first;
+        int y1 = 205 + vertex1.second;
+        int x2 = 117 + vertex2.first;
+        int y2 = 205 + vertex2.second;
+
+        painter.setPen(edgePen);
+
+        painter.drawLine(x1,y1,x2,y2);
+
+        painter.setPen(vertexPen);
+
+        painter.drawEllipse(x1 - radius, y1 - radius, diameter, diameter);
+        painter.drawEllipse(x2 - radius, y2 - radius, diameter, diameter);
+
+        QString vertex1String = QString::fromStdString(vertex1Name);
+        QString vertex2String = QString::fromStdString(vertex2Name);
+
+        painter.setPen(vertexNamePen);
+
+        painter.drawText(x1 + diameter*2, y1 + radius, vertex1String);
+        painter.drawText(x2 + diameter*2, y2 + radius, vertex2String);
+
+        shownEdges.pop();
+    }
+    counter++;
+}
+
+void DynamicGraphDrawer::callPaintEvent(){
+    this->update();
+}
+
+
+AlgorithmWindow::AlgorithmWindow(Graph *tery, QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::AlgorithmWindow)
+    , graph(tery)
 {
     ui->setupUi(this);
 
-    Graph g;
+    graph->insertVertex("a", 0, 0);
+    graph->insertVertex("b", 60, 80);
+    graph->insertVertex("c", 120, 140);
+    graph->insertVertex("d", 20, 300);
+    graph->insertVertex("e", 700, 50);
+    graph->insertVertex("f", 50, 200);
 
-    g.insertVertex("a", 0, 0);
-    g.insertVertex("b", 60, 80);
-    g.insertVertex("c", 120, 140);
-    g.insertVertex("d", 20, 300);
-    g.insertVertex("e", 700, 50);
-    g.insertVertex("f", 50, 200);
+    graph->insertEdge("a", "b", 4);
+    graph->insertEdge("a", "c", 4);
+    graph->insertEdge("b", "c", 2);
+    graph->insertEdge("c", "d", 3);
+    graph->insertEdge("c", "e", 2);
+    graph->insertEdge("c", "f", 4);
+    graph->insertEdge("d", "f", 3);
+    graph->insertEdge("e", "f", 3);
 
-    g.insertEdge("a", "b", 4);
-    g.insertEdge("a", "c", 4);
-    g.insertEdge("b", "c", 2);
-    g.insertEdge("c", "d", 3);
-    g.insertEdge("c", "e", 2);
-    g.insertEdge("c", "f", 4);
-    g.insertEdge("d", "f", 3);
-    g.insertEdge("e", "f", 3);
+    queue<Edge> copiedEdges = graph->DFStraversal("d");
 
-    queue<Edge> copiedEdges = g.PrimMinimumSpanningTree("a");
+    staticGraphDrawer = new StaticGraphDrawer(this, copiedEdges, *graph);
+    staticGraphDrawer->resize(1024, 720);
+    staticGraphDrawer->hide();
 
-    graphDrawer = new GraphDrawer(this, copiedEdges, g);
-    graphDrawer->resize(1024, 720);
+    dynamicGraphDrawer = new DynamicGraphDrawer(this, copiedEdges, *graph);
+    dynamicGraphDrawer->resize(1024, 720);
+
+    timer = new QTimer(this);
+
+    connect(timer, &QTimer::timeout, dynamicGraphDrawer, &DynamicGraphDrawer::callPaintEvent);
+
+    timer->start(1000);
 }
 void AlgorithmWindow::mousePressEvent(QMouseEvent *event)
 {

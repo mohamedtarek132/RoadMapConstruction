@@ -41,12 +41,12 @@ public:
     QLabel *label_8;
     QPushButton *pushButton_2;
     QLabel *label_9;
-    QLineEdit *lineEdit_2;
+    QLineEdit *edgeLength;
     QFrame *line;
     QLabel *label_5;
-    QLineEdit *lineEdit_3;
-    QLineEdit *lineEdit_4;
-    QLineEdit *lineEdit_5;
+    QLineEdit *xPosition;
+    QLineEdit *yPosition;
+    QLineEdit *vertexName;
     QLabel *label_10;
     QLabel *label_11;
     QLabel *label_12;
@@ -139,10 +139,10 @@ public:
         label_9 = new QLabel(centralwidget);
         label_9->setObjectName("label_9");
         label_9->setGeometry(QRect(40, 675, 63, 20));
-        lineEdit_2 = new QLineEdit(centralwidget);
-        lineEdit_2->setObjectName("lineEdit_2");
-        lineEdit_2->setGeometry(QRect(282, 670, 81, 28));
-        lineEdit_2->setStyleSheet(QString::fromUtf8("background-color: rgb(223, 208, 184);\n"
+        edgeLength = new QLineEdit(centralwidget);
+        edgeLength->setObjectName("edgeLength");
+        edgeLength->setGeometry(QRect(282, 670, 81, 28));
+        edgeLength->setStyleSheet(QString::fromUtf8("background-color: rgb(223, 208, 184);\n"
 " border-radius: 10px;"));
         line = new QFrame(centralwidget);
         line->setObjectName("line");
@@ -155,20 +155,20 @@ public:
         label_5->setGeometry(QRect(840, 110, 150, 50));
         label_5->setFont(font1);
         label_5->setWordWrap(false);
-        lineEdit_3 = new QLineEdit(centralwidget);
-        lineEdit_3->setObjectName("lineEdit_3");
-        lineEdit_3->setGeometry(QRect(860, 225, 111, 28));
-        lineEdit_3->setStyleSheet(QString::fromUtf8("background-color: rgb(223, 208, 184);\n"
+        xPosition = new QLineEdit(centralwidget);
+        xPosition->setObjectName("xPosition");
+        xPosition->setGeometry(QRect(860, 225, 111, 28));
+        xPosition->setStyleSheet(QString::fromUtf8("background-color: rgb(223, 208, 184);\n"
 " border-radius: 10px;"));
-        lineEdit_4 = new QLineEdit(centralwidget);
-        lineEdit_4->setObjectName("lineEdit_4");
-        lineEdit_4->setGeometry(QRect(860, 265, 111, 28));
-        lineEdit_4->setStyleSheet(QString::fromUtf8("background-color: rgb(223, 208, 184);\n"
+        yPosition = new QLineEdit(centralwidget);
+        yPosition->setObjectName("yPosition");
+        yPosition->setGeometry(QRect(860, 265, 111, 28));
+        yPosition->setStyleSheet(QString::fromUtf8("background-color: rgb(223, 208, 184);\n"
 " border-radius: 10px;"));
-        lineEdit_5 = new QLineEdit(centralwidget);
-        lineEdit_5->setObjectName("lineEdit_5");
-        lineEdit_5->setGeometry(QRect(860, 180, 111, 28));
-        lineEdit_5->setStyleSheet(QString::fromUtf8("background-color: rgb(223, 208, 184);\n"
+        vertexName = new QLineEdit(centralwidget);
+        vertexName->setObjectName("vertexName");
+        vertexName->setGeometry(QRect(860, 180, 111, 28));
+        vertexName->setStyleSheet(QString::fromUtf8("background-color: rgb(223, 208, 184);\n"
 " border-radius: 10px;"));
         label_10 = new QLabel(centralwidget);
         label_10->setObjectName("label_10");
@@ -236,9 +236,9 @@ public:
         pushButton_2->setText(QCoreApplication::translate("GraphWindow", "Delete", nullptr));
         label_9->setText(QCoreApplication::translate("GraphWindow", "Length", nullptr));
         label_5->setText(QCoreApplication::translate("GraphWindow", "Add Vertex", nullptr));
-        lineEdit_3->setInputMask(QString());
-        lineEdit_4->setInputMask(QString());
-        lineEdit_5->setInputMask(QString());
+        xPosition->setInputMask(QString());
+        yPosition->setInputMask(QString());
+        vertexName->setInputMask(QString());
         label_10->setText(QCoreApplication::translate("GraphWindow", "X", nullptr));
         label_11->setText(QCoreApplication::translate("GraphWindow", "Y", nullptr));
         label_12->setText(QCoreApplication::translate("GraphWindow", "Name", nullptr));

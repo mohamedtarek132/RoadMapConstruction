@@ -136,12 +136,12 @@ queue<Edge> Graph::PrimMinimumSpanningTree(string vertex)
 
     return edgesOrder;
 
-    for (int i = 0; i < size; i++)
-    {
-        cout << edgesOrder.front().getVertex1() << " " << edgesOrder.front().getVertex2() <<
-            " " << edgesOrder.front().length << endl;
-        edgesOrder.pop();
-    }
+    // for (int i = 0; i < size; i++)
+    // {
+    //     cout << edgesOrder.front().getVertex1() << " " << edgesOrder.front().getVertex2() <<
+    //         " " << edgesOrder.front().length << endl;
+    //     edgesOrder.pop();
+    // }
 }
 queue<Edge> Graph::BFStraversal(string first_node)
 {
@@ -171,8 +171,9 @@ queue<Edge> Graph::BFStraversal(string first_node)
     while (!nodes.empty())
     {
         string node = nodes.front();
-        cout << node << endl;
+        // cout << node << endl;
         nodes.pop();
+        // visited[node] = true;
         for (auto i = adjacencyList[node].begin(); i != adjacencyList[node].end(); i++)
         {
             if (!visited[i->getVertex2()])
@@ -180,6 +181,7 @@ queue<Edge> Graph::BFStraversal(string first_node)
                 nodes.push(i->getVertex2());
                 visited[i->getVertex2()] = true;
                 edgeOrder.push(*i);
+                cout<<i->getVertex1() << ' ' << i->getVertex2() << endl;
             }
         }
     }

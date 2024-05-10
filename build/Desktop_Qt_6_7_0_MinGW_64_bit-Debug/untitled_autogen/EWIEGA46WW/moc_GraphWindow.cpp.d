@@ -1,5 +1,6 @@
 C:/Users/hp/Documents/Programming\ projects/C++\ Projects/RoadMapConstruction2/RoadMapConstruction/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/untitled_autogen/EWIEGA46WW/moc_GraphWindow.cpp: C:/Users/hp/Documents/Programming\ projects/C++\ Projects/RoadMapConstruction2/RoadMapConstruction/GraphWindow.h \
   C:/Users/hp/Documents/Programming\ projects/C++\ Projects/RoadMapConstruction2/RoadMapConstruction/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/untitled_autogen/moc_predefs.h \
+  C:/Qt/6.7.0/mingw_64/include/QtCore/QTimer \
   C:/Qt/6.7.0/mingw_64/include/QtCore/q20functional.h \
   C:/Qt/6.7.0/mingw_64/include/QtCore/q20memory.h \
   C:/Qt/6.7.0/mingw_64/include/QtCore/q20type_traits.h \
@@ -13,6 +14,7 @@ C:/Users/hp/Documents/Programming\ projects/C++\ Projects/RoadMapConstruction2/R
   C:/Qt/6.7.0/mingw_64/include/QtCore/qatomic.h \
   C:/Qt/6.7.0/mingw_64/include/QtCore/qatomic_cxx11.h \
   C:/Qt/6.7.0/mingw_64/include/QtCore/qbasicatomic.h \
+  C:/Qt/6.7.0/mingw_64/include/QtCore/qbasictimer.h \
   C:/Qt/6.7.0/mingw_64/include/QtCore/qbindingstorage.h \
   C:/Qt/6.7.0/mingw_64/include/QtCore/qbytearray.h \
   C:/Qt/6.7.0/mingw_64/include/QtCore/qbytearrayalgorithms.h \
@@ -101,6 +103,7 @@ C:/Users/hp/Documents/Programming\ projects/C++\ Projects/RoadMapConstruction2/R
   C:/Qt/6.7.0/mingw_64/include/QtCore/qtdeprecationmarkers.h \
   C:/Qt/6.7.0/mingw_64/include/QtCore/qtenvironmentvariables.h \
   C:/Qt/6.7.0/mingw_64/include/QtCore/qtextstream.h \
+  C:/Qt/6.7.0/mingw_64/include/QtCore/qtimer.h \
   C:/Qt/6.7.0/mingw_64/include/QtCore/qtmetamacros.h \
   C:/Qt/6.7.0/mingw_64/include/QtCore/qtnoop.h \
   C:/Qt/6.7.0/mingw_64/include/QtCore/qtpreprocessorsupport.h \
@@ -117,6 +120,7 @@ C:/Users/hp/Documents/Programming\ projects/C++\ Projects/RoadMapConstruction2/R
   C:/Qt/6.7.0/mingw_64/include/QtCore/qversiontagging.h \
   C:/Qt/6.7.0/mingw_64/include/QtCore/qxptype_traits.h \
   C:/Qt/6.7.0/mingw_64/include/QtCore/qyieldcpu.h \
+  C:/Qt/6.7.0/mingw_64/include/QtGui/QPainter \
   C:/Qt/6.7.0/mingw_64/include/QtGui/qaction.h \
   C:/Qt/6.7.0/mingw_64/include/QtGui/qbitmap.h \
   C:/Qt/6.7.0/mingw_64/include/QtGui/qbrush.h \
@@ -129,13 +133,16 @@ C:/Users/hp/Documents/Programming\ projects/C++\ Projects/RoadMapConstruction2/R
   C:/Qt/6.7.0/mingw_64/include/QtGui/qimage.h \
   C:/Qt/6.7.0/mingw_64/include/QtGui/qkeysequence.h \
   C:/Qt/6.7.0/mingw_64/include/QtGui/qpaintdevice.h \
+  C:/Qt/6.7.0/mingw_64/include/QtGui/qpainter.h \
   C:/Qt/6.7.0/mingw_64/include/QtGui/qpalette.h \
+  C:/Qt/6.7.0/mingw_64/include/QtGui/qpen.h \
   C:/Qt/6.7.0/mingw_64/include/QtGui/qpixelformat.h \
   C:/Qt/6.7.0/mingw_64/include/QtGui/qpixmap.h \
   C:/Qt/6.7.0/mingw_64/include/QtGui/qpolygon.h \
   C:/Qt/6.7.0/mingw_64/include/QtGui/qregion.h \
   C:/Qt/6.7.0/mingw_64/include/QtGui/qrgb.h \
   C:/Qt/6.7.0/mingw_64/include/QtGui/qrgba64.h \
+  C:/Qt/6.7.0/mingw_64/include/QtGui/qtextoption.h \
   C:/Qt/6.7.0/mingw_64/include/QtGui/qtgui-config.h \
   C:/Qt/6.7.0/mingw_64/include/QtGui/qtguiexports.h \
   C:/Qt/6.7.0/mingw_64/include/QtGui/qtguiglobal.h \
@@ -173,6 +180,7 @@ C:/Users/hp/Documents/Programming\ projects/C++\ Projects/RoadMapConstruction2/R
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/cpp_type_traits.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/cxxabi_forced.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/cxxabi_init_exception.h \
+  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/deque.tcc \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/enable_special_members.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/erase_if.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/exception.h \
@@ -210,6 +218,7 @@ C:/Users/hp/Documents/Programming\ projects/C++\ Projects/RoadMapConstruction2/R
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_algobase.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_bvector.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_construct.h \
+  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_deque.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_function.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_heap.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_iterator.h \
@@ -220,6 +229,7 @@ C:/Users/hp/Documents/Programming\ projects/C++\ Projects/RoadMapConstruction2/R
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_multimap.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_numeric.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_pair.h \
+  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_queue.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_raw_storage_iter.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_relops.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_tempbuf.h \
@@ -251,6 +261,7 @@ C:/Users/hp/Documents/Programming\ projects/C++\ Projects/RoadMapConstruction2/R
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/cwchar \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/debug/assertions.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/debug/debug.h \
+  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/deque \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/exception \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/ext/aligned_buffer.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/ext/alloc_traits.h \
@@ -275,6 +286,7 @@ C:/Users/hp/Documents/Programming\ projects/C++\ Projects/RoadMapConstruction2/R
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/pstl/glue_algorithm_defs.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/pstl/glue_memory_defs.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/pstl/glue_numeric_defs.h \
+  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/queue \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/ratio \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/stdexcept \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/stdlib.h \
@@ -348,4 +360,6 @@ C:/Users/hp/Documents/Programming\ projects/C++\ Projects/RoadMapConstruction2/R
   C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/sys/types.h \
   C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/time.h \
   C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/vadefs.h \
-  C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wchar.h
+  C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wchar.h \
+  C:/Users/hp/Documents/Programming\ projects/C++\ Projects/RoadMapConstruction2/RoadMapConstruction/AlgorithmWindow.h \
+  C:/Users/hp/Documents/Programming\ projects/C++\ Projects/RoadMapConstruction2/RoadMapConstruction/Graph.h

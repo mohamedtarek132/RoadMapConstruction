@@ -7,6 +7,7 @@
 #include <queue>
 #include "Graph.h"
 #include <QTimer>
+#include <QPushButton>
 
 
 QT_BEGIN_NAMESPACE
@@ -43,8 +44,11 @@ public:
     bool dynamic;
 
     GraphDrawer(QWidget *parent,  std::queue<Edge> Edges, Graph G, int xOffset, int yOffset, bool dynamic);
-    void callPaintEvent();
     void paintEvent(QPaintEvent*);
+    public slots:
+    void callPaintEvent();
+    void changeToDynamic();
+    void changeToStatic();
 };
 
 
@@ -52,16 +56,17 @@ class AlgorithmWindow : public QMainWindow
 {
     Q_OBJECT
 public:
+    Ui::AlgorithmWindow *ui;
+
     AlgorithmWindow(Graph *graph = nullptr, QWidget *parent = nullptr );
     // void paintEvent(QPaintEvent*);
     ~AlgorithmWindow();
     void mousePressEvent(QMouseEvent *);
+
 signals:
-    void mousePressed();
+    void buttonPressed();
 private:
-    GraphDrawer *staticGraphDrawer;
-    GraphDrawer *dynamicGraphDrawer;
-    Ui::AlgorithmWindow *ui;
+    GraphDrawer *graphDrawer;
     QTimer *timer;
     Graph *graph;
     XYPlaneDrawer *xyPlaneDrawer;

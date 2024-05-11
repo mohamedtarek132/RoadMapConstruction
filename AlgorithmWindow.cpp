@@ -59,10 +59,10 @@ void GraphDrawer::paintEvent(QPaintEvent* pQEvent)
     QPainter painter(this);
 
     QColor edgeColor(125, 0, 0);
-    QColor vertexNameColor(63, 0, 94);
+    QColor vertexNameColor(12, 76, 16);
 
 
-    QPen edgePen(edgeColor);
+    QPen edgePen(Qt::red);
     QPen vertexPen(Qt::black);
     QPen vertexNamePen(vertexNameColor);
 
@@ -132,7 +132,7 @@ void GraphDrawer::paintEvent(QPaintEvent* pQEvent)
 
         QString edgeLength = QString::number(edge.length);
 
-        painter.drawText((x1+x2)/2 + diameter*2, (y1 + y2)/2 + radius, edgeLength);
+        painter.drawText((x1+x2)/2, (y1 + y2)/2, edgeLength);
 
         shownEdges.pop();
     }
@@ -148,9 +148,17 @@ void GraphDrawer::paintEvent(QPaintEvent* pQEvent)
     }
 }
 
-
 void GraphDrawer::callPaintEvent(){
     this->update();
+}
+
+void GraphDrawer::changeToDynamic()
+{
+    dynamic = true;
+}
+void GraphDrawer::changeToStatic()
+{
+    dynamic = false;
 }
 
 
@@ -161,21 +169,40 @@ AlgorithmWindow::AlgorithmWindow(Graph *tery, QWidget *parent)
 {
     ui->setupUi(this);
 
-    graph->insertVertex("a", 0, 0);
-    graph->insertVertex("b", 60, 80);
-    graph->insertVertex("c", 120, 140);
-    graph->insertVertex("d", 20, 300);
-    graph->insertVertex("e", 700, 50);
-    graph->insertVertex("f", 50, 200);
+    // graph->insertVertex("a", 0, 0);
+    // graph->insertVertex("b", 60, 80);
+    // graph->insertVertex("c", 120, 140);
+    // graph->insertVertex("d", 20, 300);
+    // graph->insertVertex("e", 700, 50);
+    // graph->insertVertex("f", 50, 200);
 
-    graph->insertEdge("a", "b", 4);
-    graph->insertEdge("a", "c", 4);
-    graph->insertEdge("b", "c", 2);
-    graph->insertEdge("c", "d", 3);
-    graph->insertEdge("c", "e", 2);
-    graph->insertEdge("c", "f", 4);
-    graph->insertEdge("d", "f", 3);
-    graph->insertEdge("e", "f", 3);
+    // graph->insertEdge("a", "b", 4);
+    // graph->insertEdge("a", "c", 4);
+    // graph->insertEdge("b", "c", 2);
+    // graph->insertEdge("c", "d", 3);
+    // graph->insertEdge("c", "e", 2);
+    // graph->insertEdge("c", "f", 4);
+    // graph->insertEdge("d", "f", 3);
+    // graph->insertEdge("e", "f", 3);
+
+    graph->insertVertex("alexandria", 0, 0);
+    graph->insertVertex("banha", 60, 80);
+    graph->insertVertex("cairo", 120, 140);
+    graph->insertVertex("damanhoor", 20, 300);
+    graph->insertVertex("elmansoura", 700, 50);
+    graph->insertVertex("fayoum", 50, 200);
+    cout<<"Why are we here????\n";
+
+    graph->insertEdge("alexandria", "banha", 4);
+    graph->insertEdge("alexandria", "cairo", 4);
+    graph->insertEdge("banha", "cairo", 2);
+    graph->insertEdge("cairo", "damanhoor", 3);
+    graph->insertEdge("cairo", "elmansoura", 2);
+    graph->insertEdge("cairo", "fayoum", 4);
+    graph->insertEdge("damanhoor", "fayoum", 3);
+    graph->insertEdge("elmansoura", "fayoum", 3);
+
+    // cout<<"Why are we here\n";
 
     int xOffset =  ui->frame->x() + ui->frame->lineWidth() * 2;
     int yOffset = ui->frame->y() + ui->frame->lineWidth() * 2;
@@ -186,31 +213,30 @@ AlgorithmWindow::AlgorithmWindow(Graph *tery, QWidget *parent)
 
     xyPlaneDrawer = new XYPlaneDrawer(this, size, xOffset, yOffset, width, height);
 
-    xyPlaneDrawer->resize(1024, 720);
+    xyPlaneDrawer->resize(1024, 610);
 
-    queue<Edge> shownEdges = graph->PrimMinimumSpanningTree("c");
+    queue<Edge> shownEdges = graph->PrimMinimumSpanningTree("cairo");
 
     xOffset =  ui->frame->x() + ui->frame->lineWidth() * 2.5;
     yOffset = ui->frame->y() + ui->frame->lineWidth() * 2.5;
 
-    staticGraphDrawer = new GraphDrawer(this, shownEdges, *graph, xOffset, yOffset, false);
-    staticGraphDrawer->resize(1024, 720);
-    staticGraphDrawer->hide();
-
-    dynamicGraphDrawer = new GraphDrawer(this, shownEdges, *graph, xOffset, yOffset, true);
-    dynamicGraphDrawer->resize(1024, 720);
+    graphDrawer = new GraphDrawer(this, shownEdges, *graph, xOffset, yOffset, true);
+    graphDrawer->resize(1024, 610);
 
     timer = new QTimer(this);
 
-    connect(timer, &QTimer::timeout, dynamicGraphDrawer, &GraphDrawer::callPaintEvent);
+    connect(ui->dynamicButton, &QPushButton::clicked, graphDrawer, &GraphDrawer::changeToDynamic);
+    connect(ui->staticButton, &QPushButton::clicked, graphDrawer, &GraphDrawer::changeToStatic);
+    connect(ui->backButton, &QPushButton::clicked, this, &AlgorithmWindow::buttonPressed);
+    connect(timer, &QTimer::timeout, graphDrawer, &GraphDrawer::callPaintEvent);
+    timer->start(900);
 
-    timer->start(1000);
 }
+
 void AlgorithmWindow::mousePressEvent(QMouseEvent *event)
 {
 
     QPoint point = QWidget::mapFromGlobal(QCursor::pos());
-    emit AlgorithmWindow::mousePressed();
     // this->
     // this->hide();
     // dfd *d = new dfd(0);

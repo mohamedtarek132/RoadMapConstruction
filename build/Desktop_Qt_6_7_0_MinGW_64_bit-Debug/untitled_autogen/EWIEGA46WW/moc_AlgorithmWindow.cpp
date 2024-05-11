@@ -102,7 +102,11 @@ namespace {
 #ifdef QT_MOC_HAS_STRINGDATA
 struct qt_meta_stringdata_CLASSGraphDrawerENDCLASS_t {};
 constexpr auto qt_meta_stringdata_CLASSGraphDrawerENDCLASS = QtMocHelpers::stringData(
-    "GraphDrawer"
+    "GraphDrawer",
+    "callPaintEvent",
+    "",
+    "changeToDynamic",
+    "changeToStatic"
 );
 #else  // !QT_MOC_HAS_STRINGDATA
 #error "qtmochelpers.h not found or too old."
@@ -115,12 +119,22 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSGraphDrawerENDCLASS[] = {
       12,       // revision
        0,       // classname
        0,    0, // classinfo
-       0,    0, // methods
+       3,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
        0,       // signalCount
+
+ // slots: name, argc, parameters, tag, flags, initial metatype offsets
+       1,    0,   32,    2, 0x0a,    1 /* Public */,
+       3,    0,   33,    2, 0x0a,    2 /* Public */,
+       4,    0,   34,    2, 0x0a,    3 /* Public */,
+
+ // slots: parameters
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
 
        0        // eod
 };
@@ -133,16 +147,29 @@ Q_CONSTINIT const QMetaObject GraphDrawer::staticMetaObject = { {
     nullptr,
     qt_incomplete_metaTypeArray<qt_meta_stringdata_CLASSGraphDrawerENDCLASS_t,
         // Q_OBJECT / Q_GADGET
-        QtPrivate::TypeAndForceComplete<GraphDrawer, std::true_type>
+        QtPrivate::TypeAndForceComplete<GraphDrawer, std::true_type>,
+        // method 'callPaintEvent'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'changeToDynamic'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'changeToStatic'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>
     >,
     nullptr
 } };
 
 void GraphDrawer::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
-    (void)_o;
-    (void)_id;
-    (void)_c;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        auto *_t = static_cast<GraphDrawer *>(_o);
+        (void)_t;
+        switch (_id) {
+        case 0: _t->callPaintEvent(); break;
+        case 1: _t->changeToDynamic(); break;
+        case 2: _t->changeToStatic(); break;
+        default: ;
+        }
+    }
     (void)_a;
 }
 
@@ -162,6 +189,17 @@ void *GraphDrawer::qt_metacast(const char *_clname)
 int GraphDrawer::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
     _id = QWidget::qt_metacall(_c, _id, _a);
+    if (_id < 0)
+        return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        if (_id < 3)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 3;
+    } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        if (_id < 3)
+            *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
+        _id -= 3;
+    }
     return _id;
 }
 namespace {
@@ -170,7 +208,7 @@ namespace {
 struct qt_meta_stringdata_CLASSAlgorithmWindowENDCLASS_t {};
 constexpr auto qt_meta_stringdata_CLASSAlgorithmWindowENDCLASS = QtMocHelpers::stringData(
     "AlgorithmWindow",
-    "mousePressed",
+    "buttonPressed",
     ""
 );
 #else  // !QT_MOC_HAS_STRINGDATA
@@ -209,7 +247,7 @@ Q_CONSTINIT const QMetaObject AlgorithmWindow::staticMetaObject = { {
     qt_incomplete_metaTypeArray<qt_meta_stringdata_CLASSAlgorithmWindowENDCLASS_t,
         // Q_OBJECT / Q_GADGET
         QtPrivate::TypeAndForceComplete<AlgorithmWindow, std::true_type>,
-        // method 'mousePressed'
+        // method 'buttonPressed'
         QtPrivate::TypeAndForceComplete<void, std::false_type>
     >,
     nullptr
@@ -221,14 +259,14 @@ void AlgorithmWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int 
         auto *_t = static_cast<AlgorithmWindow *>(_o);
         (void)_t;
         switch (_id) {
-        case 0: _t->mousePressed(); break;
+        case 0: _t->buttonPressed(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
         int *result = reinterpret_cast<int *>(_a[0]);
         {
             using _t = void (AlgorithmWindow::*)();
-            if (_t _q_method = &AlgorithmWindow::mousePressed; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
+            if (_t _q_method = &AlgorithmWindow::buttonPressed; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
                 *result = 0;
                 return;
             }
@@ -268,7 +306,7 @@ int AlgorithmWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 }
 
 // SIGNAL 0
-void AlgorithmWindow::mousePressed()
+void AlgorithmWindow::buttonPressed()
 {
     QMetaObject::activate(this, &staticMetaObject, 0, nullptr);
 }

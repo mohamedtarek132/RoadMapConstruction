@@ -39,7 +39,6 @@ string Edge::getVertex2()
 
 void Graph::insertVertex(string vertex, int x, int y)
 {
-
     adjacencyList.insert(make_pair(vertex, list<Edge>()));
     positions[vertex] = make_pair(x, y);
 }

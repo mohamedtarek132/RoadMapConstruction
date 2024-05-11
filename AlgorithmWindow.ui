@@ -21,7 +21,7 @@
     <property name="geometry">
      <rect>
       <x>122</x>
-      <y>50</y>
+      <y>20</y>
       <width>780</width>
       <height>70</height>
      </rect>
@@ -65,7 +65,7 @@ color: rgb(21, 52, 72);
     <property name="geometry">
      <rect>
       <x>87</x>
-      <y>175</y>
+      <y>120</y>
       <width>850</width>
       <height>490</height>
      </rect>
@@ -103,6 +103,69 @@ color: rgb(21, 52, 72);
       <enum>QFrame::Raised</enum>
      </property>
     </widget>
+   </widget>
+   <widget class="QPushButton" name="backButton">
+    <property name="geometry">
+     <rect>
+      <x>790</x>
+      <y>630</y>
+      <width>140</width>
+      <height>70</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>25</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(53, 73, 84);</string>
+    </property>
+    <property name="text">
+     <string>Back</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="dynamicButton">
+    <property name="geometry">
+     <rect>
+      <x>280</x>
+      <y>630</y>
+      <width>141</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>25</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(53, 73, 84);</string>
+    </property>
+    <property name="text">
+     <string>Dynamic</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="staticButton">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>630</y>
+      <width>141</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>25</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(53, 73, 84);</string>
+    </property>
+    <property name="text">
+     <string>Static</string>
+    </property>
    </widget>
   </widget>
  </widget>

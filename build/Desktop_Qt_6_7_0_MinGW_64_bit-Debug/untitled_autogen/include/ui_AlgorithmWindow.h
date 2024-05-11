@@ -14,6 +14,7 @@
 #include <QtWidgets/QFrame>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
+#include <QtWidgets/QPushButton>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -25,6 +26,9 @@ public:
     QLabel *pageTitle;
     QFrame *frame;
     QFrame *frame_2;
+    QPushButton *backButton;
+    QPushButton *dynamicButton;
+    QPushButton *staticButton;
 
     void setupUi(QMainWindow *AlgorithmWindow)
     {
@@ -36,7 +40,7 @@ public:
         centralwidget->setObjectName("centralwidget");
         pageTitle = new QLabel(centralwidget);
         pageTitle->setObjectName("pageTitle");
-        pageTitle->setGeometry(QRect(122, 50, 780, 70));
+        pageTitle->setGeometry(QRect(122, 20, 780, 70));
         QFont font;
         font.setPointSize(32);
         pageTitle->setFont(font);
@@ -52,7 +56,7 @@ public:
         pageTitle->setIndent(0);
         frame = new QFrame(centralwidget);
         frame->setObjectName("frame");
-        frame->setGeometry(QRect(87, 175, 850, 490));
+        frame->setGeometry(QRect(87, 120, 850, 490));
         frame->setStyleSheet(QString::fromUtf8("background-color: rgb(223, 208, 184);\n"
 "\n"
 ""));
@@ -65,6 +69,23 @@ public:
         frame_2->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);"));
         frame_2->setFrameShape(QFrame::StyledPanel);
         frame_2->setFrameShadow(QFrame::Raised);
+        backButton = new QPushButton(centralwidget);
+        backButton->setObjectName("backButton");
+        backButton->setGeometry(QRect(790, 630, 140, 70));
+        QFont font1;
+        font1.setPointSize(25);
+        backButton->setFont(font1);
+        backButton->setStyleSheet(QString::fromUtf8("background-color: rgb(53, 73, 84);"));
+        dynamicButton = new QPushButton(centralwidget);
+        dynamicButton->setObjectName("dynamicButton");
+        dynamicButton->setGeometry(QRect(280, 630, 141, 71));
+        dynamicButton->setFont(font1);
+        dynamicButton->setStyleSheet(QString::fromUtf8("background-color: rgb(53, 73, 84);"));
+        staticButton = new QPushButton(centralwidget);
+        staticButton->setObjectName("staticButton");
+        staticButton->setGeometry(QRect(100, 630, 141, 71));
+        staticButton->setFont(font1);
+        staticButton->setStyleSheet(QString::fromUtf8("background-color: rgb(53, 73, 84);"));
         AlgorithmWindow->setCentralWidget(centralwidget);
 
         retranslateUi(AlgorithmWindow);
@@ -76,6 +97,9 @@ public:
     {
         AlgorithmWindow->setWindowTitle(QCoreApplication::translate("AlgorithmWindow", "MainWindow", nullptr));
         pageTitle->setText(QCoreApplication::translate("AlgorithmWindow", "Prim's  Minimum Spanning Tree", nullptr));
+        backButton->setText(QCoreApplication::translate("AlgorithmWindow", "Back", nullptr));
+        dynamicButton->setText(QCoreApplication::translate("AlgorithmWindow", "Dynamic", nullptr));
+        staticButton->setText(QCoreApplication::translate("AlgorithmWindow", "Static", nullptr));
     } // retranslateUi
 
 };

@@ -22,10 +22,14 @@ public:
     int x1, x2, y1, y2;
     std::queue<Edge> edges;
     Graph graph;
+    int xOffset;
+    int yOffset;
+
     StaticGraphDrawer(QWidget *parent, int X1=0, int Y1=0, int X2=200, int Y2=200);
-    StaticGraphDrawer(QWidget *parent,  std::queue<Edge> Edges, Graph G);
+    StaticGraphDrawer(QWidget *parent,  std::queue<Edge> Edges, Graph G, int xOffset, int yOffset);
     void paintEvent(QPaintEvent*);
 };
+
 
 class DynamicGraphDrawer : public QWidget
 {
@@ -34,12 +38,17 @@ public:
     int x1, x2, y1, y2;
     std::queue<Edge> edges;
     Graph graph;
+    int xOffset;
+    int yOffset;
+
     DynamicGraphDrawer(QWidget *parent, int X1=0, int Y1=0, int X2=200, int Y2=200);
-    DynamicGraphDrawer(QWidget *parent,  std::queue<Edge> Edges, Graph G);
+    DynamicGraphDrawer(QWidget *parent,  std::queue<Edge> Edges, Graph G, int xOffset, int yOffset);
     void paintEvent(QPaintEvent*);
+
 public slots:
     void callPaintEvent();
 };
+
 
 class AlgorithmWindow : public QMainWindow
 {

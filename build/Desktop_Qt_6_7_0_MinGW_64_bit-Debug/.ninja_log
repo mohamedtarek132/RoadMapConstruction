@@ -1,47 +1,83 @@
 # ninja log v5
-3005	13363	7370803079061786	CMakeFiles/untitled.dir/untitled_autogen/mocs_compilation.cpp.obj	af5fff7226734e38
-35	560	7370824202397683	untitled_autogen/timestamp	b606226bdbe0c781
-35	560	7370824202397683	untitled_autogen/mocs_compilation.cpp	b606226bdbe0c781
-35	560	7370824202397683	C:/Users/hp/Documents/Programming projects/C++ Projects/RoadMapConstruction2/RoadMapConstruction/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/untitled_autogen/timestamp	b606226bdbe0c781
-3924	17984	7370801811569731	CMakeFiles/untitled.dir/main.cpp.obj	8c3a635a0155a9c6
-14326	15323	7370824349970717	untitled.exe	8bf729bf821b38e3
-35	560	7370824202397683	C:/Users/hp/Documents/Programming projects/C++ Projects/RoadMapConstruction2/RoadMapConstruction/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/untitled_autogen/mocs_compilation.cpp	b606226bdbe0c781
-3018	13036	7370803076363707	CMakeFiles/untitled.dir/MainWindow.cpp.obj	1b6ab11d3a5c7f3e
+28	603	7371256379703194	untitled_autogen/timestamp	b606226bdbe0c781
+3410	11580	7371254445708373	CMakeFiles/untitled.dir/untitled_autogen/mocs_compilation.cpp.obj	af5fff7226734e38
+28	603	7371256379703194	untitled_autogen/mocs_compilation.cpp	b606226bdbe0c781
+3416	11292	7371254442821929	CMakeFiles/untitled.dir/main.cpp.obj	8c3a635a0155a9c6
+28	603	7371256379703194	C:/Users/hp/Documents/Programming projects/C++ Projects/RoadMapConstruction2/RoadMapConstruction/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/untitled_autogen/timestamp	b606226bdbe0c781
+13695	14679	7371256520650742	untitled.exe	8bf729bf821b38e3
+28	603	7371256379703194	C:/Users/hp/Documents/Programming projects/C++ Projects/RoadMapConstruction2/RoadMapConstruction/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/untitled_autogen/mocs_compilation.cpp	b606226bdbe0c781
+3425	11116	7371254441052338	CMakeFiles/untitled.dir/MainWindow.cpp.obj	1b6ab11d3a5c7f3e
 9	3334	7370762029651664	build.ninja	fd5334f58217a85
-581	14324	7370824340053349	CMakeFiles/untitled.dir/AlgorithmWindow.cpp.obj	c9ac47f351726314
-590	5649	7370824250235414	CMakeFiles/untitled.dir/Graph.cpp.obj	191bdc8b858150d7
-597	9249	7370824289283243	CMakeFiles/untitled.dir/GraphWindow.cpp.obj	3e8d547300d7543b
-26	351	7370826912953670	untitled_autogen/timestamp	b606226bdbe0c781
-26	351	7370826912953670	untitled_autogen/mocs_compilation.cpp	b606226bdbe0c781
-26	351	7370826912953670	C:/Users/hp/Documents/Programming projects/C++ Projects/RoadMapConstruction2/RoadMapConstruction/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/untitled_autogen/timestamp	b606226bdbe0c781
-26	351	7370826912953670	C:/Users/hp/Documents/Programming projects/C++ Projects/RoadMapConstruction2/RoadMapConstruction/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/untitled_autogen/mocs_compilation.cpp	b606226bdbe0c781
-376	4031	7370826949721172	CMakeFiles/untitled.dir/Graph.cpp.obj	191bdc8b858150d7
-366	7379	7370826983188312	CMakeFiles/untitled.dir/GraphWindow.cpp.obj	3e8d547300d7543b
-371	12157	7370827030996252	CMakeFiles/untitled.dir/AlgorithmWindow.cpp.obj	c9ac47f351726314
-12157	13183	7370827041181447	untitled.exe	8bf729bf821b38e3
-46	445	7370829207731083	untitled_autogen/timestamp	b606226bdbe0c781
-46	445	7370829207731083	untitled_autogen/mocs_compilation.cpp	b606226bdbe0c781
-46	445	7370829207731083	C:/Users/hp/Documents/Programming projects/C++ Projects/RoadMapConstruction2/RoadMapConstruction/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/untitled_autogen/timestamp	b606226bdbe0c781
-46	445	7370829207731083	C:/Users/hp/Documents/Programming projects/C++ Projects/RoadMapConstruction2/RoadMapConstruction/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/untitled_autogen/mocs_compilation.cpp	b606226bdbe0c781
-53	747	7370831056616613	untitled_autogen/timestamp	b606226bdbe0c781
-53	747	7370831056616613	untitled_autogen/mocs_compilation.cpp	b606226bdbe0c781
-53	747	7370831056616613	C:/Users/hp/Documents/Programming projects/C++ Projects/RoadMapConstruction2/RoadMapConstruction/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/untitled_autogen/timestamp	b606226bdbe0c781
-53	747	7370831056616613	C:/Users/hp/Documents/Programming projects/C++ Projects/RoadMapConstruction2/RoadMapConstruction/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/untitled_autogen/mocs_compilation.cpp	b606226bdbe0c781
+630	13694	7371256510836664	CMakeFiles/untitled.dir/AlgorithmWindow.cpp.obj	c9ac47f351726314
 771	5629	7370831105275285	CMakeFiles/untitled.dir/Graph.cpp.obj	191bdc8b858150d7
-788	9245	7370831141708116	CMakeFiles/untitled.dir/GraphWindow.cpp.obj	3e8d547300d7543b
-781	14997	7370831199215669	CMakeFiles/untitled.dir/AlgorithmWindow.cpp.obj	c9ac47f351726314
-14997	16110	7370831210262507	untitled.exe	8bf729bf821b38e3
-51	917	7370832570636266	untitled_autogen/timestamp	b606226bdbe0c781
-51	917	7370832570636266	untitled_autogen/mocs_compilation.cpp	b606226bdbe0c781
-51	917	7370832570636266	C:/Users/hp/Documents/Programming projects/C++ Projects/RoadMapConstruction2/RoadMapConstruction/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/untitled_autogen/timestamp	b606226bdbe0c781
-51	917	7370832570636266	C:/Users/hp/Documents/Programming projects/C++ Projects/RoadMapConstruction2/RoadMapConstruction/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/untitled_autogen/mocs_compilation.cpp	b606226bdbe0c781
-936	8954	7370832651324620	CMakeFiles/untitled.dir/GraphWindow.cpp.obj	3e8d547300d7543b
-954	16327	7370832725030785	CMakeFiles/untitled.dir/AlgorithmWindow.cpp.obj	c9ac47f351726314
-16328	17675	7370832738428686	untitled.exe	8bf729bf821b38e3
-35	724	7370832968189960	untitled_autogen/timestamp	b606226bdbe0c781
-35	724	7370832968189960	untitled_autogen/mocs_compilation.cpp	b606226bdbe0c781
-35	724	7370832968189960	C:/Users/hp/Documents/Programming projects/C++ Projects/RoadMapConstruction2/RoadMapConstruction/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/untitled_autogen/timestamp	b606226bdbe0c781
-35	724	7370832968189960	C:/Users/hp/Documents/Programming projects/C++ Projects/RoadMapConstruction2/RoadMapConstruction/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/untitled_autogen/mocs_compilation.cpp	b606226bdbe0c781
-756	9178	7370833053118768	CMakeFiles/untitled.dir/GraphWindow.cpp.obj	3e8d547300d7543b
-749	15645	7370833117763821	CMakeFiles/untitled.dir/AlgorithmWindow.cpp.obj	c9ac47f351726314
-15646	16976	7370833131038716	untitled.exe	8bf729bf821b38e3
+623	8578	7371256459673773	CMakeFiles/untitled.dir/GraphWindow.cpp.obj	3e8d547300d7543b
+19	676	7371256992485639	untitled_autogen/timestamp	b606226bdbe0c781
+19	676	7371256992485639	untitled_autogen/mocs_compilation.cpp	b606226bdbe0c781
+19	676	7371256992485639	C:/Users/hp/Documents/Programming projects/C++ Projects/RoadMapConstruction2/RoadMapConstruction/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/untitled_autogen/timestamp	b606226bdbe0c781
+19	676	7371256992485639	C:/Users/hp/Documents/Programming projects/C++ Projects/RoadMapConstruction2/RoadMapConstruction/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/untitled_autogen/mocs_compilation.cpp	b606226bdbe0c781
+696	8459	7371257070871829	CMakeFiles/untitled.dir/GraphWindow.cpp.obj	3e8d547300d7543b
+702	12822	7371257114497590	CMakeFiles/untitled.dir/AlgorithmWindow.cpp.obj	c9ac47f351726314
+12823	13702	7371257123273233	untitled.exe	8bf729bf821b38e3
+24	286	7371257809720995	untitled_autogen/timestamp	b606226bdbe0c781
+24	286	7371257809720995	untitled_autogen/mocs_compilation.cpp	b606226bdbe0c781
+24	286	7371257809720995	C:/Users/hp/Documents/Programming projects/C++ Projects/RoadMapConstruction2/RoadMapConstruction/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/untitled_autogen/timestamp	b606226bdbe0c781
+24	286	7371257809720995	C:/Users/hp/Documents/Programming projects/C++ Projects/RoadMapConstruction2/RoadMapConstruction/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/untitled_autogen/mocs_compilation.cpp	b606226bdbe0c781
+305	7988	7371257886703921	CMakeFiles/untitled.dir/GraphWindow.cpp.obj	3e8d547300d7543b
+310	12285	7371257929683891	CMakeFiles/untitled.dir/AlgorithmWindow.cpp.obj	c9ac47f351726314
+12285	13340	7371257940180495	untitled.exe	8bf729bf821b38e3
+16	196	7371258320164659	untitled_autogen/timestamp	b606226bdbe0c781
+16	196	7371258320164659	untitled_autogen/mocs_compilation.cpp	b606226bdbe0c781
+16	196	7371258320164659	C:/Users/hp/Documents/Programming projects/C++ Projects/RoadMapConstruction2/RoadMapConstruction/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/untitled_autogen/timestamp	b606226bdbe0c781
+16	196	7371258320164659	C:/Users/hp/Documents/Programming projects/C++ Projects/RoadMapConstruction2/RoadMapConstruction/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/untitled_autogen/mocs_compilation.cpp	b606226bdbe0c781
+214	7148	7371258389650937	CMakeFiles/untitled.dir/GraphWindow.cpp.obj	3e8d547300d7543b
+210	11457	7371258432713218	CMakeFiles/untitled.dir/AlgorithmWindow.cpp.obj	c9ac47f351726314
+11457	12364	7371258441755004	untitled.exe	8bf729bf821b38e3
+14	165	7371258672559259	untitled_autogen/timestamp	b606226bdbe0c781
+14	165	7371258672559259	untitled_autogen/mocs_compilation.cpp	b606226bdbe0c781
+14	165	7371258672559259	C:/Users/hp/Documents/Programming projects/C++ Projects/RoadMapConstruction2/RoadMapConstruction/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/untitled_autogen/timestamp	b606226bdbe0c781
+14	165	7371258672559259	C:/Users/hp/Documents/Programming projects/C++ Projects/RoadMapConstruction2/RoadMapConstruction/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/untitled_autogen/mocs_compilation.cpp	b606226bdbe0c781
+178	5502	7371258725904170	CMakeFiles/untitled.dir/GraphWindow.cpp.obj	3e8d547300d7543b
+181	9803	7371258768918131	CMakeFiles/untitled.dir/AlgorithmWindow.cpp.obj	c9ac47f351726314
+9803	10478	7371258775639567	untitled.exe	8bf729bf821b38e3
+12	150	7371259143775683	untitled_autogen/timestamp	b606226bdbe0c781
+12	150	7371259143775683	untitled_autogen/mocs_compilation.cpp	b606226bdbe0c781
+12	150	7371259143775683	C:/Users/hp/Documents/Programming projects/C++ Projects/RoadMapConstruction2/RoadMapConstruction/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/untitled_autogen/timestamp	b606226bdbe0c781
+12	150	7371259143775683	C:/Users/hp/Documents/Programming projects/C++ Projects/RoadMapConstruction2/RoadMapConstruction/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/untitled_autogen/mocs_compilation.cpp	b606226bdbe0c781
+161	5266	7371259194894454	CMakeFiles/untitled.dir/GraphWindow.cpp.obj	3e8d547300d7543b
+159	8612	7371259228338619	CMakeFiles/untitled.dir/AlgorithmWindow.cpp.obj	c9ac47f351726314
+8612	9229	7371259234495709	untitled.exe	8bf729bf821b38e3
+8	177	7371259632538095	untitled_autogen/timestamp	b606226bdbe0c781
+8	177	7371259632538095	untitled_autogen/mocs_compilation.cpp	b606226bdbe0c781
+8	177	7371259632538095	C:/Users/hp/Documents/Programming projects/C++ Projects/RoadMapConstruction2/RoadMapConstruction/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/untitled_autogen/timestamp	b606226bdbe0c781
+8	177	7371259632538095	C:/Users/hp/Documents/Programming projects/C++ Projects/RoadMapConstruction2/RoadMapConstruction/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/untitled_autogen/mocs_compilation.cpp	b606226bdbe0c781
+194	6492	7371259695656516	CMakeFiles/untitled.dir/GraphWindow.cpp.obj	3e8d547300d7543b
+191	10579	7371259736508607	CMakeFiles/untitled.dir/AlgorithmWindow.cpp.obj	c9ac47f351726314
+10580	11442	7371259745118194	untitled.exe	8bf729bf821b38e3
+14	174	7371259905806955	untitled_autogen/timestamp	b606226bdbe0c781
+14	174	7371259905806955	untitled_autogen/mocs_compilation.cpp	b606226bdbe0c781
+14	174	7371259905806955	C:/Users/hp/Documents/Programming projects/C++ Projects/RoadMapConstruction2/RoadMapConstruction/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/untitled_autogen/timestamp	b606226bdbe0c781
+14	174	7371259905806955	C:/Users/hp/Documents/Programming projects/C++ Projects/RoadMapConstruction2/RoadMapConstruction/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/untitled_autogen/mocs_compilation.cpp	b606226bdbe0c781
+186	5502	7371259959019494	CMakeFiles/untitled.dir/GraphWindow.cpp.obj	3e8d547300d7543b
+189	9929	7371260003306303	CMakeFiles/untitled.dir/AlgorithmWindow.cpp.obj	c9ac47f351726314
+9930	10592	7371260009934477	untitled.exe	8bf729bf821b38e3
+7	232	7371261162405781	untitled_autogen/timestamp	b606226bdbe0c781
+7	232	7371261162405781	untitled_autogen/mocs_compilation.cpp	b606226bdbe0c781
+7	232	7371261162405781	C:/Users/hp/Documents/Programming projects/C++ Projects/RoadMapConstruction2/RoadMapConstruction/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/untitled_autogen/timestamp	b606226bdbe0c781
+7	232	7371261162405781	C:/Users/hp/Documents/Programming projects/C++ Projects/RoadMapConstruction2/RoadMapConstruction/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/untitled_autogen/mocs_compilation.cpp	b606226bdbe0c781
+251	7285	7371261232916180	CMakeFiles/untitled.dir/GraphWindow.cpp.obj	3e8d547300d7543b
+256	11621	7371261276298143	CMakeFiles/untitled.dir/AlgorithmWindow.cpp.obj	c9ac47f351726314
+11621	12267	7371261282719937	untitled.exe	8bf729bf821b38e3
+9	176	7371262427965286	untitled_autogen/timestamp	b606226bdbe0c781
+9	176	7371262427965286	untitled_autogen/mocs_compilation.cpp	b606226bdbe0c781
+9	176	7371262427965286	C:/Users/hp/Documents/Programming projects/C++ Projects/RoadMapConstruction2/RoadMapConstruction/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/untitled_autogen/timestamp	b606226bdbe0c781
+9	176	7371262427965286	C:/Users/hp/Documents/Programming projects/C++ Projects/RoadMapConstruction2/RoadMapConstruction/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/untitled_autogen/mocs_compilation.cpp	b606226bdbe0c781
+189	5337	7371262479572787	CMakeFiles/untitled.dir/GraphWindow.cpp.obj	3e8d547300d7543b
+193	8892	7371262515095436	CMakeFiles/untitled.dir/AlgorithmWindow.cpp.obj	c9ac47f351726314
+8892	9658	7371262522673109	untitled.exe	8bf729bf821b38e3
+12	136	7371262905252638	untitled_autogen/timestamp	b606226bdbe0c781
+12	136	7371262905252638	untitled_autogen/mocs_compilation.cpp	b606226bdbe0c781
+12	136	7371262905252638	C:/Users/hp/Documents/Programming projects/C++ Projects/RoadMapConstruction2/RoadMapConstruction/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/untitled_autogen/timestamp	b606226bdbe0c781
+12	136	7371262905252638	C:/Users/hp/Documents/Programming projects/C++ Projects/RoadMapConstruction2/RoadMapConstruction/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/untitled_autogen/mocs_compilation.cpp	b606226bdbe0c781
+149	5043	7371262954251861	CMakeFiles/untitled.dir/GraphWindow.cpp.obj	3e8d547300d7543b
+145	8680	7371262990621505	CMakeFiles/untitled.dir/AlgorithmWindow.cpp.obj	c9ac47f351726314
+8680	9412	7371262997915038	untitled.exe	8bf729bf821b38e3

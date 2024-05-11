@@ -11,6 +11,7 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QComboBox>
 #include <QtWidgets/QFrame>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
@@ -29,6 +30,8 @@ public:
     QPushButton *backButton;
     QPushButton *dynamicButton;
     QPushButton *staticButton;
+    QComboBox *comboBox;
+    QLabel *label;
 
     void setupUi(QMainWindow *AlgorithmWindow)
     {
@@ -40,7 +43,7 @@ public:
         centralwidget->setObjectName("centralwidget");
         pageTitle = new QLabel(centralwidget);
         pageTitle->setObjectName("pageTitle");
-        pageTitle->setGeometry(QRect(122, 20, 780, 70));
+        pageTitle->setGeometry(QRect(170, 20, 671, 70));
         QFont font;
         font.setPointSize(32);
         pageTitle->setFont(font);
@@ -56,7 +59,7 @@ public:
         pageTitle->setIndent(0);
         frame = new QFrame(centralwidget);
         frame->setObjectName("frame");
-        frame->setGeometry(QRect(87, 120, 850, 490));
+        frame->setGeometry(QRect(87, 130, 850, 490));
         frame->setStyleSheet(QString::fromUtf8("background-color: rgb(223, 208, 184);\n"
 "\n"
 ""));
@@ -71,21 +74,34 @@ public:
         frame_2->setFrameShadow(QFrame::Raised);
         backButton = new QPushButton(centralwidget);
         backButton->setObjectName("backButton");
-        backButton->setGeometry(QRect(790, 630, 140, 70));
+        backButton->setGeometry(QRect(10, 10, 101, 41));
         QFont font1;
-        font1.setPointSize(25);
+        font1.setPointSize(20);
         backButton->setFont(font1);
         backButton->setStyleSheet(QString::fromUtf8("background-color: rgb(53, 73, 84);"));
         dynamicButton = new QPushButton(centralwidget);
         dynamicButton->setObjectName("dynamicButton");
-        dynamicButton->setGeometry(QRect(280, 630, 141, 71));
+        dynamicButton->setGeometry(QRect(810, 630, 121, 41));
         dynamicButton->setFont(font1);
         dynamicButton->setStyleSheet(QString::fromUtf8("background-color: rgb(53, 73, 84);"));
         staticButton = new QPushButton(centralwidget);
         staticButton->setObjectName("staticButton");
-        staticButton->setGeometry(QRect(100, 630, 141, 71));
+        staticButton->setGeometry(QRect(660, 630, 121, 41));
         staticButton->setFont(font1);
         staticButton->setStyleSheet(QString::fromUtf8("background-color: rgb(53, 73, 84);"));
+        comboBox = new QComboBox(centralwidget);
+        comboBox->setObjectName("comboBox");
+        comboBox->setGeometry(QRect(210, 630, 201, 31));
+        QFont font2;
+        font2.setPointSize(16);
+        comboBox->setFont(font2);
+        comboBox->setStyleSheet(QString::fromUtf8("background-color: rgb(53, 73, 84);"));
+        label = new QLabel(centralwidget);
+        label->setObjectName("label");
+        label->setGeometry(QRect(90, 620, 111, 40));
+        label->setFont(font2);
+        label->setStyleSheet(QString::fromUtf8(""));
+        label->setAlignment(Qt::AlignCenter);
         AlgorithmWindow->setCentralWidget(centralwidget);
 
         retranslateUi(AlgorithmWindow);
@@ -100,6 +116,7 @@ public:
         backButton->setText(QCoreApplication::translate("AlgorithmWindow", "Back", nullptr));
         dynamicButton->setText(QCoreApplication::translate("AlgorithmWindow", "Dynamic", nullptr));
         staticButton->setText(QCoreApplication::translate("AlgorithmWindow", "Static", nullptr));
+        label->setText(QCoreApplication::translate("AlgorithmWindow", "Algorithm:", nullptr));
     } // retranslateUi
 
 };

@@ -55,6 +55,7 @@ void GraphDrawer::paintEvent(QPaintEvent* pQEvent)
 {
     static int counter = -1;
     static GraphDrawer *currentVariable = this;
+    static queue<Edge>copiedEdges = edges;
 
     QPainter painter(this);
 
@@ -75,14 +76,13 @@ void GraphDrawer::paintEvent(QPaintEvent* pQEvent)
     vertexPen.setWidth(diameter);
     vertexNamePen.setWidth(16);
 
-    queue<Edge>copiedEdges = edges;
     queue<Edge>shownEdges;
 
     set<string> shownVertex;
 
     if(dynamic)
     {
-        if(edges.size() <= (counter) || this != currentVariable)
+        if(edges.size() <= (counter) || this != currentVariable || copiedEdges != edges)
         {
             counter = -1;
             currentVariable = this;
@@ -95,6 +95,7 @@ void GraphDrawer::paintEvent(QPaintEvent* pQEvent)
         }
 
         counter++;
+        copiedEdges = edges;
     }
     else{
         counter = -1;
@@ -191,7 +192,7 @@ AlgorithmWindow::AlgorithmWindow(Graph *tery, QWidget *parent)
     graph->insertVertex("damanhoor", 20, 300);
     graph->insertVertex("elmansoura", 700, 50);
     graph->insertVertex("fayoum", 50, 200);
-    cout<<"Why are we here????\n";
+    //cout<<"Why are we here????\n";
 
     graph->insertEdge("alexandria", "banha", 4);
     graph->insertEdge("alexandria", "cairo", 4);
@@ -203,6 +204,10 @@ AlgorithmWindow::AlgorithmWindow(Graph *tery, QWidget *parent)
     graph->insertEdge("elmansoura", "fayoum", 3);
 
     // cout<<"Why are we here\n";
+    ui->comboBox->addItem("BFS");
+    ui->comboBox->addItem("DFS");
+    ui->comboBox->addItem("Prim");
+    ui->comboBox->addItem("Dijkstra");
 
     int xOffset =  ui->frame->x() + ui->frame->lineWidth() * 2;
     int yOffset = ui->frame->y() + ui->frame->lineWidth() * 2;
@@ -211,20 +216,22 @@ AlgorithmWindow::AlgorithmWindow(Graph *tery, QWidget *parent)
     int width = ui->frame_2->width();
     int height = ui->frame_2->height();
 
-    xyPlaneDrawer = new XYPlaneDrawer(this, size, xOffset, yOffset, width, height);
-
-    xyPlaneDrawer->resize(1024, 610);
+    xyPlaneDrawer = new XYPlaneDrawer(this, size, xOffset, yOffset-60, width, height);
+    xyPlaneDrawer->resize(1024, 550);
+    xyPlaneDrawer->move(0, 60);
 
     queue<Edge> shownEdges = graph->PrimMinimumSpanningTree("cairo");
 
     xOffset =  ui->frame->x() + ui->frame->lineWidth() * 2.5;
     yOffset = ui->frame->y() + ui->frame->lineWidth() * 2.5;
 
-    graphDrawer = new GraphDrawer(this, shownEdges, *graph, xOffset, yOffset, true);
-    graphDrawer->resize(1024, 610);
+    graphDrawer = new GraphDrawer(this, shownEdges, *graph, xOffset, yOffset-60, true);
+    graphDrawer->resize(1024, 550);
+    graphDrawer->move(0, 60);
 
     timer = new QTimer(this);
 
+    connect(ui->comboBox, &QComboBox::currentTextChanged, this, &AlgorithmWindow::changeAlgorithm);
     connect(ui->dynamicButton, &QPushButton::clicked, graphDrawer, &GraphDrawer::changeToDynamic);
     connect(ui->staticButton, &QPushButton::clicked, graphDrawer, &GraphDrawer::changeToStatic);
     connect(ui->backButton, &QPushButton::clicked, this, &AlgorithmWindow::buttonPressed);
@@ -247,6 +254,45 @@ void AlgorithmWindow::mousePressEvent(QMouseEvent *event)
     // event->pos();
     //stuff
 }
+
+
+void AlgorithmWindow::changeAlgorithm()
+{
+    int xOffset =  ui->frame->x() + ui->frame->lineWidth() * 2;
+    int yOffset = ui->frame->y() + ui->frame->lineWidth() * 2;
+    queue<Edge> shownEdges;
+    QString algo = ui->comboBox->currentText();
+    string algorithm = algo.toStdString();
+    cout<<algorithm<<endl;
+    if (algorithm == "BFS")
+    {
+        cout<<"Hello BFS\n";
+        shownEdges = graph->BFStraversal("cairo");
+    }
+    else if (algorithm == "DFS")
+    {
+        cout<<"Hello DFS\n";
+        shownEdges = graph->DFStraversal("cairo");
+    }
+    else if (algorithm == "Prim")
+    {
+        cout<<"Hello Prim\n";
+        shownEdges = graph->PrimMinimumSpanningTree("cairo");
+    }
+    else
+    {
+        //shownEdges = graph->Dijkstra("cairo");
+    }
+    // delete graphDrawer;
+    // graphDrawer = new GraphDrawer(this, shownEdges, *graph, xOffset, yOffset-60, true);
+    // graphDrawer->resize(1024, 550);
+    // graphDrawer->move(0, 60);
+    // ui->centralwidget->layout()->addWidget(graphDrawer);
+    // graphDrawer->update();
+    // graphDrawer->show();
+    graphDrawer->edges = shownEdges;
+}
+
 AlgorithmWindow::~AlgorithmWindow()
 {
     delete ui;

@@ -65,6 +65,10 @@ public:
 
 signals:
     void buttonPressed();
+
+public slots:
+    void changeAlgorithm();
+
 private:
     GraphDrawer *graphDrawer;
     QTimer *timer;

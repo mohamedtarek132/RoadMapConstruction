@@ -20,9 +20,10 @@ public:
 private:
     Ui::GraphWindow *ui;
     Graph *graph;
-    DynamicGraphDrawer *dynamicGraphDrawer;
+    GraphDrawer *dynamicGraphDrawer;
     QTimer *timer;
-    StaticGraphDrawer *staticGraphDrawer;
+    GraphDrawer *staticGraphDrawer;
+    XYPlaneDrawer *xyPlaneDrawer;
 };
 
 #endif // GRAPHWINDOW_H

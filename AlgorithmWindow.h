@@ -15,23 +15,23 @@ class AlgorithmWindow;
 }
 QT_END_NAMESPACE
 
-class StaticGraphDrawer : public QWidget
+class XYPlaneDrawer : public QWidget
 {
     Q_OBJECT
 public:
-    int x1, x2, y1, y2;
-    std::queue<Edge> edges;
-    Graph graph;
     int xOffset;
     int yOffset;
+    int size;
+    int width;
+    int height;
 
-    StaticGraphDrawer(QWidget *parent, int X1=0, int Y1=0, int X2=200, int Y2=200);
-    StaticGraphDrawer(QWidget *parent,  std::queue<Edge> Edges, Graph G, int xOffset, int yOffset);
+    XYPlaneDrawer(QWidget *parent, int size, int xOffset, int yOffset, int width, int height);
     void paintEvent(QPaintEvent*);
 };
 
 
-class DynamicGraphDrawer : public QWidget
+
+class GraphDrawer : public QWidget
 {
     Q_OBJECT
 public:
@@ -40,13 +40,11 @@ public:
     Graph graph;
     int xOffset;
     int yOffset;
+    bool dynamic;
 
-    DynamicGraphDrawer(QWidget *parent, int X1=0, int Y1=0, int X2=200, int Y2=200);
-    DynamicGraphDrawer(QWidget *parent,  std::queue<Edge> Edges, Graph G, int xOffset, int yOffset);
-    void paintEvent(QPaintEvent*);
-
-public slots:
+    GraphDrawer(QWidget *parent,  std::queue<Edge> Edges, Graph G, int xOffset, int yOffset, bool dynamic);
     void callPaintEvent();
+    void paintEvent(QPaintEvent*);
 };
 
 
@@ -61,11 +59,12 @@ public:
 signals:
     void mousePressed();
 private:
-    StaticGraphDrawer *staticGraphDrawer;
-    DynamicGraphDrawer *dynamicGraphDrawer;
+    GraphDrawer *staticGraphDrawer;
+    GraphDrawer *dynamicGraphDrawer;
     Ui::AlgorithmWindow *ui;
     QTimer *timer;
     Graph *graph;
+    XYPlaneDrawer *xyPlaneDrawer;
 };
 
 #endif // ALGORITHMWINDOW_H

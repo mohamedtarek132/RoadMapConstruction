@@ -181,7 +181,6 @@ queue<Edge> Graph::BFStraversal(string first_node)
                 nodes.push(i->getVertex2());
                 visited[i->getVertex2()] = true;
                 edgeOrder.push(*i);
-                cout<<i->getVertex1() << ' ' << i->getVertex2() << endl;
             }
         }
     }
@@ -205,7 +204,6 @@ queue<Edge> Graph::DFStraversal(string first_node) {
 
         if (!visited[current])
         {
-            cout << current << " ";
             visited[current] = true;
         }
 

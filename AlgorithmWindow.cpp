@@ -12,114 +12,95 @@
 #include <QString>
 #include <QFont>
 #include <QTimer>
+#include <set>
 #include <iostream>
 using namespace std;
+using namespace std::chrono_literals;
 
 
-StaticGraphDrawer::StaticGraphDrawer(QWidget *parent, int X1, int Y1, int X2, int Y2)
-    : QWidget(parent), x1(X1), y1(Y1),x2(X2), y2(Y2){}
+XYPlaneDrawer::XYPlaneDrawer(QWidget *parent, int Size, int xOffset, int yOffset, int width, int height)
+    : QWidget(parent), size(Size), xOffset(xOffset),yOffset(yOffset), width(width), height(height){}
 
-StaticGraphDrawer::StaticGraphDrawer(QWidget *parent,  queue<Edge> Edges, Graph G, int xOffset, int yOffset)
-    : QWidget(parent),edges(Edges), graph(G), xOffset(xOffset), yOffset(yOffset){}
-
-void StaticGraphDrawer::paintEvent(QPaintEvent* pQEvent)
+void XYPlaneDrawer::paintEvent(QPaintEvent* pQEvent)
 {
     QPainter painter(this);
 
-    QPen edgePen(Qt::blue);
+    QPen linePen(Qt::gray);
+
+    linePen.setWidth(1);
+
+    painter.setPen(linePen);
+
+    // we add a one because it will start from zero so we added a one
+    int numberOfHorizontalLines = height/size + 1;
+    int numberOfVerticalLines = width/size + 1;
+
+    for(int i = 0; i < numberOfVerticalLines; i++)
+    {
+        int x = xOffset + i * size;
+        painter.drawLine(x, yOffset, x, yOffset + height);
+    }
+
+    for(int i = 0; i < numberOfHorizontalLines; i++)
+    {
+        int y = yOffset + i * size;
+        painter.drawLine(xOffset, y, xOffset + width, y);
+    }
+}
+
+GraphDrawer::GraphDrawer(QWidget *parent,  queue<Edge> Edges, Graph G, int xOffset, int yOffset, bool dynamic)
+    : QWidget(parent),edges(Edges), graph(G), xOffset(xOffset), yOffset(yOffset), dynamic(dynamic){}
+
+void GraphDrawer::paintEvent(QPaintEvent* pQEvent)
+{
+    static int counter = -1;
+    static GraphDrawer *currentVariable = this;
+
+    QPainter painter(this);
+
+    QColor edgeColor(125, 0, 0);
+    QColor vertexNameColor(63, 0, 94);
+
+
+    QPen edgePen(edgeColor);
     QPen vertexPen(Qt::black);
-    QPen vertexNamePen(Qt::black);
+    QPen vertexNamePen(vertexNameColor);
 
     int diameter = 6;
     int radius = diameter/2;
 
-    painter.setFont(QFont("times",22));
+    painter.setFont(QFont("times",16));
 
     edgePen.setWidth(4);
     vertexPen.setWidth(diameter);
-    vertexNamePen.setWidth(20);
-
-    queue<Edge> copiedEdges = edges;
-
-    while(!copiedEdges.empty())
-    {
-        Edge edge = copiedEdges.front();
-
-        string vertex1Name = edge.getVertex1();
-        string vertex2Name = edge.getVertex2();
-
-        pair<int, int> vertex1 = graph.positions[vertex1Name];
-        pair<int, int> vertex2 = graph.positions[vertex2Name];
-
-        int x1 = xOffset + vertex1.first;
-        int y1 = yOffset + vertex1.second;
-        int x2 = xOffset + vertex2.first;
-        int y2 = yOffset + vertex2.second;
-
-        painter.setPen(edgePen);
-
-        painter.drawLine(x1,y1,x2,y2);
-
-        painter.setPen(vertexPen);
-
-        painter.drawEllipse(x1 - radius, y1 - radius, diameter, diameter);
-        painter.drawEllipse(x2 - radius, y2 - radius, diameter, diameter);
-
-        QString vertex1String = QString::fromStdString(vertex1Name);
-        QString vertex2String = QString::fromStdString(vertex2Name);
-
-        painter.setPen(vertexNamePen);
-
-        painter.drawText(x1 + diameter*2, y1 + radius, vertex1String);
-        painter.drawText(x2 + diameter*2, y2 + radius, vertex2String);
-
-        QString edgeLength = QString::number(edge.length);
-
-        painter.drawText((x1+x2)/2 + diameter*2, (y1 + y2)/2 + radius, edgeLength);
-
-        copiedEdges.pop();
-    }
-
-}
-
-
-DynamicGraphDrawer::DynamicGraphDrawer(QWidget *parent, int X1, int Y1, int X2, int Y2)
-    : QWidget(parent), x1(X1), y1(Y1),x2(X2), y2(Y2){}
-
-DynamicGraphDrawer::DynamicGraphDrawer(QWidget *parent,  queue<Edge> Edges, Graph G, int xOffset, int yOffset)
-    : QWidget(parent),edges(Edges), graph(G), xOffset(xOffset), yOffset(yOffset){}
-
-void DynamicGraphDrawer::paintEvent(QPaintEvent* pQEvent)
-{
-    static int counter = -1;
-
-    if(edges.size() <= (counter))
-    {
-        counter = -1;
-    }
+    vertexNamePen.setWidth(16);
 
     queue<Edge>copiedEdges = edges;
     queue<Edge>shownEdges;
-    for(int i = 0; i <= counter; i++)
+
+    set<string> shownVertex;
+
+    if(dynamic)
     {
-        shownEdges.push(copiedEdges.front());
-        copiedEdges.pop();
+        if(edges.size() <= (counter) || this != currentVariable)
+        {
+            counter = -1;
+            currentVariable = this;
+        }
+
+        for(int i = 0; i <= counter; i++)
+        {
+            shownEdges.push(copiedEdges.front());
+            copiedEdges.pop();
+        }
+
+        counter++;
     }
-
-    QPainter painter(this);
-
-    QPen edgePen(Qt::blue);
-    QPen vertexPen(Qt::black);
-    QPen vertexNamePen(Qt::black);
-
-    int diameter = 6;
-    int radius = diameter/2;
-
-    painter.setFont(QFont("times",22));
-
-    edgePen.setWidth(4);
-    vertexPen.setWidth(diameter);
-    vertexNamePen.setWidth(20);
+    else{
+        counter = -1;
+        shownEdges = edges;
+        cout << shownEdges.size();
+    }
 
     while(!shownEdges.empty())
     {
@@ -128,6 +109,9 @@ void DynamicGraphDrawer::paintEvent(QPaintEvent* pQEvent)
         string vertex1Name = edge.getVertex1();
         string vertex2Name = edge.getVertex2();
 
+        shownVertex.insert(vertex1Name);
+        shownVertex.insert(vertex2Name);
+
         pair<int, int> vertex1 = graph.positions[vertex1Name];
         pair<int, int> vertex2 = graph.positions[vertex2Name];
 
@@ -145,13 +129,6 @@ void DynamicGraphDrawer::paintEvent(QPaintEvent* pQEvent)
         painter.drawEllipse(x1 - radius, y1 - radius, diameter, diameter);
         painter.drawEllipse(x2 - radius, y2 - radius, diameter, diameter);
 
-        QString vertex1String = QString::fromStdString(vertex1Name);
-        QString vertex2String = QString::fromStdString(vertex2Name);
-
-        painter.setPen(vertexNamePen);
-
-        painter.drawText(x1 + diameter*2, y1 + radius, vertex1String);
-        painter.drawText(x2 + diameter*2, y2 + radius, vertex2String);
 
         QString edgeLength = QString::number(edge.length);
 
@@ -159,10 +136,20 @@ void DynamicGraphDrawer::paintEvent(QPaintEvent* pQEvent)
 
         shownEdges.pop();
     }
-    counter++;
+    for (auto i = shownVertex.begin(); i != shownVertex.end(); i++)
+    {
+
+        QString vertex1String = QString::fromStdString(*i);
+        int x1 = graph.positions[*i].first + xOffset;
+        int y1 = graph.positions[*i].second + yOffset;
+        painter.setPen(vertexNamePen);
+
+        painter.drawText(x1 - diameter*2, y1 - diameter, vertex1String);
+    }
 }
 
-void DynamicGraphDrawer::callPaintEvent(){
+
+void GraphDrawer::callPaintEvent(){
     this->update();
 }
 
@@ -190,18 +177,32 @@ AlgorithmWindow::AlgorithmWindow(Graph *tery, QWidget *parent)
     graph->insertEdge("d", "f", 3);
     graph->insertEdge("e", "f", 3);
 
-    queue<Edge> copiedEdges = graph->PrimMinimumSpanningTree("f");
+    int xOffset =  ui->frame->x() + ui->frame->lineWidth() * 2;
+    int yOffset = ui->frame->y() + ui->frame->lineWidth() * 2;
 
-    staticGraphDrawer = new StaticGraphDrawer(this, copiedEdges, *graph, ui->frame->x() + ui->frame->lineWidth() * 2.5, ui->frame->y() + ui->frame->lineWidth() * 2.5);
+    int size = 30;
+    int width = ui->frame_2->width();
+    int height = ui->frame_2->height();
+
+    xyPlaneDrawer = new XYPlaneDrawer(this, size, xOffset, yOffset, width, height);
+
+    xyPlaneDrawer->resize(1024, 720);
+
+    queue<Edge> shownEdges = graph->PrimMinimumSpanningTree("c");
+
+    xOffset =  ui->frame->x() + ui->frame->lineWidth() * 2.5;
+    yOffset = ui->frame->y() + ui->frame->lineWidth() * 2.5;
+
+    staticGraphDrawer = new GraphDrawer(this, shownEdges, *graph, xOffset, yOffset, false);
     staticGraphDrawer->resize(1024, 720);
     staticGraphDrawer->hide();
 
-    dynamicGraphDrawer = new DynamicGraphDrawer(this, copiedEdges, *graph, ui->frame->x() + ui->frame->lineWidth() * 2.5, ui->frame->y() + ui->frame->lineWidth() * 2.5);
+    dynamicGraphDrawer = new GraphDrawer(this, shownEdges, *graph, xOffset, yOffset, true);
     dynamicGraphDrawer->resize(1024, 720);
 
     timer = new QTimer(this);
 
-    connect(timer, &QTimer::timeout, dynamicGraphDrawer, &DynamicGraphDrawer::callPaintEvent);
+    connect(timer, &QTimer::timeout, dynamicGraphDrawer, &GraphDrawer::callPaintEvent);
 
     timer->start(1000);
 }

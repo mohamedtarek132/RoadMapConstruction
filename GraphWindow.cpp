@@ -9,16 +9,27 @@ GraphWindow::GraphWindow(Graph *graph1, QWidget *parent)
 {
     ui->setupUi(this);
 
-    queue<Edge> copiedEdges = graph->DFStraversal("c");
+    queue<Edge> copiedEdges = graph->BFStraversal("a");
 
-    staticGraphDrawer = new StaticGraphDrawer(this, copiedEdges, *graph, ui->frame->x() + ui->frame->lineWidth() * 2.5, ui->frame->y() + ui->frame->lineWidth() * 2.5);
-    staticGraphDrawer->resize(1024, 720);
+    int xOffset =  ui->frame->x() + ui->frame->lineWidth() * 2;
+    int yOffset = ui->frame->y() + ui->frame->lineWidth() * 2;
 
-    // timer = new QTimer(this);
+    int size = 30;
+    int width = ui->frame_2->width();
+    int height = ui->frame_2->height();
 
-    // connect(timer, &QTimer::timeout, dynamicGraphDrawer, &DynamicGraphDrawer::callPaintEvent);
+    xyPlaneDrawer = new XYPlaneDrawer(this, size, xOffset, 30, width, height);
+    xyPlaneDrawer->resize(width + xOffset, height + 30 );
+    xyPlaneDrawer->move(0, yOffset - 30);
 
-    // timer->start(1000);
+    staticGraphDrawer = new GraphDrawer(this, copiedEdges, *graph,  xOffset, 30, true);
+    staticGraphDrawer->resize(width + xOffset, height + 30 );
+    staticGraphDrawer->move(0, yOffset - 30);
+    timer = new QTimer(this);
+
+    connect(timer, &QTimer::timeout, staticGraphDrawer, &GraphDrawer::callPaintEvent);
+
+    timer->start(1000);
 }
 
 GraphWindow::~GraphWindow()

@@ -37,7 +37,6 @@ MainWindow::MainWindow(QWidget *parent)
 void MainWindow::mousePressEvent(QMouseEvent *event)
 {
     QPoint point = QWidget::mapFromGlobal(QCursor::pos());
-    cout << 1;
     // l->x2 = point.x();
     // l->y2 = point.y();
     // l->update();

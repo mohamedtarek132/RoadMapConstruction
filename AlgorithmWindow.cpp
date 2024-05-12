@@ -15,7 +15,6 @@
 #include <set>
 #include <iostream>
 using namespace std;
-using namespace std::chrono_literals;
 
 
 XYPlaneDrawer::XYPlaneDrawer(QWidget *parent, int Size, int xOffset, int yOffset, int width, int height)

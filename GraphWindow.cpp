@@ -9,7 +9,7 @@ GraphWindow::GraphWindow(Graph *graph1, QWidget *parent)
 {
     ui->setupUi(this);
 
-    queue<Edge> copiedEdges = graph->BFStraversal("a");
+    queue<Edge> copiedEdges = graph->DFStraversal("alexandria");
 
     int xOffset =  ui->frame->x() + ui->frame->lineWidth() * 2;
     int yOffset = ui->frame->y() + ui->frame->lineWidth() * 2;
@@ -22,7 +22,7 @@ GraphWindow::GraphWindow(Graph *graph1, QWidget *parent)
     xyPlaneDrawer->resize(width + xOffset, height + 30 );
     xyPlaneDrawer->move(0, yOffset - 30);
 
-    staticGraphDrawer = new GraphDrawer(this, copiedEdges, *graph,  xOffset, 30, true);
+    staticGraphDrawer = new GraphDrawer(this, copiedEdges, *graph,  xOffset, 30, false);
     staticGraphDrawer->resize(width + xOffset, height + 30 );
     staticGraphDrawer->move(0, yOffset - 30);
     timer = new QTimer(this);

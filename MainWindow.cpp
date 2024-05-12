@@ -26,7 +26,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     this->setCentralWidget(stackedWidget);
 
-    connect(algorithmWindow, &AlgorithmWindow::mousePressed, this, &MainWindow::changeWindows);
+    connect(algorithmWindow, &AlgorithmWindow::buttonPressed, this, &MainWindow::changeWindows);
     // timer = new QTimer(this);
 
     // connect(timer, &QTimer::timeout, this, &MainWindow::changeWindows);

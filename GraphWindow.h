@@ -16,6 +16,14 @@ class GraphWindow : public QMainWindow
 public:
     explicit GraphWindow(Graph *graph = nullptr, QWidget *parent = nullptr);
     ~GraphWindow();
+    void mousePressEvent(QMouseEvent *);
+
+public slots:
+   void addVertex();
+   void deleteVertex();
+   void addEdge();
+   void deleteEdge();
+   void editCombobox();
 
 private:
     Ui::GraphWindow *ui;

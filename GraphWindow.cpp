@@ -37,16 +37,20 @@ GraphWindow::GraphWindow(Graph *graph1, QWidget *parent)
     xyPlaneDrawer->resize(width + xOffset, height + 30 );
     xyPlaneDrawer->move(0, yOffset - 30);
 
-    staticGraphDrawer = new GraphDrawer(this, copiedEdges, *graph,  xOffset, 30, false);
+    staticGraphDrawer = new GraphDrawer(this, "alexandria", graph,  xOffset, 30, false);
     staticGraphDrawer->resize(width + xOffset, height + 30 );
     staticGraphDrawer->move(0, yOffset - 30);
+    staticGraphDrawer->unconnectedGraph();
+
 
     timer = new QTimer(this);
 
+    connect(ui->homeButton, &QPushButton::clicked, this, &GraphWindow::homeButtonPressed);
     connect(ui->addVertexButton, &QPushButton::clicked, this, &GraphWindow::addVertex);
     connect(ui->deleteVertexButton, &QPushButton::clicked, this, &GraphWindow::deleteVertex);
     connect(ui->addEdgeButton, &QPushButton::clicked, this, &GraphWindow::addEdge);
     connect(ui->deleteEdgeButton, &QPushButton::clicked, this, &GraphWindow::deleteEdge);
+
     connect(timer, &QTimer::timeout, staticGraphDrawer, &GraphDrawer::callPaintEvent);
 
     timer->start(900);
@@ -98,7 +102,8 @@ void GraphWindow::addVertex()
     }
 
     graph->insertVertex(name, x, y);
-
+    staticGraphDrawer->unconnectedGraph();
+    staticGraphDrawer->update();
     // cout<<"Vertex: \""<<name<<"\" is now added\n";
 }
 
@@ -115,7 +120,8 @@ void GraphWindow::deleteVertex()
     ui->deleteVertexCombo->removeItem(index);
 
     graph->deleteVertex(name);
-
+    staticGraphDrawer->unconnectedGraph();
+    staticGraphDrawer->update();
     // cout<<"Vertex: \""<<name<<"\" is now deleted\n";
 }
 
@@ -127,6 +133,8 @@ void GraphWindow::addEdge()
     double length = ui->edgeLength->text().toDouble();
 
     graph->insertEdge(vertex1, vertex2, length);
+    staticGraphDrawer->unconnectedGraph();
+    staticGraphDrawer->update();
     cout<<"Edge: \""<<vertex1 << " - " << vertex2<<"\" is now added\n";
 }
 
@@ -136,6 +144,8 @@ void GraphWindow::deleteEdge()
         vertex2 = ui->deleteEdgeV2Combo->currentText().toStdString();
 
     graph->deleteEdge(vertex1, vertex2);
+    staticGraphDrawer->unconnectedGraph();
+    staticGraphDrawer->update();
     cout<<"Edge: \""<<vertex1 << " - " << vertex2<<"\" is now deleted\n";
 }
 
@@ -150,4 +160,7 @@ void GraphWindow::editCombobox()
 GraphWindow::~GraphWindow()
 {
     delete ui;
+    delete staticGraphDrawer;
+    delete timer;
+    delete xyPlaneDrawer;
 }

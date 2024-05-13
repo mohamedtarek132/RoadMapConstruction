@@ -47,8 +47,9 @@ void XYPlaneDrawer::paintEvent(QPaintEvent* pQEvent)
     }
 }
 
-GraphDrawer::GraphDrawer(QWidget *parent,  queue<Edge> Edges, Graph G, int xOffset, int yOffset, bool dynamic)
-    : QWidget(parent),edges(Edges), graph(G), xOffset(xOffset), yOffset(yOffset), dynamic(dynamic){}
+GraphDrawer::GraphDrawer(QWidget *parent,  string startingVertex, Graph *graph, int xOffset, int yOffset, bool dynamic)
+    : QWidget(parent),startingVertex(startingVertex), graph(graph), xOffset(xOffset), yOffset(yOffset), dynamic(dynamic),
+    edges(graph->DFStraversal(startingVertex)){}
 
 void GraphDrawer::paintEvent(QPaintEvent* pQEvent)
 {
@@ -85,6 +86,24 @@ void GraphDrawer::paintEvent(QPaintEvent* pQEvent)
         {
             counter = -1;
             currentVariable = this;
+
+            pair<int, int> vertex1 = graph->positions[startingVertex];
+
+            int x1 = xOffset + vertex1.first;
+            int y1 = yOffset + vertex1.second;
+
+            painter.setPen(vertexPen);
+
+            painter.drawEllipse(x1 - radius, y1 - radius, diameter, diameter);
+
+            QString vertexString = QString::fromStdString(startingVertex);
+
+            x1 = graph->positions[startingVertex].first + xOffset;
+            y1 = graph->positions[startingVertex].second + yOffset;
+
+            painter.setPen(vertexNamePen);
+
+            painter.drawText(x1 - diameter*2, y1 - diameter, vertexString);
         }
 
         for(int i = 0; i <= counter; i++)
@@ -112,8 +131,8 @@ void GraphDrawer::paintEvent(QPaintEvent* pQEvent)
         shownVertex.insert(vertex1Name);
         shownVertex.insert(vertex2Name);
 
-        pair<int, int> vertex1 = graph.positions[vertex1Name];
-        pair<int, int> vertex2 = graph.positions[vertex2Name];
+        pair<int, int> vertex1 = graph->positions[vertex1Name];
+        pair<int, int> vertex2 = graph->positions[vertex2Name];
 
         int x1 = xOffset + vertex1.first;
         int y1 = yOffset + vertex1.second;
@@ -126,25 +145,88 @@ void GraphDrawer::paintEvent(QPaintEvent* pQEvent)
 
         painter.setPen(vertexPen);
 
-        painter.drawEllipse(x1 - radius, y1 - radius, diameter, diameter);
-        painter.drawEllipse(x2 - radius, y2 - radius, diameter, diameter);
-
-
         QString edgeLength = QString::number(edge.length);
 
         painter.drawText((x1+x2)/2, (y1 + y2)/2, edgeLength);
 
         shownEdges.pop();
     }
-    for (auto i = shownVertex.begin(); i != shownVertex.end(); i++)
+    if(dynamic)
     {
+        painter.setPen(vertexPen);
 
-        QString vertex1String = QString::fromStdString(*i);
-        int x1 = graph.positions[*i].first + xOffset;
-        int y1 = graph.positions[*i].second + yOffset;
+        for (auto i = shownVertex.begin(); i != shownVertex.end(); i++)
+        {
+            string vertex = *i;
+            QString vertexString = QString::fromStdString(vertex);
+            int x1 = graph->positions[vertex].first + xOffset;
+            int y1 = graph->positions[vertex].second + yOffset;
+
+
+            painter.drawEllipse(x1 - radius, y1 - radius, diameter, diameter);
+        }
+
         painter.setPen(vertexNamePen);
 
-        painter.drawText(x1 - diameter*2, y1 - diameter, vertex1String);
+        for (auto i = shownVertex.begin(); i != shownVertex.end(); i++)
+        {
+            string vertex = *i;
+            QString vertexString = QString::fromStdString(vertex);
+            int x1 = graph->positions[vertex].first + xOffset;
+            int y1 = graph->positions[vertex].second + yOffset;
+
+            painter.drawText(x1 - diameter*2, y1 - diameter, vertexString);
+        }
+    }
+    else
+    {
+        painter.setPen(vertexPen);
+
+        for (auto i = graph->adjacencyList.begin(); i != graph->adjacencyList.end(); i++)
+        {
+            string vertex = i->first;
+            QString vertexString = QString::fromStdString(vertex);
+            int x1 = graph->positions[vertex].first + xOffset;
+            int y1 = graph->positions[vertex].second + yOffset;
+
+
+            painter.drawEllipse(x1 - radius, y1 - radius, diameter, diameter);
+        }
+
+        painter.setPen(vertexNamePen);
+
+        for (auto i = graph->adjacencyList.begin(); i != graph->adjacencyList.end(); i++)
+        {
+            string vertex = i->first;
+            QString vertexString = QString::fromStdString(vertex);
+            int x1 = graph->positions[vertex].first + xOffset;
+            int y1 = graph->positions[vertex].second + yOffset;
+
+            painter.drawText(x1 - diameter*2, y1 - diameter, vertexString);
+        }
+    }
+}
+
+void GraphDrawer::changeAlgorithm(string algorithm)
+{
+    if (algorithm == "BFS")
+    {
+        cout<<"Hello BFS\n";
+        edges = graph->BFStraversal(startingVertex);
+    }
+    else if (algorithm == "DFS")
+    {
+        cout<<"Hello DFS\n";
+        edges = graph->DFStraversal(startingVertex);
+    }
+    else if (algorithm == "Prim")
+    {
+        cout<<"Hello Prim\n";
+        edges = graph->PrimMinimumSpanningTree(startingVertex);
+    }
+    else
+    {
+        //shownEdges = graph->Dijkstra("cairo");
     }
 }
 
@@ -152,20 +234,42 @@ void GraphDrawer::callPaintEvent(){
     this->update();
 }
 
+void GraphDrawer::unconnectedGraph()
+{
+    set<Edge> trying;
+    for(auto it = graph->adjacencyList.begin(); it != graph->adjacencyList.end(); it++)
+    {
+        queue<Edge> edge = graph->DFStraversal(it->first);
+        while(!edge.empty())
+        {
+            trying.insert(edge.front());
+            edge.pop();
+        }
+    }
+    queue<Edge>edge;
+    for(auto it = trying.begin(); it != trying.end(); it++)
+    {
+        edge.push(*it);
+    }
+    edges = edge;
+    update();
+}
+
 void GraphDrawer::changeToDynamic()
 {
     dynamic = true;
 }
+
 void GraphDrawer::changeToStatic()
 {
     dynamic = false;
 }
 
 
-AlgorithmWindow::AlgorithmWindow(Graph *tery, QWidget *parent)
+AlgorithmWindow::AlgorithmWindow(Graph *graph, QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::AlgorithmWindow)
-    , graph(tery)
+    , graph(graph)
 {
     ui->setupUi(this);
 
@@ -191,6 +295,7 @@ AlgorithmWindow::AlgorithmWindow(Graph *tery, QWidget *parent)
     graph->insertVertex("damanhoor", 20, 300);
     graph->insertVertex("elmansoura", 700, 50);
     graph->insertVertex("fayoum", 50, 200);
+    graph->insertVertex("ana", 300, 300);
     //cout<<"Why are we here????\n";
 
     graph->insertEdge("alexandria", "banha", 4);
@@ -203,8 +308,8 @@ AlgorithmWindow::AlgorithmWindow(Graph *tery, QWidget *parent)
     graph->insertEdge("elmansoura", "fayoum", 3);
 
     // cout<<"Why are we here\n";
-    ui->comboBox->addItem("BFS");
     ui->comboBox->addItem("DFS");
+    ui->comboBox->addItem("BFS");
     ui->comboBox->addItem("Prim");
     ui->comboBox->addItem("Dijkstra");
 
@@ -219,12 +324,10 @@ AlgorithmWindow::AlgorithmWindow(Graph *tery, QWidget *parent)
     xyPlaneDrawer->resize(1024, 550);
     xyPlaneDrawer->move(0, 60);
 
-    queue<Edge> shownEdges = graph->PrimMinimumSpanningTree("cairo");
-
     xOffset =  ui->frame->x() + ui->frame->lineWidth() * 2.5;
     yOffset = ui->frame->y() + ui->frame->lineWidth() * 2.5;
 
-    graphDrawer = new GraphDrawer(this, shownEdges, *graph, xOffset, yOffset-60, true);
+    graphDrawer = new GraphDrawer(this, "cairo", graph, xOffset, yOffset-60, true);
     graphDrawer->resize(1024, 550);
     graphDrawer->move(0, 60);
 
@@ -233,8 +336,10 @@ AlgorithmWindow::AlgorithmWindow(Graph *tery, QWidget *parent)
     connect(ui->comboBox, &QComboBox::currentTextChanged, this, &AlgorithmWindow::changeAlgorithm);
     connect(ui->dynamicButton, &QPushButton::clicked, graphDrawer, &GraphDrawer::changeToDynamic);
     connect(ui->staticButton, &QPushButton::clicked, graphDrawer, &GraphDrawer::changeToStatic);
-    connect(ui->backButton, &QPushButton::clicked, this, &AlgorithmWindow::buttonPressed);
+    connect(ui->backButton, &QPushButton::clicked, this, &AlgorithmWindow::backButtonPressed);
+
     connect(timer, &QTimer::timeout, graphDrawer, &GraphDrawer::callPaintEvent);
+
     timer->start(900);
 
 }
@@ -258,30 +363,14 @@ void AlgorithmWindow::changeAlgorithm()
 {
     queue<Edge> shownEdges;
     string algorithm = ui->comboBox->currentText().toStdString();
-    cout<<algorithm<<endl;
-    if (algorithm == "BFS")
-    {
-        cout<<"Hello BFS\n";
-        shownEdges = graph->BFStraversal("cairo");
-    }
-    else if (algorithm == "DFS")
-    {
-        cout<<"Hello DFS\n";
-        shownEdges = graph->DFStraversal("cairo");
-    }
-    else if (algorithm == "Prim")
-    {
-        cout<<"Hello Prim\n";
-        shownEdges = graph->PrimMinimumSpanningTree("cairo");
-    }
-    else
-    {
-        //shownEdges = graph->Dijkstra("cairo");
-    }
-    graphDrawer->edges = shownEdges;
+
+    graphDrawer->changeAlgorithm(algorithm);
 }
 
 AlgorithmWindow::~AlgorithmWindow()
 {
     delete ui;
+    delete graph;
+    delete xyPlaneDrawer;
+    delete timer;
 }

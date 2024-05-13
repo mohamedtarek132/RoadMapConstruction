@@ -17,18 +17,18 @@ public:
     explicit GraphWindow(Graph *graph = nullptr, QWidget *parent = nullptr);
     ~GraphWindow();
     void mousePressEvent(QMouseEvent *);
-
+signals:
+    void homeButtonPressed();
 public slots:
-   void addVertex();
-   void deleteVertex();
-   void addEdge();
-   void deleteEdge();
-   void editCombobox();
+    void addVertex();
+    void deleteVertex();
+    void addEdge();
+    void deleteEdge();
+    void editCombobox();
 
 private:
     Ui::GraphWindow *ui;
     Graph *graph;
-    GraphDrawer *dynamicGraphDrawer;
     QTimer *timer;
     GraphDrawer *staticGraphDrawer;
     XYPlaneDrawer *xyPlaneDrawer;

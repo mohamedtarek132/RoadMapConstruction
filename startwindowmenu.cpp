@@ -1,13 +1,13 @@
 #include "startwindowmenu.h"
-#include "./ui_mainwindow.h"
-#include"editgraph.h"
+#include "./ui_startwindowmenu.h"
+// #include"editgraph.h"
 #include<QMessageBox>
 #include<QRegularExpressionValidator>
 #include<QString>
 
-MainWindow::MainWindow(QWidget *parent)
+HomeWindow::HomeWindow(QWidget *parent)
     : QMainWindow(parent)
-    , ui(new Ui::MainWindow)
+    , ui(new Ui::HomeWindow)
 {
     QRegularExpression regex("[^\\s]*"); // Regular expression to match any string without whitespaces
     QRegularExpressionValidator *validator = new QRegularExpressionValidator(regex, this);
@@ -18,14 +18,14 @@ MainWindow::MainWindow(QWidget *parent)
     ui->lineEdit->setValidator(validator);
 }
 
-MainWindow::~MainWindow()
+HomeWindow::~HomeWindow()
 {
     delete ui;
 }
 
 
 
-void MainWindow::on_addButton_clicked()
+void HomeWindow::on_addButton_clicked()
 {
      ui->errorlabel->setVisible(false);
 
@@ -45,23 +45,23 @@ void MainWindow::on_addButton_clicked()
 }
 
 
-void MainWindow::on_displayButton_clicked()
+void HomeWindow::on_displayButton_clicked()
 {
 
 }
 
 
-void MainWindow::on_editButton_clicked()
+void HomeWindow::on_editButton_clicked()
 {
 
     QListWidgetItem *item = ui->graphList->currentItem();
-    if(item != NULL)
-    {
-        QString  key = item->text();
-        EditGraph *editgraph = new EditGraph();
-        editgraph->setData(key);
-        editgraph->exec();
-    }
+    // if(item != NULL)
+    // {
+    //     QString  key = item->text();
+    //     EditGraph *editgraph = new EditGraph();
+    //     editgraph->setData(key);
+    //     editgraph->exec();
+    // }
 
 
 
@@ -69,7 +69,7 @@ void MainWindow::on_editButton_clicked()
 }
 
 
-void MainWindow::on_deleteButton_clicked()
+void HomeWindow::on_deleteButton_clicked()
 {
     QListWidgetItem *item = ui->graphList->takeItem(ui->graphList->currentRow());
     delete item;
@@ -77,7 +77,7 @@ void MainWindow::on_deleteButton_clicked()
 }
 
 
-void MainWindow::on_exitButton_clicked()
+void HomeWindow::on_exitButton_clicked()
 {
     QCoreApplication::quit();
 }

@@ -38,13 +38,17 @@ class GraphDrawer : public QWidget
 public:
     int x1, x2, y1, y2;
     std::queue<Edge> edges;
-    Graph graph;
+    Graph *graph;
     int xOffset;
     int yOffset;
     bool dynamic;
+    string startingVertex;
 
-    GraphDrawer(QWidget *parent,  std::queue<Edge> Edges, Graph G, int xOffset, int yOffset, bool dynamic);
+    GraphDrawer(QWidget *parent,  string startingVertex, Graph *graph, int xOffset, int yOffset, bool dynamic);
     void paintEvent(QPaintEvent*);
+    void changeAlgorithm(string);
+    void unconnectedGraph();
+
     public slots:
     void callPaintEvent();
     void changeToDynamic();
@@ -58,13 +62,13 @@ class AlgorithmWindow : public QMainWindow
 public:
     Ui::AlgorithmWindow *ui;
 
-    AlgorithmWindow(Graph *graph = nullptr, QWidget *parent = nullptr );
+    AlgorithmWindow(Graph *graph = nullptr, QWidget *parent = nullptr);
     // void paintEvent(QPaintEvent*);
     ~AlgorithmWindow();
     void mousePressEvent(QMouseEvent *);
 
 signals:
-    void buttonPressed();
+    void backButtonPressed();
 
 public slots:
     void changeAlgorithm();

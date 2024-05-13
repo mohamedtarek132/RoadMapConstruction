@@ -5,17 +5,17 @@
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
-class MainWindow;
+class HomeWindow;
 }
 QT_END_NAMESPACE
 
-class MainWindow : public QMainWindow
+class HomeWindow : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    MainWindow(QWidget *parent = nullptr);
-    ~MainWindow();
+    HomeWindow(QWidget *parent = nullptr);
+    ~HomeWindow();
 
 private slots:
 
@@ -32,6 +32,6 @@ private slots:
     void on_displayButton_clicked();
 
 private:
-    Ui::MainWindow *ui;
+    Ui::HomeWindow *ui;
 };
 #endif // STARTWINDOWMENU_H

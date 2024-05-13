@@ -100,7 +100,7 @@ void GraphDrawer::paintEvent(QPaintEvent* pQEvent)
     else{
         counter = -1;
         shownEdges = edges;
-        cout << shownEdges.size();
+        //cout << shownEdges.size();
     }
 
     while(!shownEdges.empty())
@@ -255,14 +255,10 @@ void AlgorithmWindow::mousePressEvent(QMouseEvent *event)
     //stuff
 }
 
-
 void AlgorithmWindow::changeAlgorithm()
 {
-    int xOffset =  ui->frame->x() + ui->frame->lineWidth() * 2;
-    int yOffset = ui->frame->y() + ui->frame->lineWidth() * 2;
     queue<Edge> shownEdges;
-    QString algo = ui->comboBox->currentText();
-    string algorithm = algo.toStdString();
+    string algorithm = ui->comboBox->currentText().toStdString();
     cout<<algorithm<<endl;
     if (algorithm == "BFS")
     {
@@ -283,13 +279,6 @@ void AlgorithmWindow::changeAlgorithm()
     {
         //shownEdges = graph->Dijkstra("cairo");
     }
-    // delete graphDrawer;
-    // graphDrawer = new GraphDrawer(this, shownEdges, *graph, xOffset, yOffset-60, true);
-    // graphDrawer->resize(1024, 550);
-    // graphDrawer->move(0, 60);
-    // ui->centralwidget->layout()->addWidget(graphDrawer);
-    // graphDrawer->update();
-    // graphDrawer->show();
     graphDrawer->edges = shownEdges;
 }
 

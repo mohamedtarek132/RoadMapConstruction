@@ -38,6 +38,7 @@ public:
     queue<Edge> DFStraversal(string);
     queue<Edge> BFStraversal(string);
     queue<Edge> PrimMinimumSpanningTree(string);
+    queue<Edge> DijkstraShortestPath(string, string);
 };
 
 

@@ -19,6 +19,7 @@ public:
     void mousePressEvent(QMouseEvent *);
 signals:
     void homeButtonPressed();
+    void algorithmsButtonPressed();
 public slots:
     void addVertex();
     void deleteVertex();

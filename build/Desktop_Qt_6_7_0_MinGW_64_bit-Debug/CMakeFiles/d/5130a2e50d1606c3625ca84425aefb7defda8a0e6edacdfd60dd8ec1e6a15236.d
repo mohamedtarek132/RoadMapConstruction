@@ -17,6 +17,9 @@ untitled_autogen/timestamp: \
   CMakeFiles/3.27.7/CMakeSystem.cmake \
   untitled_autogen/moc_predefs.h \
   C:/Users/Anyone/Documents/DS-Project/RoadMapConstruction/main.cpp \
+  C:/Users/Anyone/Documents/DS-Project/RoadMapConstruction/startwindowmenu.cpp \
+  C:/Users/Anyone/Documents/DS-Project/RoadMapConstruction/startwindowmenu.h \
+  C:/Users/Anyone/Documents/DS-Project/RoadMapConstruction/startwindowmenu.ui \
   D:/Programs/QT/6.7.0/mingw_64/include/QtCore/QTimer \
   D:/Programs/QT/6.7.0/mingw_64/include/QtCore/q20functional.h \
   D:/Programs/QT/6.7.0/mingw_64/include/QtCore/q20memory.h \

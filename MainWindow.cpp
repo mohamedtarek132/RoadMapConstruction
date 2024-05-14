@@ -31,6 +31,7 @@ MainWindow::MainWindow(QWidget *parent)
     this->setCentralWidget(stackedWidget);
 
     connect(algorithmWindow, &AlgorithmWindow::backButtonPressed, this, &MainWindow::returnToPreviousWindow);
+    connect(graphWindow, &GraphWindow::algorithmsButtonPressed, this, &MainWindow::goToNextWindow);
     connect(graphWindow, &GraphWindow::homeButtonPressed, this, &MainWindow::returnToPreviousWindow);
     // timer = new QTimer(this);
 
@@ -51,7 +52,12 @@ void MainWindow::mousePressEvent(QMouseEvent *event)
 void MainWindow::returnToPreviousWindow()
 {
     int index = this->stackedWidget->currentIndex() + 1;
-    cout << index;
+    this->stackedWidget->setCurrentIndex(index);
+}
+void MainWindow::goToNextWindow()
+{
+
+    int index = this->stackedWidget->currentIndex() - 1;
     this->stackedWidget->setCurrentIndex(index);
 }
 MainWindow::~MainWindow()

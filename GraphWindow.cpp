@@ -50,6 +50,7 @@ GraphWindow::GraphWindow(Graph *graph1, QWidget *parent)
     connect(ui->deleteVertexButton, &QPushButton::clicked, this, &GraphWindow::deleteVertex);
     connect(ui->addEdgeButton, &QPushButton::clicked, this, &GraphWindow::addEdge);
     connect(ui->deleteEdgeButton, &QPushButton::clicked, this, &GraphWindow::deleteEdge);
+    connect(ui->algorithmsButton, &QPushButton::clicked, this, &GraphWindow::algorithmsButtonPressed);
 
     connect(timer, &QTimer::timeout, staticGraphDrawer, &GraphDrawer::callPaintEvent);
 
@@ -92,6 +93,18 @@ void GraphWindow::addVertex()
 
     QString Name = QString::fromStdString(name);
 
+    for (auto it = graph->positions.begin(); it != graph->positions.end(); it++)
+    {
+        int vX = it->second.first;
+        int vY = it->second.second;
+        if (pow((x-vX),2) + pow((y-vY),2) <= 36)
+        {
+            ui->addError->show();
+            QTimer::singleShot(3000, ui->addError, &QLabel::hide);
+            return;
+        }
+    }
+
     if (graph->adjacencyList.find(name) == graph->adjacencyList.end())
     {
         ui->addEdgeV2Combo->addItem(Name);
@@ -122,7 +135,6 @@ void GraphWindow::deleteVertex()
     graph->deleteVertex(name);
     staticGraphDrawer->unconnectedGraph();
     staticGraphDrawer->update();
-    // cout<<"Vertex: \""<<name<<"\" is now deleted\n";
 }
 
 void GraphWindow::addEdge()
@@ -135,7 +147,6 @@ void GraphWindow::addEdge()
     graph->insertEdge(vertex1, vertex2, length);
     staticGraphDrawer->unconnectedGraph();
     staticGraphDrawer->update();
-    cout<<"Edge: \""<<vertex1 << " - " << vertex2<<"\" is now added\n";
 }
 
 void GraphWindow::deleteEdge()
@@ -146,7 +157,6 @@ void GraphWindow::deleteEdge()
     graph->deleteEdge(vertex1, vertex2);
     staticGraphDrawer->unconnectedGraph();
     staticGraphDrawer->update();
-    cout<<"Edge: \""<<vertex1 << " - " << vertex2<<"\" is now deleted\n";
 }
 
 void GraphWindow::editCombobox()

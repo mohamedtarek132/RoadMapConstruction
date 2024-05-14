@@ -47,6 +47,7 @@ public:
     GraphDrawer(QWidget *parent,  string startingVertex, Graph *graph, int xOffset, int yOffset, bool dynamic);
     void paintEvent(QPaintEvent*);
     void changeAlgorithm(string);
+    void changeStartingVertex(string, string);
     void unconnectedGraph();
 
     public slots:
@@ -72,6 +73,7 @@ signals:
 
 public slots:
     void changeAlgorithm();
+    void changeStartingVertex();
 
 private:
     GraphDrawer *graphDrawer;

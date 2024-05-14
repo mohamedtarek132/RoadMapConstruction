@@ -19,6 +19,7 @@ public:
     ~MainWindow();
 public slots:
     void returnToPreviousWindow();
+    void goToNextWindow();
 private:
     Ui::MainWindow2 *ui;
     QStackedWidget *stackedWidget;

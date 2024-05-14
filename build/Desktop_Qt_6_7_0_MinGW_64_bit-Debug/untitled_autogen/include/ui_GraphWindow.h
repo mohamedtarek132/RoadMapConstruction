@@ -56,9 +56,10 @@ public:
     QLabel *label_14;
     QFrame *line_2;
     QPushButton *deleteEdgeButton;
-    QPushButton *saveButton;
+    QPushButton *algorithmsButton;
     QLabel *label_15;
-    QPushButton *pushButton;
+    QPushButton *homeButton;
+    QLabel *addError;
 
     void setupUi(QMainWindow *GraphWindow)
     {
@@ -154,8 +155,9 @@ public:
         line->setFrameShadow(QFrame::Shadow::Sunken);
         label_5 = new QLabel(centralwidget);
         label_5->setObjectName("label_5");
-        label_5->setGeometry(QRect(840, 110, 150, 50));
+        label_5->setGeometry(QRect(840, 100, 150, 50));
         label_5->setFont(font1);
+        label_5->setAlignment(Qt::AlignCenter);
         label_5->setWordWrap(false);
         xPosition = new QLineEdit(centralwidget);
         xPosition->setObjectName("xPosition");
@@ -207,23 +209,33 @@ public:
         deleteEdgeButton->setObjectName("deleteEdgeButton");
         deleteEdgeButton->setGeometry(QRect(710, 590, 83, 29));
         deleteEdgeButton->setStyleSheet(QString::fromUtf8("background-color: rgb(53, 73, 84);"));
-        saveButton = new QPushButton(centralwidget);
-        saveButton->setObjectName("saveButton");
-        saveButton->setGeometry(QRect(670, 50, 131, 41));
+        algorithmsButton = new QPushButton(centralwidget);
+        algorithmsButton->setObjectName("algorithmsButton");
+        algorithmsButton->setGeometry(QRect(670, 50, 131, 41));
         QFont font2;
         font2.setPointSize(15);
-        saveButton->setFont(font2);
-        saveButton->setStyleSheet(QString::fromUtf8("background-color: rgb(53, 73, 84);"));
+        algorithmsButton->setFont(font2);
+        algorithmsButton->setStyleSheet(QString::fromUtf8("background-color: rgb(53, 73, 84);"));
         label_15 = new QLabel(centralwidget);
         label_15->setObjectName("label_15");
         label_15->setGeometry(QRect(210, 675, 63, 20));
-        pushButton = new QPushButton(centralwidget);
-        pushButton->setObjectName("pushButton");
-        pushButton->setGeometry(QRect(910, 670, 101, 41));
+        homeButton = new QPushButton(centralwidget);
+        homeButton->setObjectName("homeButton");
+        homeButton->setGeometry(QRect(910, 670, 101, 41));
         QFont font3;
         font3.setPointSize(16);
-        pushButton->setFont(font3);
-        pushButton->setStyleSheet(QString::fromUtf8("background-color: rgb(53, 73, 84);"));
+        homeButton->setFont(font3);
+        homeButton->setStyleSheet(QString::fromUtf8("background-color: rgb(53, 73, 84);"));
+        addError = new QLabel(centralwidget);
+        addError->setObjectName("addError");
+        addError->setEnabled(true);
+        addError->setGeometry(QRect(810, 140, 201, 31));
+        QFont font4;
+        font4.setPointSize(10);
+        addError->setFont(font4);
+        addError->setStyleSheet(QString::fromUtf8("color: rgb(255, 0, 0);"));
+        addError->setAlignment(Qt::AlignCenter);
+        addError->setVisible(false);
         GraphWindow->setCentralWidget(centralwidget);
 
         retranslateUi(GraphWindow);
@@ -258,9 +270,10 @@ public:
         label_13->setText(QCoreApplication::translate("GraphWindow", "Delete Vertex", nullptr));
         label_14->setText(QCoreApplication::translate("GraphWindow", "vertex", nullptr));
         deleteEdgeButton->setText(QCoreApplication::translate("GraphWindow", "Delete", nullptr));
-        saveButton->setText(QCoreApplication::translate("GraphWindow", "Save", nullptr));
+        algorithmsButton->setText(QCoreApplication::translate("GraphWindow", "Algortims", nullptr));
         label_15->setText(QCoreApplication::translate("GraphWindow", "Kilometers", nullptr));
-        pushButton->setText(QCoreApplication::translate("GraphWindow", "Home", nullptr));
+        homeButton->setText(QCoreApplication::translate("GraphWindow", "Home", nullptr));
+        addError->setText(QCoreApplication::translate("GraphWindow", "There is a vertex in this position!", nullptr));
     } // retranslateUi
 
 };

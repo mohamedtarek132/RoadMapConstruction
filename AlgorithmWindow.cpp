@@ -226,8 +226,14 @@ void GraphDrawer::changeAlgorithm(string algorithm)
     }
     else
     {
-        //shownEdges = graph->Dijkstra("cairo");
+        //edges = graph->DijkstraShortestPath(startingVertex, "endingVertex");
     }
+}
+
+void GraphDrawer::changeStartingVertex(string vertex, string algorithm)
+{
+    startingVertex = vertex;
+    changeAlgorithm(algorithm);
 }
 
 void GraphDrawer::callPaintEvent(){
@@ -313,6 +319,14 @@ AlgorithmWindow::AlgorithmWindow(Graph *graph, QWidget *parent)
     ui->comboBox->addItem("Prim");
     ui->comboBox->addItem("Dijkstra");
 
+    for (auto i = graph->adjacencyList.begin(); i != graph->adjacencyList.end(); i++)
+    {
+        QString item = QString::fromStdString(i->first);
+
+        ui->startPointCombo->addItem(item);
+        ui->endPointCombo->addItem(item);
+    }
+
     int xOffset =  ui->frame->x() + ui->frame->lineWidth() * 2;
     int yOffset = ui->frame->y() + ui->frame->lineWidth() * 2;
 
@@ -327,7 +341,9 @@ AlgorithmWindow::AlgorithmWindow(Graph *graph, QWidget *parent)
     xOffset =  ui->frame->x() + ui->frame->lineWidth() * 2.5;
     yOffset = ui->frame->y() + ui->frame->lineWidth() * 2.5;
 
-    graphDrawer = new GraphDrawer(this, "cairo", graph, xOffset, yOffset-60, true);
+    string startingVertex = graph->adjacencyList.begin()->first;
+
+    graphDrawer = new GraphDrawer(this, startingVertex, graph, xOffset, yOffset-60, true);
     graphDrawer->resize(1024, 550);
     graphDrawer->move(0, 60);
 
@@ -337,6 +353,7 @@ AlgorithmWindow::AlgorithmWindow(Graph *graph, QWidget *parent)
     connect(ui->dynamicButton, &QPushButton::clicked, graphDrawer, &GraphDrawer::changeToDynamic);
     connect(ui->staticButton, &QPushButton::clicked, graphDrawer, &GraphDrawer::changeToStatic);
     connect(ui->backButton, &QPushButton::clicked, this, &AlgorithmWindow::backButtonPressed);
+    connect(ui->startPointCombo, &QComboBox::currentIndexChanged, this, &AlgorithmWindow::changeStartingVertex);
 
     connect(timer, &QTimer::timeout, graphDrawer, &GraphDrawer::callPaintEvent);
 
@@ -361,10 +378,17 @@ void AlgorithmWindow::mousePressEvent(QMouseEvent *event)
 
 void AlgorithmWindow::changeAlgorithm()
 {
-    queue<Edge> shownEdges;
     string algorithm = ui->comboBox->currentText().toStdString();
 
     graphDrawer->changeAlgorithm(algorithm);
+}
+
+void AlgorithmWindow::changeStartingVertex()
+{
+    string algorithm = ui->comboBox->currentText().toStdString();
+    string vertex = ui->startPointCombo->currentText().toStdString();
+
+    graphDrawer->changeStartingVertex(vertex, algorithm);
 }
 
 AlgorithmWindow::~AlgorithmWindow()

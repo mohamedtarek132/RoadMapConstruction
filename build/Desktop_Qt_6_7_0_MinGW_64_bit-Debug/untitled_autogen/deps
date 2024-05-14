@@ -14,6 +14,8 @@ untitled_autogen/timestamp: \
 	C:/Users/Anyone/Documents/DS-Project/RoadMapConstruction/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/CMakeFiles/3.27.7/CMakeSystem.cmake \
 	C:/Users/Anyone/Documents/DS-Project/RoadMapConstruction/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/untitled_autogen/moc_predefs.h \
 	C:/Users/Anyone/Documents/DS-Project/RoadMapConstruction/main.cpp \
+	C:/Users/Anyone/Documents/DS-Project/RoadMapConstruction/startwindowmenu.cpp \
+	C:/Users/Anyone/Documents/DS-Project/RoadMapConstruction/startwindowmenu.h \
 	D:/Programs/QT/6.7.0/mingw_64/include/QtCore/QTimer \
 	D:/Programs/QT/6.7.0/mingw_64/include/QtCore/q20functional.h \
 	D:/Programs/QT/6.7.0/mingw_64/include/QtCore/q20memory.h \
@@ -551,4 +553,5 @@ untitled_autogen/timestamp: \
 	C:/Users/Anyone/Documents/DS-Project/RoadMapConstruction/AlgorithmWindow.ui \
 	C:/Users/Anyone/Documents/DS-Project/RoadMapConstruction/GraphWindow.ui \
 	C:/Users/Anyone/Documents/DS-Project/RoadMapConstruction/MainWindow.ui \
+	C:/Users/Anyone/Documents/DS-Project/RoadMapConstruction/startwindowmenu.ui \
 	D:/Programs/QT/Tools/CMake_64/bin/cmake.exe

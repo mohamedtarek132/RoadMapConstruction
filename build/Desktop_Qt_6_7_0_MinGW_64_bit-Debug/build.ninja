@@ -97,6 +97,14 @@ build CMakeFiles/untitled.dir/GraphWindow.cpp.obj: CXX_COMPILER__untitled_unscan
   OBJECT_DIR = CMakeFiles\untitled.dir
   OBJECT_FILE_DIR = CMakeFiles\untitled.dir
 
+build CMakeFiles/untitled.dir/startwindowmenu.cpp.obj: CXX_COMPILER__untitled_unscanned_Debug C$:/Users/Anyone/Documents/DS-Project/RoadMapConstruction/startwindowmenu.cpp || cmake_object_order_depends_target_untitled
+  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
+  DEP_FILE = CMakeFiles\untitled.dir\startwindowmenu.cpp.obj.d
+  FLAGS = -DQT_QML_DEBUG -g -std=gnu++17 -fdiagnostics-color=always
+  INCLUDES = -IC:/Users/Anyone/Documents/DS-Project/RoadMapConstruction/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/untitled_autogen/include -isystem D:/Programs/QT/6.7.0/mingw_64/include/QtCore -isystem D:/Programs/QT/6.7.0/mingw_64/include -isystem D:/Programs/QT/6.7.0/mingw_64/mkspecs/win32-g++ -isystem D:/Programs/QT/6.7.0/mingw_64/include/QtWidgets -isystem D:/Programs/QT/6.7.0/mingw_64/include/QtGui
+  OBJECT_DIR = CMakeFiles\untitled.dir
+  OBJECT_FILE_DIR = CMakeFiles\untitled.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target untitled
@@ -105,7 +113,7 @@ build CMakeFiles/untitled.dir/GraphWindow.cpp.obj: CXX_COMPILER__untitled_unscan
 #############################################
 # Link the executable untitled.exe
 
-build untitled.exe: CXX_EXECUTABLE_LINKER__untitled_Debug CMakeFiles/untitled.dir/untitled_autogen/mocs_compilation.cpp.obj CMakeFiles/untitled.dir/main.cpp.obj CMakeFiles/untitled.dir/AlgorithmWindow.cpp.obj CMakeFiles/untitled.dir/Graph.cpp.obj CMakeFiles/untitled.dir/MainWindow.cpp.obj CMakeFiles/untitled.dir/GraphWindow.cpp.obj | D$:/Programs/QT/6.7.0/mingw_64/lib/libQt6Widgets.a D$:/Programs/QT/6.7.0/mingw_64/lib/libQt6Gui.a D$:/Programs/QT/6.7.0/mingw_64/lib/libQt6Core.a D$:/Programs/QT/6.7.0/mingw_64/lib/libQt6EntryPoint.a || untitled_autogen untitled_autogen_timestamp_deps
+build untitled.exe: CXX_EXECUTABLE_LINKER__untitled_Debug CMakeFiles/untitled.dir/untitled_autogen/mocs_compilation.cpp.obj CMakeFiles/untitled.dir/main.cpp.obj CMakeFiles/untitled.dir/AlgorithmWindow.cpp.obj CMakeFiles/untitled.dir/Graph.cpp.obj CMakeFiles/untitled.dir/MainWindow.cpp.obj CMakeFiles/untitled.dir/GraphWindow.cpp.obj CMakeFiles/untitled.dir/startwindowmenu.cpp.obj | D$:/Programs/QT/6.7.0/mingw_64/lib/libQt6Widgets.a D$:/Programs/QT/6.7.0/mingw_64/lib/libQt6Gui.a D$:/Programs/QT/6.7.0/mingw_64/lib/libQt6Core.a D$:/Programs/QT/6.7.0/mingw_64/lib/libQt6EntryPoint.a || untitled_autogen untitled_autogen_timestamp_deps
   FLAGS = -DQT_QML_DEBUG -g
   LINK_FLAGS = -mwindows
   LINK_LIBRARIES = D:/Programs/QT/6.7.0/mingw_64/lib/libQt6Widgets.a  D:/Programs/QT/6.7.0/mingw_64/lib/libQt6Gui.a  D:/Programs/QT/6.7.0/mingw_64/lib/libQt6Core.a  -lmpr  -luserenv  -lmingw32  D:/Programs/QT/6.7.0/mingw_64/lib/libQt6EntryPoint.a  -lshell32  -ld3d11  -ldxgi  -ldxguid  -ld3d12  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
@@ -192,7 +200,7 @@ build untitled_autogen_timestamp_deps: phony CMakeFiles/untitled_autogen_timesta
 #############################################
 # Utility command for untitled_autogen
 
-build untitled_autogen: phony CMakeFiles/untitled_autogen untitled_autogen/include/ui_AlgorithmWindow.h untitled_autogen/include/ui_mainwindow.h untitled_autogen/include/ui_GraphWindow.h untitled_autogen/timestamp untitled_autogen/mocs_compilation.cpp untitled_autogen_timestamp_deps
+build untitled_autogen: phony CMakeFiles/untitled_autogen untitled_autogen/include/ui_AlgorithmWindow.h untitled_autogen/include/ui_mainwindow.h untitled_autogen/include/ui_GraphWindow.h untitled_autogen/include/ui_startwindowmenu.h untitled_autogen/timestamp untitled_autogen/mocs_compilation.cpp untitled_autogen_timestamp_deps
 
 
 #############################################
@@ -214,7 +222,7 @@ build CMakeFiles/untitled_autogen_timestamp_deps | ${cmake_ninja_workdir}CMakeFi
 #############################################
 # Phony custom command for CMakeFiles\untitled_autogen
 
-build CMakeFiles/untitled_autogen untitled_autogen/include/ui_AlgorithmWindow.h untitled_autogen/include/ui_mainwindow.h untitled_autogen/include/ui_GraphWindow.h | ${cmake_ninja_workdir}CMakeFiles/untitled_autogen ${cmake_ninja_workdir}untitled_autogen/include/ui_AlgorithmWindow.h ${cmake_ninja_workdir}untitled_autogen/include/ui_mainwindow.h ${cmake_ninja_workdir}untitled_autogen/include/ui_GraphWindow.h: phony untitled_autogen/timestamp || untitled_autogen_timestamp_deps
+build CMakeFiles/untitled_autogen untitled_autogen/include/ui_AlgorithmWindow.h untitled_autogen/include/ui_mainwindow.h untitled_autogen/include/ui_GraphWindow.h untitled_autogen/include/ui_startwindowmenu.h | ${cmake_ninja_workdir}CMakeFiles/untitled_autogen ${cmake_ninja_workdir}untitled_autogen/include/ui_AlgorithmWindow.h ${cmake_ninja_workdir}untitled_autogen/include/ui_mainwindow.h ${cmake_ninja_workdir}untitled_autogen/include/ui_GraphWindow.h ${cmake_ninja_workdir}untitled_autogen/include/ui_startwindowmenu.h: phony untitled_autogen/timestamp || untitled_autogen_timestamp_deps
 
 # =============================================================================
 # Target aliases.

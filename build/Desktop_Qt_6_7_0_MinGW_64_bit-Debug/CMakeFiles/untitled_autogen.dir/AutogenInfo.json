@@ -277,6 +277,12 @@
 			"MU",
 			"EWIEGA46WW/moc_MainWindow.cpp",
 			null
+		],
+		[
+			"C:/Users/Anyone/Documents/DS-Project/RoadMapConstruction/startwindowmenu.h",
+			"MU",
+			"EWIEGA46WW/moc_startwindowmenu.cpp",
+			null
 		]
 	],
 	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
@@ -372,6 +378,11 @@
 		],
 		[
 			"C:/Users/Anyone/Documents/DS-Project/RoadMapConstruction/main.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/Anyone/Documents/DS-Project/RoadMapConstruction/startwindowmenu.cpp",
 			"MU",
 			null
 		]

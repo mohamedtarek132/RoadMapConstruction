@@ -1,4 +1,3 @@
-
 #include "Graph.h"
 #include <vector>
 #include <iostream>
@@ -216,6 +215,13 @@ queue<Edge> Graph::DFStraversal(string first_node) {
             }
         }
     }
+
+    return edgeOrder;
+}
+
+queue<Edge> DijkstraShortestPath(string start, string end)
+{
+    queue<Edge> edgeOrder;
 
     return edgeOrder;
 }

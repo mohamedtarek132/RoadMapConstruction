@@ -24,15 +24,19 @@ MainWindow::MainWindow(QWidget *parent)
 
     stackedWidget = new QStackedWidget(this);
 
-    stackedWidget->addWidget(algorithmWindow);
-    stackedWidget->addWidget(graphWindow);
     stackedWidget->addWidget(homeWindow);
+    stackedWidget->addWidget(graphWindow);
+    stackedWidget->addWidget(algorithmWindow);
 
     this->setCentralWidget(stackedWidget);
 
     connect(algorithmWindow, &AlgorithmWindow::backButtonPressed, this, &MainWindow::returnToPreviousWindow);
     connect(graphWindow, &GraphWindow::algorithmsButtonPressed, this, &MainWindow::goToNextWindow);
     connect(graphWindow, &GraphWindow::homeButtonPressed, this, &MainWindow::returnToPreviousWindow);
+    connect(homeWindow,&HomeWindow::setGraph,graphWindow,&GraphWindow::setGraph);
+    connect(homeWindow,&HomeWindow::setGraph,this,&MainWindow::goToNextWindow);
+    connect(graphWindow, &GraphWindow::algorithmsButtonPressed, algorithmWindow, &AlgorithmWindow::setStartPointCombo);
+
     // timer = new QTimer(this);
 
     // connect(timer, &QTimer::timeout, this, &MainWindow::changeWindows);
@@ -51,16 +55,17 @@ void MainWindow::mousePressEvent(QMouseEvent *event)
 }
 void MainWindow::returnToPreviousWindow()
 {
-    int index = this->stackedWidget->currentIndex() + 1;
+    int index = this->stackedWidget->currentIndex() - 1;
     this->stackedWidget->setCurrentIndex(index);
 }
 void MainWindow::goToNextWindow()
 {
 
-    int index = this->stackedWidget->currentIndex() - 1;
+    int index = this->stackedWidget->currentIndex() + 1;
     this->stackedWidget->setCurrentIndex(index);
 }
 MainWindow::~MainWindow()
 {
     delete ui;
 }
+

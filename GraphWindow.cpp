@@ -13,18 +13,18 @@ GraphWindow::GraphWindow(Graph *graph1, QWidget *parent)
 {
     ui->setupUi(this);
 
-    for (auto i = graph->adjacencyList.begin(); i != graph->adjacencyList.end(); i++)
-    {
-        QString item = QString::fromStdString(i->first);
+//     for (auto i = graph->adjacencyList.begin(); i != graph->adjacencyList.end(); i++)
+//     {
+//         QString item = QString::fromStdString(i->first);
 
-        ui->addEdgeV1Combo->addItem(item);
-        ui->addEdgeV2Combo->addItem(item);
-        ui->deleteEdgeV1Combo->addItem(item);
-        ui->deleteEdgeV2Combo->addItem(item);
-        ui->deleteVertexCombo->addItem(item);
-    }
+//     ui->addEdgeV1Combo->addItem(item);
+//     ui->addEdgeV2Combo->addItem(item);
+//  ui->deleteEdgeV1Combo->addItem(item);
+// ui->deleteEdgeV2Combo->addItem(item);
+// ui->deleteVertexCombo->addItem(item);
+//     }
 
-    queue<Edge> copiedEdges = graph->DFStraversal("alexandria");
+    //queue<Edge> copiedEdges = graph->DFStraversal("alexandria");
 
     int xOffset =  ui->frame->x() + ui->frame->lineWidth() * 2;
     int yOffset = ui->frame->y() + ui->frame->lineWidth() * 2;
@@ -37,10 +37,10 @@ GraphWindow::GraphWindow(Graph *graph1, QWidget *parent)
     xyPlaneDrawer->resize(width + xOffset, height + 30 );
     xyPlaneDrawer->move(0, yOffset - 30);
 
-    staticGraphDrawer = new GraphDrawer(this, "alexandria", graph,  xOffset, 30, false);
-    staticGraphDrawer->resize(width + xOffset, height + 30 );
-    staticGraphDrawer->move(0, yOffset - 30);
-    staticGraphDrawer->unconnectedGraph();
+     staticGraphDrawer = new GraphDrawer(this, graph,  xOffset, 30, false);
+     staticGraphDrawer->resize(width + xOffset, height + 30 );
+     staticGraphDrawer->move(0, yOffset - 30);
+     staticGraphDrawer->unconnectedGraph();
 
 
     timer = new QTimer(this);
@@ -114,9 +114,17 @@ void GraphWindow::addVertex()
         ui->deleteVertexCombo->addItem(Name);
     }
 
+
+
     graph->insertVertex(name, x, y);
+
+    if(graph->adjacencyList.size()==1)
+    {
+        staticGraphDrawer->changeStartingVertex(graph->adjacencyList.begin()->first,"DFS");
+    }
     staticGraphDrawer->unconnectedGraph();
     staticGraphDrawer->update();
+
     // cout<<"Vertex: \""<<name<<"\" is now added\n";
 }
 
@@ -173,4 +181,24 @@ GraphWindow::~GraphWindow()
     delete staticGraphDrawer;
     delete timer;
     delete xyPlaneDrawer;
+}
+
+
+void GraphWindow::setGraph(Graph* graph)
+{
+    if(graph->adjacencyList.empty())
+    {
+        *this->graph = Graph();
+    }
+    else
+    {
+        cout <<"does it gors here";
+        *this->graph = *graph;
+        staticGraphDrawer->changeStartingVertex(graph->adjacencyList.begin()->first,"DFS");
+        staticGraphDrawer->unconnectedGraph();
+        staticGraphDrawer->update();
+
+    }
+    cout<<"out side the if cond\n";
+    cout<<graph->adjacencyList.empty();
 }

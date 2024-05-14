@@ -2,6 +2,10 @@
 #define STARTWINDOWMENU_H
 
 #include <QMainWindow>
+#include<string>
+#include<unordered_map>
+#include"Graph.h"
+#include<iostream>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -16,8 +20,13 @@ class HomeWindow : public QMainWindow
 public:
     HomeWindow(QWidget *parent = nullptr);
     ~HomeWindow();
+    unordered_map<string,Graph*> graphs;
 
-private slots:
+signals:
+
+    void setGraph(Graph* );
+
+public slots:
 
 
     void on_addButton_clicked();

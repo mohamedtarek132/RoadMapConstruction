@@ -1,0 +1,401 @@
+/****************************************************************************
+** Meta object code from reading C++ file 'AlgorithmWindow.h'
+**
+** Created by: The Qt Meta Object Compiler version 68 (Qt 6.6.2)
+**
+** WARNING! All changes made in this file will be lost!
+*****************************************************************************/
+
+#include "../../../../AlgorithmWindow.h"
+#include <QtCore/qmetatype.h>
+
+#if __has_include(<QtCore/qtmochelpers.h>)
+#include <QtCore/qtmochelpers.h>
+#else
+QT_BEGIN_MOC_NAMESPACE
+#endif
+
+
+#include <memory>
+
+#if !defined(Q_MOC_OUTPUT_REVISION)
+#error "The header file 'AlgorithmWindow.h' doesn't include <QObject>."
+#elif Q_MOC_OUTPUT_REVISION != 68
+#error "This file was generated using the moc from 6.6.2. It"
+#error "cannot be used with the include files from this version of Qt."
+#error "(The moc has changed too much.)"
+#endif
+
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+QT_WARNING_DISABLE_GCC("-Wuseless-cast")
+namespace {
+
+#ifdef QT_MOC_HAS_STRINGDATA
+struct qt_meta_stringdata_CLASSXYPlaneDrawerENDCLASS_t {};
+constexpr auto qt_meta_stringdata_CLASSXYPlaneDrawerENDCLASS = QtMocHelpers::stringData(
+    "XYPlaneDrawer"
+);
+#else  // !QT_MOC_HAS_STRING_DATA
+struct qt_meta_stringdata_CLASSXYPlaneDrawerENDCLASS_t {
+    uint offsetsAndSizes[2];
+    char stringdata0[14];
+};
+#define QT_MOC_LITERAL(ofs, len) \
+    uint(sizeof(qt_meta_stringdata_CLASSXYPlaneDrawerENDCLASS_t::offsetsAndSizes) + ofs), len 
+Q_CONSTINIT static const qt_meta_stringdata_CLASSXYPlaneDrawerENDCLASS_t qt_meta_stringdata_CLASSXYPlaneDrawerENDCLASS = {
+    {
+        QT_MOC_LITERAL(0, 13)   // "XYPlaneDrawer"
+    },
+    "XYPlaneDrawer"
+};
+#undef QT_MOC_LITERAL
+#endif // !QT_MOC_HAS_STRING_DATA
+} // unnamed namespace
+
+Q_CONSTINIT static const uint qt_meta_data_CLASSXYPlaneDrawerENDCLASS[] = {
+
+ // content:
+      12,       // revision
+       0,       // classname
+       0,    0, // classinfo
+       0,    0, // methods
+       0,    0, // properties
+       0,    0, // enums/sets
+       0,    0, // constructors
+       0,       // flags
+       0,       // signalCount
+
+       0        // eod
+};
+
+Q_CONSTINIT const QMetaObject XYPlaneDrawer::staticMetaObject = { {
+    QMetaObject::SuperData::link<QWidget::staticMetaObject>(),
+    qt_meta_stringdata_CLASSXYPlaneDrawerENDCLASS.offsetsAndSizes,
+    qt_meta_data_CLASSXYPlaneDrawerENDCLASS,
+    qt_static_metacall,
+    nullptr,
+    qt_incomplete_metaTypeArray<qt_meta_stringdata_CLASSXYPlaneDrawerENDCLASS_t,
+        // Q_OBJECT / Q_GADGET
+        QtPrivate::TypeAndForceComplete<XYPlaneDrawer, std::true_type>
+    >,
+    nullptr
+} };
+
+void XYPlaneDrawer::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    (void)_o;
+    (void)_id;
+    (void)_c;
+    (void)_a;
+}
+
+const QMetaObject *XYPlaneDrawer::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *XYPlaneDrawer::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_meta_stringdata_CLASSXYPlaneDrawerENDCLASS.stringdata0))
+        return static_cast<void*>(this);
+    return QWidget::qt_metacast(_clname);
+}
+
+int XYPlaneDrawer::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QWidget::qt_metacall(_c, _id, _a);
+    return _id;
+}
+namespace {
+
+#ifdef QT_MOC_HAS_STRINGDATA
+struct qt_meta_stringdata_CLASSGraphDrawerENDCLASS_t {};
+constexpr auto qt_meta_stringdata_CLASSGraphDrawerENDCLASS = QtMocHelpers::stringData(
+    "GraphDrawer",
+    "callPaintEvent",
+    "",
+    "changeToDynamic",
+    "changeToStatic"
+);
+#else  // !QT_MOC_HAS_STRING_DATA
+struct qt_meta_stringdata_CLASSGraphDrawerENDCLASS_t {
+    uint offsetsAndSizes[10];
+    char stringdata0[12];
+    char stringdata1[15];
+    char stringdata2[1];
+    char stringdata3[16];
+    char stringdata4[15];
+};
+#define QT_MOC_LITERAL(ofs, len) \
+    uint(sizeof(qt_meta_stringdata_CLASSGraphDrawerENDCLASS_t::offsetsAndSizes) + ofs), len 
+Q_CONSTINIT static const qt_meta_stringdata_CLASSGraphDrawerENDCLASS_t qt_meta_stringdata_CLASSGraphDrawerENDCLASS = {
+    {
+        QT_MOC_LITERAL(0, 11),  // "GraphDrawer"
+        QT_MOC_LITERAL(12, 14),  // "callPaintEvent"
+        QT_MOC_LITERAL(27, 0),  // ""
+        QT_MOC_LITERAL(28, 15),  // "changeToDynamic"
+        QT_MOC_LITERAL(44, 14)   // "changeToStatic"
+    },
+    "GraphDrawer",
+    "callPaintEvent",
+    "",
+    "changeToDynamic",
+    "changeToStatic"
+};
+#undef QT_MOC_LITERAL
+#endif // !QT_MOC_HAS_STRING_DATA
+} // unnamed namespace
+
+Q_CONSTINIT static const uint qt_meta_data_CLASSGraphDrawerENDCLASS[] = {
+
+ // content:
+      12,       // revision
+       0,       // classname
+       0,    0, // classinfo
+       3,   14, // methods
+       0,    0, // properties
+       0,    0, // enums/sets
+       0,    0, // constructors
+       0,       // flags
+       0,       // signalCount
+
+ // slots: name, argc, parameters, tag, flags, initial metatype offsets
+       1,    0,   32,    2, 0x0a,    1 /* Public */,
+       3,    0,   33,    2, 0x0a,    2 /* Public */,
+       4,    0,   34,    2, 0x0a,    3 /* Public */,
+
+ // slots: parameters
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+
+       0        // eod
+};
+
+Q_CONSTINIT const QMetaObject GraphDrawer::staticMetaObject = { {
+    QMetaObject::SuperData::link<QWidget::staticMetaObject>(),
+    qt_meta_stringdata_CLASSGraphDrawerENDCLASS.offsetsAndSizes,
+    qt_meta_data_CLASSGraphDrawerENDCLASS,
+    qt_static_metacall,
+    nullptr,
+    qt_incomplete_metaTypeArray<qt_meta_stringdata_CLASSGraphDrawerENDCLASS_t,
+        // Q_OBJECT / Q_GADGET
+        QtPrivate::TypeAndForceComplete<GraphDrawer, std::true_type>,
+        // method 'callPaintEvent'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'changeToDynamic'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'changeToStatic'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>
+    >,
+    nullptr
+} };
+
+void GraphDrawer::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        auto *_t = static_cast<GraphDrawer *>(_o);
+        (void)_t;
+        switch (_id) {
+        case 0: _t->callPaintEvent(); break;
+        case 1: _t->changeToDynamic(); break;
+        case 2: _t->changeToStatic(); break;
+        default: ;
+        }
+    }
+    (void)_a;
+}
+
+const QMetaObject *GraphDrawer::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *GraphDrawer::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_meta_stringdata_CLASSGraphDrawerENDCLASS.stringdata0))
+        return static_cast<void*>(this);
+    return QWidget::qt_metacast(_clname);
+}
+
+int GraphDrawer::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QWidget::qt_metacall(_c, _id, _a);
+    if (_id < 0)
+        return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        if (_id < 3)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 3;
+    } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        if (_id < 3)
+            *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
+        _id -= 3;
+    }
+    return _id;
+}
+namespace {
+
+#ifdef QT_MOC_HAS_STRINGDATA
+struct qt_meta_stringdata_CLASSAlgorithmWindowENDCLASS_t {};
+constexpr auto qt_meta_stringdata_CLASSAlgorithmWindowENDCLASS = QtMocHelpers::stringData(
+    "AlgorithmWindow",
+    "backButtonPressed",
+    "",
+    "changeAlgorithm",
+    "changeStartingVertex",
+    "setStartPointCombo"
+);
+#else  // !QT_MOC_HAS_STRING_DATA
+struct qt_meta_stringdata_CLASSAlgorithmWindowENDCLASS_t {
+    uint offsetsAndSizes[12];
+    char stringdata0[16];
+    char stringdata1[18];
+    char stringdata2[1];
+    char stringdata3[16];
+    char stringdata4[21];
+    char stringdata5[19];
+};
+#define QT_MOC_LITERAL(ofs, len) \
+    uint(sizeof(qt_meta_stringdata_CLASSAlgorithmWindowENDCLASS_t::offsetsAndSizes) + ofs), len 
+Q_CONSTINIT static const qt_meta_stringdata_CLASSAlgorithmWindowENDCLASS_t qt_meta_stringdata_CLASSAlgorithmWindowENDCLASS = {
+    {
+        QT_MOC_LITERAL(0, 15),  // "AlgorithmWindow"
+        QT_MOC_LITERAL(16, 17),  // "backButtonPressed"
+        QT_MOC_LITERAL(34, 0),  // ""
+        QT_MOC_LITERAL(35, 15),  // "changeAlgorithm"
+        QT_MOC_LITERAL(51, 20),  // "changeStartingVertex"
+        QT_MOC_LITERAL(72, 18)   // "setStartPointCombo"
+    },
+    "AlgorithmWindow",
+    "backButtonPressed",
+    "",
+    "changeAlgorithm",
+    "changeStartingVertex",
+    "setStartPointCombo"
+};
+#undef QT_MOC_LITERAL
+#endif // !QT_MOC_HAS_STRING_DATA
+} // unnamed namespace
+
+Q_CONSTINIT static const uint qt_meta_data_CLASSAlgorithmWindowENDCLASS[] = {
+
+ // content:
+      12,       // revision
+       0,       // classname
+       0,    0, // classinfo
+       4,   14, // methods
+       0,    0, // properties
+       0,    0, // enums/sets
+       0,    0, // constructors
+       0,       // flags
+       1,       // signalCount
+
+ // signals: name, argc, parameters, tag, flags, initial metatype offsets
+       1,    0,   38,    2, 0x06,    1 /* Public */,
+
+ // slots: name, argc, parameters, tag, flags, initial metatype offsets
+       3,    0,   39,    2, 0x0a,    2 /* Public */,
+       4,    0,   40,    2, 0x0a,    3 /* Public */,
+       5,    0,   41,    2, 0x0a,    4 /* Public */,
+
+ // signals: parameters
+    QMetaType::Void,
+
+ // slots: parameters
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+
+       0        // eod
+};
+
+Q_CONSTINIT const QMetaObject AlgorithmWindow::staticMetaObject = { {
+    QMetaObject::SuperData::link<QMainWindow::staticMetaObject>(),
+    qt_meta_stringdata_CLASSAlgorithmWindowENDCLASS.offsetsAndSizes,
+    qt_meta_data_CLASSAlgorithmWindowENDCLASS,
+    qt_static_metacall,
+    nullptr,
+    qt_incomplete_metaTypeArray<qt_meta_stringdata_CLASSAlgorithmWindowENDCLASS_t,
+        // Q_OBJECT / Q_GADGET
+        QtPrivate::TypeAndForceComplete<AlgorithmWindow, std::true_type>,
+        // method 'backButtonPressed'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'changeAlgorithm'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'changeStartingVertex'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'setStartPointCombo'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>
+    >,
+    nullptr
+} };
+
+void AlgorithmWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        auto *_t = static_cast<AlgorithmWindow *>(_o);
+        (void)_t;
+        switch (_id) {
+        case 0: _t->backButtonPressed(); break;
+        case 1: _t->changeAlgorithm(); break;
+        case 2: _t->changeStartingVertex(); break;
+        case 3: _t->setStartPointCombo(); break;
+        default: ;
+        }
+    } else if (_c == QMetaObject::IndexOfMethod) {
+        int *result = reinterpret_cast<int *>(_a[0]);
+        {
+            using _t = void (AlgorithmWindow::*)();
+            if (_t _q_method = &AlgorithmWindow::backButtonPressed; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
+                *result = 0;
+                return;
+            }
+        }
+    }
+    (void)_a;
+}
+
+const QMetaObject *AlgorithmWindow::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *AlgorithmWindow::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_meta_stringdata_CLASSAlgorithmWindowENDCLASS.stringdata0))
+        return static_cast<void*>(this);
+    return QMainWindow::qt_metacast(_clname);
+}
+
+int AlgorithmWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QMainWindow::qt_metacall(_c, _id, _a);
+    if (_id < 0)
+        return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        if (_id < 4)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 4;
+    } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        if (_id < 4)
+            *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
+        _id -= 4;
+    }
+    return _id;
+}
+
+// SIGNAL 0
+void AlgorithmWindow::backButtonPressed()
+{
+    QMetaObject::activate(this, &staticMetaObject, 0, nullptr);
+}
+QT_WARNING_POP

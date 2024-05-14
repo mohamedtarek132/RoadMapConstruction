@@ -4,6 +4,10 @@
 #include <QMainWindow>
 #include <QStackedWidget>
 #include <QTimer>
+#include "ui_MainWindow.h"
+#include "AlgorithmWindow.h"
+#include "GraphWindow.h"
+#include "startwindowmenu.h"
 
 namespace Ui {
 class MainWindow2;
@@ -20,10 +24,15 @@ public:
 public slots:
     void returnToPreviousWindow();
     void goToNextWindow();
+    void saveGraph();
 private:
     Ui::MainWindow2 *ui;
     QStackedWidget *stackedWidget;
     QTimer *timer;
+    Graph *graph;
+    HomeWindow *homeWindow;
+    AlgorithmWindow *algorithmWindow;
+    GraphWindow *graphWindow;
 };
 
 #endif // MAINWINDOW_H

@@ -14,10 +14,13 @@ class GraphWindow : public QMainWindow
     Q_OBJECT
 
 public:
+    Graph *graph;
+    string graphName;
+
     explicit GraphWindow(Graph *graph = nullptr, QWidget *parent = nullptr);
     ~GraphWindow();
     void mousePressEvent(QMouseEvent *);
-    void setGraph(Graph*);
+    void setGraph(Graph*, string);
 signals:
     void homeButtonPressed();
     void algorithmsButtonPressed();
@@ -29,11 +32,10 @@ public slots:
     void editCombobox();
 
 private:
-    Ui::GraphWindow *ui;
-    Graph *graph;
     QTimer *timer;
     GraphDrawer *staticGraphDrawer;
     XYPlaneDrawer *xyPlaneDrawer;
+    Ui::GraphWindow *ui;
 };
 
 #endif // GRAPHWINDOW_H

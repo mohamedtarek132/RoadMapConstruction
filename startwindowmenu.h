@@ -24,7 +24,7 @@ public:
 
 signals:
 
-    void setGraph(Graph* );
+    void setGraph(Graph*, string );
 
 public slots:
 

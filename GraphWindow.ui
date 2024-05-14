@@ -17,7 +17,7 @@
    <string notr="true">background-color: rgb(21, 52, 72);</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QLabel" name="label">
+   <widget class="QLabel" name="graphNameLabel">
     <property name="geometry">
      <rect>
       <x>30</x>
@@ -110,7 +110,9 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(53, 73, 84);</string>
+     <string notr="true">background-color: rgb(53, 73, 84);
+selection-background-color: rgb(53, 73, 84);
+</string>
     </property>
     <property name="editable">
      <bool>false</bool>
@@ -132,7 +134,9 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(53, 73, 84);</string>
+     <string notr="true">background-color: rgb(53, 73, 84);
+selection-background-color: rgb(53, 73, 84);
+</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_3">
@@ -208,7 +212,9 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(53, 73, 84);</string>
+     <string notr="true">background-color: rgb(53, 73, 84);
+selection-background-color: rgb(53, 73, 84);
+</string>
     </property>
    </widget>
    <widget class="QComboBox" name="deleteEdgeV2Combo">
@@ -221,7 +227,9 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(53, 73, 84);</string>
+     <string notr="true">background-color: rgb(53, 73, 84);
+selection-background-color: rgb(53, 73, 84);
+</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_7">
@@ -290,7 +298,9 @@
     </property>
     <property name="styleSheet">
      <string notr="true">background-color: rgb(223, 208, 184);
- border-radius: 10px;</string>
+ border-radius: 10px;
+color: rgb(0, 0, 0);
+</string>
     </property>
    </widget>
    <widget class="Line" name="line">
@@ -344,7 +354,9 @@
     </property>
     <property name="styleSheet">
      <string notr="true">background-color: rgb(223, 208, 184);
- border-radius: 10px;</string>
+ border-radius: 10px;
+color: rgb(0, 0, 0);
+</string>
     </property>
     <property name="inputMask">
      <string/>
@@ -361,7 +373,9 @@
     </property>
     <property name="styleSheet">
      <string notr="true">background-color: rgb(223, 208, 184);
- border-radius: 10px;</string>
+ border-radius: 10px;
+color: rgb(0, 0, 0);
+</string>
     </property>
     <property name="inputMask">
      <string/>
@@ -378,6 +392,7 @@
     </property>
     <property name="styleSheet">
      <string notr="true">background-color: rgb(223, 208, 184);
+color: rgb(0, 0, 0);
  border-radius: 10px;</string>
     </property>
     <property name="inputMask">
@@ -470,7 +485,9 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(53, 73, 84);</string>
+     <string notr="true">background-color: rgb(53, 73, 84);
+selection-background-color: rgb(53, 73, 84);
+</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_14">
@@ -536,7 +553,7 @@
      <string notr="true">background-color: rgb(53, 73, 84);</string>
     </property>
     <property name="text">
-     <string>Algortims</string>
+     <string>Algorithms</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_15">
@@ -590,6 +607,9 @@
       <pointsize>10</pointsize>
      </font>
     </property>
+    <property name="visible">
+     <bool>false</bool>
+    </property>
     <property name="styleSheet">
      <string notr="true">color: rgb(255, 0, 0);</string>
     </property>
@@ -598,9 +618,6 @@
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
-    </property>
-    <property name="visible">
-     <bool>false</bool>
     </property>
    </widget>
   </widget>

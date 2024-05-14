@@ -184,21 +184,40 @@ GraphWindow::~GraphWindow()
 }
 
 
-void GraphWindow::setGraph(Graph* graph)
+void GraphWindow::setGraph(Graph* graph, string graphName)
 {
-    if(graph->adjacencyList.empty())
-    {
-        *this->graph = Graph();
-    }
-    else
-    {
-        cout <<"does it gors here";
-        *this->graph = *graph;
-        staticGraphDrawer->changeStartingVertex(graph->adjacencyList.begin()->first,"DFS");
-        staticGraphDrawer->unconnectedGraph();
-        staticGraphDrawer->update();
+    cout <<"does it gors here";
 
+    *this->graph = *graph;
+    this->graphName = graphName;
+    this->ui->graphNameLabel->setText(QString::fromStdString(graphName));
+
+    if(!(graph->adjacencyList.empty()))
+    {
+        staticGraphDrawer->changeStartingVertex(graph->adjacencyList.begin()->first,"DFS");
     }
-    cout<<"out side the if cond\n";
-    cout<<graph->adjacencyList.empty();
+
+    staticGraphDrawer->unconnectedGraph();
+    staticGraphDrawer->update();
+
+    ui->addEdgeV1Combo->clear();
+    ui->addEdgeV2Combo->clear();
+    ui->deleteEdgeV1Combo->clear();
+    ui->deleteEdgeV2Combo->clear();
+    ui->deleteVertexCombo->clear();
+    ui->edgeLength->clear();
+    ui->vertexName->clear();
+    ui->xPosition->clear();
+    ui->yPosition->clear();
+
+    for (auto i = graph->adjacencyList.begin(); i != graph->adjacencyList.end(); i++)
+    {
+        QString item = QString::fromStdString(i->first);
+
+        ui->addEdgeV1Combo->addItem(item);
+        ui->addEdgeV2Combo->addItem(item);
+        ui->deleteEdgeV1Combo->addItem(item);
+        ui->deleteEdgeV2Combo->addItem(item);
+        ui->deleteVertexCombo->addItem(item);
+    }
 }

@@ -14,13 +14,13 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-    Graph *graph = new Graph();
+    graph = new Graph();
 
-    HomeWindow *homeWindow = new HomeWindow();
+    homeWindow = new HomeWindow();
 
-    AlgorithmWindow *algorithmWindow = new AlgorithmWindow(graph);
+    algorithmWindow = new AlgorithmWindow(graph);
 
-    GraphWindow *graphWindow = new GraphWindow(graph);
+    graphWindow = new GraphWindow(graph);
 
     stackedWidget = new QStackedWidget(this);
 
@@ -33,6 +33,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(algorithmWindow, &AlgorithmWindow::backButtonPressed, this, &MainWindow::returnToPreviousWindow);
     connect(graphWindow, &GraphWindow::algorithmsButtonPressed, this, &MainWindow::goToNextWindow);
     connect(graphWindow, &GraphWindow::homeButtonPressed, this, &MainWindow::returnToPreviousWindow);
+    connect(graphWindow, &GraphWindow::homeButtonPressed, this, &MainWindow::saveGraph);
     connect(homeWindow,&HomeWindow::setGraph,graphWindow,&GraphWindow::setGraph);
     connect(homeWindow,&HomeWindow::setGraph,this,&MainWindow::goToNextWindow);
     connect(graphWindow, &GraphWindow::algorithmsButtonPressed, algorithmWindow, &AlgorithmWindow::setStartPointCombo);
@@ -63,6 +64,10 @@ void MainWindow::goToNextWindow()
 
     int index = this->stackedWidget->currentIndex() + 1;
     this->stackedWidget->setCurrentIndex(index);
+}
+void MainWindow::saveGraph()
+{
+    *homeWindow->graphs[graphWindow->graphName] = *(graphWindow->graph);
 }
 MainWindow::~MainWindow()
 {

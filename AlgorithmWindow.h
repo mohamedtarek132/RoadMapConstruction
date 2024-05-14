@@ -28,6 +28,7 @@ public:
 
     XYPlaneDrawer(QWidget *parent, int size, int xOffset, int yOffset, int width, int height);
     void paintEvent(QPaintEvent*);
+
 };
 
 
@@ -44,7 +45,7 @@ public:
     bool dynamic;
     string startingVertex;
 
-    GraphDrawer(QWidget *parent,  string startingVertex, Graph *graph, int xOffset, int yOffset, bool dynamic);
+    GraphDrawer(QWidget *parent,   Graph *graph, int xOffset, int yOffset, bool dynamic);
     void paintEvent(QPaintEvent*);
     void changeAlgorithm(string);
     void changeStartingVertex(string, string);
@@ -74,6 +75,7 @@ signals:
 public slots:
     void changeAlgorithm();
     void changeStartingVertex();
+    void setStartPointCombo();
 
 private:
     GraphDrawer *graphDrawer;

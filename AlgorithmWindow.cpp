@@ -6,14 +6,14 @@
 #include <QPoint>
 #include <QPushButton>
 #include <QPainter>
-#include <QtWidgets>
+//#include <QtWidgets>
 #include <QWidget>
 #include <queue>
 #include <QString>
 #include <QFont>
 #include <QTimer>
 #include <set>
-#include <iostream>
+
 using namespace std;
 
 
@@ -47,9 +47,8 @@ void XYPlaneDrawer::paintEvent(QPaintEvent* pQEvent)
     }
 }
 
-GraphDrawer::GraphDrawer(QWidget *parent,  string startingVertex, Graph *graph, int xOffset, int yOffset, bool dynamic)
-    : QWidget(parent),startingVertex(startingVertex), graph(graph), xOffset(xOffset), yOffset(yOffset), dynamic(dynamic),
-    edges(graph->DFStraversal(startingVertex)){}
+GraphDrawer::GraphDrawer(QWidget *parent,  Graph *graph, int xOffset, int yOffset, bool dynamic)
+    : QWidget(parent), graph(graph), xOffset(xOffset), yOffset(yOffset), dynamic(dynamic){}
 
 void GraphDrawer::paintEvent(QPaintEvent* pQEvent)
 {
@@ -118,7 +117,7 @@ void GraphDrawer::paintEvent(QPaintEvent* pQEvent)
     else{
         counter = -1;
         shownEdges = edges;
-        //cout << shownEdges.size();
+
     }
 
     while(!shownEdges.empty())
@@ -211,17 +210,17 @@ void GraphDrawer::changeAlgorithm(string algorithm)
 {
     if (algorithm == "BFS")
     {
-        cout<<"Hello BFS\n";
+
         edges = graph->BFStraversal(startingVertex);
     }
     else if (algorithm == "DFS")
     {
-        cout<<"Hello DFS\n";
+
         edges = graph->DFStraversal(startingVertex);
     }
     else if (algorithm == "Prim")
     {
-        cout<<"Hello Prim\n";
+
         edges = graph->PrimMinimumSpanningTree(startingVertex);
     }
     else
@@ -295,23 +294,23 @@ AlgorithmWindow::AlgorithmWindow(Graph *graph, QWidget *parent)
     // graph->insertEdge("d", "f", 3);
     // graph->insertEdge("e", "f", 3);
 
-    graph->insertVertex("alexandria", 0, 0);
-    graph->insertVertex("banha", 60, 80);
-    graph->insertVertex("cairo", 120, 140);
-    graph->insertVertex("damanhoor", 20, 300);
-    graph->insertVertex("elmansoura", 700, 50);
-    graph->insertVertex("fayoum", 50, 200);
-    graph->insertVertex("ana", 300, 300);
-    //cout<<"Why are we here????\n";
+    // graph->insertVertex("alexandria", 0, 0);
+    // graph->insertVertex("banha", 60, 80);
+    // graph->insertVertex("cairo", 120, 140);
+    // graph->insertVertex("damanhoor", 20, 300);
+    // graph->insertVertex("elmansoura", 700, 50);
+    // graph->insertVertex("fayoum", 50, 200);
+    // graph->insertVertex("ana", 300, 300);
+    // //cout<<"Why are we here????\n";
 
-    graph->insertEdge("alexandria", "banha", 4);
-    graph->insertEdge("alexandria", "cairo", 4);
-    graph->insertEdge("banha", "cairo", 2);
-    graph->insertEdge("cairo", "damanhoor", 3);
-    graph->insertEdge("cairo", "elmansoura", 2);
-    graph->insertEdge("cairo", "fayoum", 4);
-    graph->insertEdge("damanhoor", "fayoum", 3);
-    graph->insertEdge("elmansoura", "fayoum", 3);
+    // graph->insertEdge("alexandria", "banha", 4);
+    // graph->insertEdge("alexandria", "cairo", 4);
+    // graph->insertEdge("banha", "cairo", 2);
+    // graph->insertEdge("cairo", "damanhoor", 3);
+    // graph->insertEdge("cairo", "elmansoura", 2);
+    // graph->insertEdge("cairo", "fayoum", 4);
+    // graph->insertEdge("damanhoor", "fayoum", 3);
+    // graph->insertEdge("elmansoura", "fayoum", 3);
 
     // cout<<"Why are we here\n";
     ui->comboBox->addItem("DFS");
@@ -341,9 +340,9 @@ AlgorithmWindow::AlgorithmWindow(Graph *graph, QWidget *parent)
     xOffset =  ui->frame->x() + ui->frame->lineWidth() * 2.5;
     yOffset = ui->frame->y() + ui->frame->lineWidth() * 2.5;
 
-    string startingVertex = graph->adjacencyList.begin()->first;
+    //string startingVertex = graph->adjacencyList.begin()->first;
 
-    graphDrawer = new GraphDrawer(this, startingVertex, graph, xOffset, yOffset-60, true);
+    graphDrawer = new GraphDrawer(this, graph, xOffset, yOffset-60, true);
     graphDrawer->resize(1024, 550);
     graphDrawer->move(0, 60);
 
@@ -397,4 +396,19 @@ AlgorithmWindow::~AlgorithmWindow()
     delete graph;
     delete xyPlaneDrawer;
     delete timer;
+}
+
+void AlgorithmWindow::setStartPointCombo()
+{
+    string algorithm = ui->comboBox->currentText().toStdString();
+    string vertex = graph->adjacencyList.begin()->first;
+    graphDrawer->changeStartingVertex(vertex, algorithm);
+
+    for(auto i = graph->adjacencyList.begin();i != graph->adjacencyList.end();i++)
+    {
+        QString item = QString::fromStdString(i->first);
+
+        ui->startPointCombo->addItem(item);
+        ui->endPointCombo->addItem(item);
+    }
 }

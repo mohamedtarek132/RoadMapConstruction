@@ -89,7 +89,7 @@ border-radius:10;
     </property>
     <property name="icon">
      <iconset>
-      <normaloff>../../../My Downloads/more.png</normaloff>../../../My Downloads/more.png</iconset>
+      <normaloff>icons/more.png</normaloff>icons/more.png</iconset>
     </property>
     <property name="iconSize">
      <size>
@@ -134,7 +134,7 @@ font-weight:bold;</string>
     </property>
     <property name="icon">
      <iconset>
-      <normaloff>../../../My Downloads/editing.png</normaloff>../../../My Downloads/editing.png</iconset>
+      <normaloff>icons/editing.png</normaloff>icons/editing.png</iconset>
     </property>
     <property name="iconSize">
      <size>
@@ -176,7 +176,7 @@ border-radius:10;</string>
     </property>
     <property name="icon">
      <iconset>
-      <normaloff>../../../My Downloads/delete.png</normaloff>../../../My Downloads/delete.png</iconset>
+      <normaloff>icons/delete.png</normaloff>icons/delete.png</iconset>
     </property>
     <property name="iconSize">
      <size>
@@ -218,7 +218,7 @@ border-radius:10;</string>
     </property>
     <property name="icon">
      <iconset>
-      <normaloff>../../../My Downloads/exit.png</normaloff>../../../My Downloads/exit.png</iconset>
+      <normaloff>icons/exit.png</normaloff>icons/exit.png</iconset>
     </property>
     <property name="iconSize">
      <size>
@@ -367,7 +367,7 @@ font-weight:bold;</string>
     </property>
     <property name="icon">
      <iconset>
-      <normaloff>../../../My Downloads/visible.png</normaloff>../../../My Downloads/visible.png</iconset>
+      <normaloff>D:/My Downloads/visible.png</normaloff>D:/My Downloads/visible.png</iconset>
     </property>
     <property name="iconSize">
      <size>

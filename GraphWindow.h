@@ -17,6 +17,7 @@ public:
     explicit GraphWindow(Graph *graph = nullptr, QWidget *parent = nullptr);
     ~GraphWindow();
     void mousePressEvent(QMouseEvent *);
+    void setGraph(Graph*);
 signals:
     void homeButtonPressed();
     void algorithmsButtonPressed();

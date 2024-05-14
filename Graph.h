@@ -28,6 +28,7 @@ public:
 class Graph
 {
 public:
+
     unordered_map<string, list<Edge>> adjacencyList;
     unordered_map<string, pair<int, int>> positions;
 

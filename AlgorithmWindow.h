@@ -7,6 +7,7 @@
 #include <queue>
 #include "Graph.h"
 #include <QTimer>
+#include <QPushButton>
 
 
 QT_BEGIN_NAMESPACE
@@ -15,38 +16,44 @@ class AlgorithmWindow;
 }
 QT_END_NAMESPACE
 
-class StaticGraphDrawer : public QWidget
+class XYPlaneDrawer : public QWidget
 {
     Q_OBJECT
 public:
-    int x1, x2, y1, y2;
-    std::queue<Edge> edges;
-    Graph graph;
     int xOffset;
     int yOffset;
+    int size;
+    int width;
+    int height;
 
-    StaticGraphDrawer(QWidget *parent, int X1=0, int Y1=0, int X2=200, int Y2=200);
-    StaticGraphDrawer(QWidget *parent,  std::queue<Edge> Edges, Graph G, int xOffset, int yOffset);
+    XYPlaneDrawer(QWidget *parent, int size, int xOffset, int yOffset, int width, int height);
     void paintEvent(QPaintEvent*);
 };
 
 
-class DynamicGraphDrawer : public QWidget
+
+class GraphDrawer : public QWidget
 {
     Q_OBJECT
 public:
     int x1, x2, y1, y2;
     std::queue<Edge> edges;
-    Graph graph;
+    Graph *graph;
     int xOffset;
     int yOffset;
+    bool dynamic;
+    string startingVertex;
 
-    DynamicGraphDrawer(QWidget *parent, int X1=0, int Y1=0, int X2=200, int Y2=200);
-    DynamicGraphDrawer(QWidget *parent,  std::queue<Edge> Edges, Graph G, int xOffset, int yOffset);
+    GraphDrawer(QWidget *parent,  string startingVertex, Graph *graph, int xOffset, int yOffset, bool dynamic);
     void paintEvent(QPaintEvent*);
+    void changeAlgorithm(string);
+    void changeStartingVertex(string, string);
+    void unconnectedGraph();
 
-public slots:
+    public slots:
     void callPaintEvent();
+    void changeToDynamic();
+    void changeToStatic();
 };
 
 
@@ -54,18 +61,25 @@ class AlgorithmWindow : public QMainWindow
 {
     Q_OBJECT
 public:
-    AlgorithmWindow(Graph *graph = nullptr, QWidget *parent = nullptr );
+    Ui::AlgorithmWindow *ui;
+
+    AlgorithmWindow(Graph *graph = nullptr, QWidget *parent = nullptr);
     // void paintEvent(QPaintEvent*);
     ~AlgorithmWindow();
     void mousePressEvent(QMouseEvent *);
+
 signals:
-    void mousePressed();
+    void backButtonPressed();
+
+public slots:
+    void changeAlgorithm();
+    void changeStartingVertex();
+
 private:
-    StaticGraphDrawer *staticGraphDrawer;
-    DynamicGraphDrawer *dynamicGraphDrawer;
-    Ui::AlgorithmWindow *ui;
+    GraphDrawer *graphDrawer;
     QTimer *timer;
     Graph *graph;
+    XYPlaneDrawer *xyPlaneDrawer;
 };
 
 #endif // ALGORITHMWINDOW_H

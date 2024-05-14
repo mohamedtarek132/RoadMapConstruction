@@ -2,3 +2,4 @@
 #include "EWIEGA46WW/moc_AlgorithmWindow.cpp"
 #include "EWIEGA46WW/moc_GraphWindow.cpp"
 #include "EWIEGA46WW/moc_MainWindow.cpp"
+#include "EWIEGA46WW/moc_startwindowmenu.cpp"

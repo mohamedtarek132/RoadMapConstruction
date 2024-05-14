@@ -1,4 +1,3 @@
-
 #include "Graph.h"
 #include <vector>
 #include <iostream>
@@ -19,13 +18,17 @@ Edge::Edge()
     this->vertex2 = "";
     this->length = 0;
 }
-bool Edge::	operator < (Edge e)
+bool Edge::	comparetor(Edge edge1, Edge edge2)
 {
-    return length < e.length;
+    return edge1.length < edge2.length;
+}
+bool Edge::	operator < (Edge e) const
+{
+    return ((vertex1 + vertex2) < (e.getVertex1() + e.getVertex2()));
 }
 bool Edge::operator == (Edge e)
 {
-    return length == e.length;
+    return vertex1 == e.getVertex1() && vertex2 == e.getVertex2();
 }
 
 string Edge::getVertex1()
@@ -39,7 +42,6 @@ string Edge::getVertex2()
 
 void Graph::insertVertex(string vertex, int x, int y)
 {
-
     adjacencyList.insert(make_pair(vertex, list<Edge>()));
     positions[vertex] = make_pair(x, y);
 }
@@ -84,51 +86,48 @@ queue<Edge> Graph::PrimMinimumSpanningTree(string vertex)
     ///
     /// klklk
     ///
-    vector <string> visitedVerticies;
+    unordered_map<string,bool> visitedVerticies;
+
     queue<Edge> edgesOrder;
+
     vector<Edge> unusedAdjacentEdges;
 
-    auto currentNode = vertex;
-    visitedVerticies.push_back(currentNode);
+    string currentNode = vertex;
 
-    while (visitedVerticies.size() < adjacencyList.size())
+    int counter = adjacencyList.size();
+
+    visitedVerticies[currentNode] = true;
+
+    while (counter--)
     {
-
-        list<Edge> currentAdjacentEdges = adjacencyList[currentNode];
-
-        for (auto i = currentAdjacentEdges.begin(); i != currentAdjacentEdges.end(); i++)
+        for (auto i = adjacencyList[currentNode].begin(); i != adjacencyList[currentNode].end(); i++)
         {
             unusedAdjacentEdges.push_back(*i);
         }
-        sort(unusedAdjacentEdges.begin(), unusedAdjacentEdges.end());
+
+        sort(unusedAdjacentEdges.begin(), unusedAdjacentEdges.end(), Edge::comparetor);
+
         bool makeCycle = true;
 
-        while (makeCycle)
+        while (makeCycle && !unusedAdjacentEdges.empty())
         {
 
             Edge currentEdge = unusedAdjacentEdges[0];
 
-            bool foundVertex1 = count(visitedVerticies.begin(), visitedVerticies.end(), currentEdge.getVertex1()) != 0;
-            bool foundVertex2 = count(visitedVerticies.begin(), visitedVerticies.end(), currentEdge.getVertex2()) != 0;
+            bool foundVertex = visitedVerticies[currentEdge.getVertex2()];
 
-            if ((foundVertex1) ^ (foundVertex2))
+            if (!foundVertex)
             {
                 edgesOrder.push(currentEdge);
-                if (!foundVertex1)
-                {
-                    currentNode = currentEdge.getVertex1();
-                }
-                else
-                {
-                    currentNode = currentEdge.getVertex2();
-                }
-                visitedVerticies.push_back(currentNode);
+
+                currentNode = currentEdge.getVertex2();
+
+                visitedVerticies[currentNode] = true;
+
                 makeCycle = false;
             }
-            else
-            {
-                unusedAdjacentEdges.erase(unusedAdjacentEdges.begin());
-            }
+
+            unusedAdjacentEdges.erase(unusedAdjacentEdges.begin());
         }
     }
 
@@ -181,7 +180,6 @@ queue<Edge> Graph::BFStraversal(string first_node)
                 nodes.push(i->getVertex2());
                 visited[i->getVertex2()] = true;
                 edgeOrder.push(*i);
-                cout<<i->getVertex1() << ' ' << i->getVertex2() << endl;
             }
         }
     }
@@ -205,7 +203,6 @@ queue<Edge> Graph::DFStraversal(string first_node) {
 
         if (!visited[current])
         {
-            cout << current << " ";
             visited[current] = true;
         }
 
@@ -218,6 +215,13 @@ queue<Edge> Graph::DFStraversal(string first_node) {
             }
         }
     }
+
+    return edgeOrder;
+}
+
+queue<Edge> DijkstraShortestPath(string start, string end)
+{
+    queue<Edge> edgeOrder;
 
     return edgeOrder;
 }

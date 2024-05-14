@@ -2,6 +2,7 @@
 #include "ui_MainWindow.h"
 #include "AlgorithmWindow.h"
 #include "GraphWindow.h"
+#include "startwindowmenu.h"
 #include "Graph.h"
 #include <QStackedWidget>
 #include <QTimer>
@@ -15,6 +16,8 @@ MainWindow::MainWindow(QWidget *parent)
 
     Graph *graph = new Graph();
 
+    HomeWindow *homeWindow = new HomeWindow();
+
     AlgorithmWindow *algorithmWindow = new AlgorithmWindow(graph);
 
     GraphWindow *graphWindow = new GraphWindow(graph);
@@ -23,10 +26,13 @@ MainWindow::MainWindow(QWidget *parent)
 
     stackedWidget->addWidget(algorithmWindow);
     stackedWidget->addWidget(graphWindow);
+    stackedWidget->addWidget(homeWindow);
 
     this->setCentralWidget(stackedWidget);
 
-    connect(algorithmWindow, &AlgorithmWindow::mousePressed, this, &MainWindow::changeWindows);
+    connect(algorithmWindow, &AlgorithmWindow::backButtonPressed, this, &MainWindow::returnToPreviousWindow);
+    connect(graphWindow, &GraphWindow::algorithmsButtonPressed, this, &MainWindow::goToNextWindow);
+    connect(graphWindow, &GraphWindow::homeButtonPressed, this, &MainWindow::returnToPreviousWindow);
     // timer = new QTimer(this);
 
     // connect(timer, &QTimer::timeout, this, &MainWindow::changeWindows);
@@ -37,16 +43,22 @@ MainWindow::MainWindow(QWidget *parent)
 void MainWindow::mousePressEvent(QMouseEvent *event)
 {
     QPoint point = QWidget::mapFromGlobal(QCursor::pos());
-    cout << 1;
     // l->x2 = point.x();
     // l->y2 = point.y();
     // l->update();
     // event->pos();
     //stuff
 }
-void MainWindow::changeWindows()
+void MainWindow::returnToPreviousWindow()
 {
-    this->stackedWidget->setCurrentIndex(1);
+    int index = this->stackedWidget->currentIndex() + 1;
+    this->stackedWidget->setCurrentIndex(index);
+}
+void MainWindow::goToNextWindow()
+{
+
+    int index = this->stackedWidget->currentIndex() - 1;
+    this->stackedWidget->setCurrentIndex(index);
 }
 MainWindow::~MainWindow()
 {

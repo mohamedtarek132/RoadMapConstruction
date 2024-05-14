@@ -18,7 +18,8 @@ public:
     void mousePressEvent(QMouseEvent *);
     ~MainWindow();
 public slots:
-    void changeWindows();
+    void returnToPreviousWindow();
+    void goToNextWindow();
 private:
     Ui::MainWindow2 *ui;
     QStackedWidget *stackedWidget;

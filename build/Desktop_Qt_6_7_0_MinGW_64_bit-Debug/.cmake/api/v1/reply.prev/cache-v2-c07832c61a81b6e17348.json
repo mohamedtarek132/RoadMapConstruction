@@ -151,7 +151,7 @@
 				},
 				{
 					"name" : "HELPSTRING",
-					"value" : "No help, variable specified on the command line."
+					"value" : "CXX compiler"
 				}
 			],
 			"type" : "STRING",
@@ -1027,7 +1027,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "C:/Qt/6.7.0/mingw_64;D:/Programs/QT/6.7.0/mingw_64"
+			"value" : "C:/Qt/6.7.0/mingw_64"
 		},
 		{
 			"name" : "CMAKE_PROJECT_DESCRIPTION",

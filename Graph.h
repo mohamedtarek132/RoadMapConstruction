@@ -20,8 +20,9 @@ public:
     string getVertex2();
 
     bool operator < (Edge e);
+    bool operator < (Edge e) const;
     bool operator == (Edge e);
-
+    static bool comparetor (Edge edge1, Edge edge2);
 };
 
 class Graph
@@ -37,6 +38,7 @@ public:
     queue<Edge> DFStraversal(string);
     queue<Edge> BFStraversal(string);
     queue<Edge> PrimMinimumSpanningTree(string);
+    queue<Edge> DijkstraShortestPath(string, string);
 };
 
 

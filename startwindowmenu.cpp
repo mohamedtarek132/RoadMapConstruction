@@ -62,7 +62,7 @@ void HomeWindow::on_displayButton_clicked()
 void HomeWindow::on_editButton_clicked()
 {
     string graphName = ui->graphList->currentItem()->text().toStdString();
-    cout<<graphName;
+    //cout<<graphName;
 
     emit setGraph(graphs[graphName], graphName);
 }

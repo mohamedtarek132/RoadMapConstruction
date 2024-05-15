@@ -384,8 +384,10 @@ void AlgorithmWindow::changeAlgorithm()
 
 void AlgorithmWindow::changeStartingVertex()
 {
+
     string algorithm = ui->comboBox->currentText().toStdString();
     string vertex = ui->startPointCombo->currentText().toStdString();
+    if (vertex.size() == 0)return;
 
     graphDrawer->changeStartingVertex(vertex, algorithm);
 }
@@ -400,9 +402,15 @@ AlgorithmWindow::~AlgorithmWindow()
 
 void AlgorithmWindow::setStartPointCombo()
 {
+    //<<"the first element is : "<<QString::toStdString(ui->startPointCombo->currentText())<<endl;
+
+    ui->startPointCombo->clear();
+    ui->endPointCombo->clear();
     string algorithm = ui->comboBox->currentText().toStdString();
     string vertex = graph->adjacencyList.begin()->first;
     graphDrawer->changeStartingVertex(vertex, algorithm);
+    graphDrawer->update();
+
 
     for(auto i = graph->adjacencyList.begin();i != graph->adjacencyList.end();i++)
     {

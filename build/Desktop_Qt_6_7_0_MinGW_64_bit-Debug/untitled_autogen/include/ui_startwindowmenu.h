@@ -75,7 +75,7 @@ public:
 "border-radius:10;\n"
 ""));
         QIcon icon;
-        icon.addFile(QString::fromUtf8("../../../My Downloads/more.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon.addFile(QString::fromUtf8("icons/more.png"), QSize(), QIcon::Normal, QIcon::Off);
         addButton->setIcon(icon);
         addButton->setIconSize(QSize(50, 50));
         editButton = new QPushButton(centralwidget);
@@ -89,7 +89,7 @@ public:
 "color:#153448;\n"
 "font-weight:bold;"));
         QIcon icon1;
-        icon1.addFile(QString::fromUtf8("../../../My Downloads/editing.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon1.addFile(QString::fromUtf8("icons/editing.png"), QSize(), QIcon::Normal, QIcon::Off);
         editButton->setIcon(icon1);
         editButton->setIconSize(QSize(50, 50));
         deleteButton = new QPushButton(centralwidget);
@@ -103,7 +103,7 @@ public:
 "border:#dfd0b8;\n"
 "border-radius:10;"));
         QIcon icon2;
-        icon2.addFile(QString::fromUtf8("../../../My Downloads/delete.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon2.addFile(QString::fromUtf8("icons/delete.png"), QSize(), QIcon::Normal, QIcon::Off);
         deleteButton->setIcon(icon2);
         deleteButton->setIconSize(QSize(50, 50));
         exitButton = new QPushButton(centralwidget);
@@ -117,7 +117,7 @@ public:
 "border:#dfd0b8;\n"
 "border-radius:10;"));
         QIcon icon3;
-        icon3.addFile(QString::fromUtf8("../../../My Downloads/exit.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon3.addFile(QString::fromUtf8("icons/exit.png"), QSize(), QIcon::Normal, QIcon::Off);
         exitButton->setIcon(icon3);
         exitButton->setIconSize(QSize(50, 50));
         label_2 = new QLabel(centralwidget);
@@ -174,7 +174,7 @@ public:
 "color:#153448;\n"
 "font-weight:bold;"));
         QIcon icon4;
-        icon4.addFile(QString::fromUtf8("../../../My Downloads/visible.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon4.addFile(QString::fromUtf8("D:/My Downloads/visible.png"), QSize(), QIcon::Normal, QIcon::Off);
         displayButton->setIcon(icon4);
         displayButton->setIconSize(QSize(50, 50));
         HomeWindow->setCentralWidget(centralwidget);

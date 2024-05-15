@@ -85,21 +85,22 @@ public:
         backButton->setStyleSheet(QString::fromUtf8("background-color: rgb(53, 73, 84);"));
         dynamicButton = new QPushButton(centralwidget);
         dynamicButton->setObjectName("dynamicButton");
-        dynamicButton->setGeometry(QRect(820, 630, 121, 31));
-        dynamicButton->setFont(font1);
+        dynamicButton->setGeometry(QRect(840, 630, 90, 31));
+        QFont font2;
+        font2.setPointSize(16);
+        dynamicButton->setFont(font2);
         dynamicButton->setStyleSheet(QString::fromUtf8("background-color: rgb(53, 73, 84);"));
         staticButton = new QPushButton(centralwidget);
         staticButton->setObjectName("staticButton");
-        staticButton->setGeometry(QRect(690, 630, 121, 31));
-        staticButton->setFont(font1);
+        staticButton->setGeometry(QRect(730, 630, 90, 31));
+        staticButton->setFont(font2);
         staticButton->setStyleSheet(QString::fromUtf8("background-color: rgb(53, 73, 84);"));
         comboBox = new QComboBox(centralwidget);
         comboBox->setObjectName("comboBox");
-        comboBox->setGeometry(QRect(190, 630, 101, 31));
-        QFont font2;
-        font2.setPointSize(16);
+        comboBox->setGeometry(QRect(200, 630, 130, 31));
         comboBox->setFont(font2);
-        comboBox->setStyleSheet(QString::fromUtf8("background-color: rgb(53, 73, 84);"));
+        comboBox->setStyleSheet(QString::fromUtf8("background-color: rgb(53, 73, 84);\n"
+"selection-background-color: rgb(53, 73, 84);"));
         label = new QLabel(centralwidget);
         label->setObjectName("label");
         label->setGeometry(QRect(80, 630, 111, 31));
@@ -108,16 +109,17 @@ public:
         label->setAlignment(Qt::AlignCenter);
         startPoint = new QLabel(centralwidget);
         startPoint->setObjectName("startPoint");
-        startPoint->setGeometry(QRect(350, 630, 151, 31));
+        startPoint->setGeometry(QRect(330, 630, 191, 31));
         startPoint->setFont(font2);
         startPoint->setStyleSheet(QString::fromUtf8(""));
         startPoint->setAlignment(Qt::AlignCenter);
         startPoint->setWordWrap(true);
         startPointCombo = new QComboBox(centralwidget);
         startPointCombo->setObjectName("startPointCombo");
-        startPointCombo->setGeometry(QRect(500, 630, 141, 31));
+        startPointCombo->setGeometry(QRect(520, 630, 130, 31));
         startPointCombo->setFont(font2);
-        startPointCombo->setStyleSheet(QString::fromUtf8("background-color: rgb(53, 73, 84);"));
+        startPointCombo->setStyleSheet(QString::fromUtf8("background-color: rgb(53, 73, 84);\n"
+"selection-background-color: rgb(53, 73, 84);"));
         endPoint = new QLabel(centralwidget);
         endPoint->setObjectName("endPoint");
         endPoint->setGeometry(QRect(350, 670, 151, 31));
@@ -142,7 +144,7 @@ public:
     void retranslateUi(QMainWindow *AlgorithmWindow)
     {
         AlgorithmWindow->setWindowTitle(QCoreApplication::translate("AlgorithmWindow", "MainWindow", nullptr));
-        pageTitle->setText(QCoreApplication::translate("AlgorithmWindow", "Prim's  Minimum Spanning Tree", nullptr));
+        pageTitle->setText(QCoreApplication::translate("AlgorithmWindow", "Algorithm", nullptr));
         backButton->setText(QCoreApplication::translate("AlgorithmWindow", "Back", nullptr));
         dynamicButton->setText(QCoreApplication::translate("AlgorithmWindow", "Dynamic", nullptr));
         staticButton->setText(QCoreApplication::translate("AlgorithmWindow", "Static", nullptr));

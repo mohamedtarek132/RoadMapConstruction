@@ -61,7 +61,6 @@ void MainWindow::returnToPreviousWindow()
 }
 void MainWindow::goToNextWindow()
 {
-
     int index = this->stackedWidget->currentIndex() + 1;
     this->stackedWidget->setCurrentIndex(index);
 }

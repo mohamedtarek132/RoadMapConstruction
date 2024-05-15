@@ -25,7 +25,7 @@ class Ui_GraphWindow
 {
 public:
     QWidget *centralwidget;
-    QLabel *label;
+    QLabel *graphNameLabel;
     QFrame *frame;
     QFrame *frame_2;
     QLabel *label_2;
@@ -69,13 +69,13 @@ public:
         GraphWindow->setStyleSheet(QString::fromUtf8("background-color: rgb(21, 52, 72);"));
         centralwidget = new QWidget(GraphWindow);
         centralwidget->setObjectName("centralwidget");
-        label = new QLabel(centralwidget);
-        label->setObjectName("label");
-        label->setGeometry(QRect(30, 10, 341, 80));
+        graphNameLabel = new QLabel(centralwidget);
+        graphNameLabel->setObjectName("graphNameLabel");
+        graphNameLabel->setGeometry(QRect(30, 10, 341, 80));
         QFont font;
         font.setPointSize(36);
-        label->setFont(font);
-        label->setStyleSheet(QString::fromUtf8(""));
+        graphNameLabel->setFont(font);
+        graphNameLabel->setStyleSheet(QString::fromUtf8(""));
         frame = new QFrame(centralwidget);
         frame->setObjectName("frame");
         frame->setGeometry(QRect(30, 110, 771, 461));
@@ -99,13 +99,17 @@ public:
         addEdgeV1Combo = new QComboBox(centralwidget);
         addEdgeV1Combo->setObjectName("addEdgeV1Combo");
         addEdgeV1Combo->setGeometry(QRect(111, 630, 82, 28));
-        addEdgeV1Combo->setStyleSheet(QString::fromUtf8("background-color: rgb(53, 73, 84);"));
+        addEdgeV1Combo->setStyleSheet(QString::fromUtf8("background-color: rgb(53, 73, 84);\n"
+"selection-background-color: rgb(53, 73, 84);\n"
+""));
         addEdgeV1Combo->setEditable(false);
         addEdgeV1Combo->setCurrentText(QString::fromUtf8(""));
         addEdgeV2Combo = new QComboBox(centralwidget);
         addEdgeV2Combo->setObjectName("addEdgeV2Combo");
         addEdgeV2Combo->setGeometry(QRect(280, 630, 82, 28));
-        addEdgeV2Combo->setStyleSheet(QString::fromUtf8("background-color: rgb(53, 73, 84);"));
+        addEdgeV2Combo->setStyleSheet(QString::fromUtf8("background-color: rgb(53, 73, 84);\n"
+"selection-background-color: rgb(53, 73, 84);\n"
+""));
         label_3 = new QLabel(centralwidget);
         label_3->setObjectName("label_3");
         label_3->setGeometry(QRect(41, 630, 63, 20));
@@ -124,11 +128,15 @@ public:
         deleteEdgeV1Combo = new QComboBox(centralwidget);
         deleteEdgeV1Combo->setObjectName("deleteEdgeV1Combo");
         deleteEdgeV1Combo->setGeometry(QRect(540, 650, 82, 28));
-        deleteEdgeV1Combo->setStyleSheet(QString::fromUtf8("background-color: rgb(53, 73, 84);"));
+        deleteEdgeV1Combo->setStyleSheet(QString::fromUtf8("background-color: rgb(53, 73, 84);\n"
+"selection-background-color: rgb(53, 73, 84);\n"
+""));
         deleteEdgeV2Combo = new QComboBox(centralwidget);
         deleteEdgeV2Combo->setObjectName("deleteEdgeV2Combo");
         deleteEdgeV2Combo->setGeometry(QRect(710, 650, 82, 28));
-        deleteEdgeV2Combo->setStyleSheet(QString::fromUtf8("background-color: rgb(53, 73, 84);"));
+        deleteEdgeV2Combo->setStyleSheet(QString::fromUtf8("background-color: rgb(53, 73, 84);\n"
+"selection-background-color: rgb(53, 73, 84);\n"
+""));
         label_7 = new QLabel(centralwidget);
         label_7->setObjectName("label_7");
         label_7->setGeometry(QRect(640, 650, 63, 20));
@@ -146,7 +154,9 @@ public:
         edgeLength->setObjectName("edgeLength");
         edgeLength->setGeometry(QRect(110, 670, 81, 28));
         edgeLength->setStyleSheet(QString::fromUtf8("background-color: rgb(223, 208, 184);\n"
-" border-radius: 10px;"));
+" border-radius: 10px;\n"
+"color: rgb(0, 0, 0);\n"
+""));
         line = new QFrame(centralwidget);
         line->setObjectName("line");
         line->setGeometry(QRect(420, 590, 1, 120));
@@ -163,16 +173,21 @@ public:
         xPosition->setObjectName("xPosition");
         xPosition->setGeometry(QRect(860, 225, 111, 28));
         xPosition->setStyleSheet(QString::fromUtf8("background-color: rgb(223, 208, 184);\n"
-" border-radius: 10px;"));
+" border-radius: 10px;\n"
+"color: rgb(0, 0, 0);\n"
+""));
         yPosition = new QLineEdit(centralwidget);
         yPosition->setObjectName("yPosition");
         yPosition->setGeometry(QRect(860, 265, 111, 28));
         yPosition->setStyleSheet(QString::fromUtf8("background-color: rgb(223, 208, 184);\n"
-" border-radius: 10px;"));
+" border-radius: 10px;\n"
+"color: rgb(0, 0, 0);\n"
+""));
         vertexName = new QLineEdit(centralwidget);
         vertexName->setObjectName("vertexName");
         vertexName->setGeometry(QRect(860, 180, 111, 28));
         vertexName->setStyleSheet(QString::fromUtf8("background-color: rgb(223, 208, 184);\n"
+"color: rgb(0, 0, 0);\n"
 " border-radius: 10px;"));
         label_10 = new QLabel(centralwidget);
         label_10->setObjectName("label_10");
@@ -195,7 +210,9 @@ public:
         deleteVertexCombo = new QComboBox(centralwidget);
         deleteVertexCombo->setObjectName("deleteVertexCombo");
         deleteVertexCombo->setGeometry(QRect(820, 440, 82, 28));
-        deleteVertexCombo->setStyleSheet(QString::fromUtf8("background-color: rgb(53, 73, 84);"));
+        deleteVertexCombo->setStyleSheet(QString::fromUtf8("background-color: rgb(53, 73, 84);\n"
+"selection-background-color: rgb(53, 73, 84);\n"
+""));
         label_14 = new QLabel(centralwidget);
         label_14->setObjectName("label_14");
         label_14->setGeometry(QRect(840, 470, 63, 20));
@@ -233,9 +250,9 @@ public:
         QFont font4;
         font4.setPointSize(10);
         addError->setFont(font4);
+        addError->setVisible(false);
         addError->setStyleSheet(QString::fromUtf8("color: rgb(255, 0, 0);"));
         addError->setAlignment(Qt::AlignCenter);
-        addError->setVisible(false);
         GraphWindow->setCentralWidget(centralwidget);
 
         retranslateUi(GraphWindow);
@@ -249,7 +266,7 @@ public:
     void retranslateUi(QMainWindow *GraphWindow)
     {
         GraphWindow->setWindowTitle(QCoreApplication::translate("GraphWindow", "MainWindow", nullptr));
-        label->setText(QCoreApplication::translate("GraphWindow", "Graph Name", nullptr));
+        graphNameLabel->setText(QCoreApplication::translate("GraphWindow", "Graph Name", nullptr));
         label_2->setText(QCoreApplication::translate("GraphWindow", "Add Edge", nullptr));
         label_3->setText(QCoreApplication::translate("GraphWindow", "vertex1", nullptr));
         label_4->setText(QCoreApplication::translate("GraphWindow", "vertex2", nullptr));
@@ -270,7 +287,7 @@ public:
         label_13->setText(QCoreApplication::translate("GraphWindow", "Delete Vertex", nullptr));
         label_14->setText(QCoreApplication::translate("GraphWindow", "vertex", nullptr));
         deleteEdgeButton->setText(QCoreApplication::translate("GraphWindow", "Delete", nullptr));
-        algorithmsButton->setText(QCoreApplication::translate("GraphWindow", "Algortims", nullptr));
+        algorithmsButton->setText(QCoreApplication::translate("GraphWindow", "Algorithms", nullptr));
         label_15->setText(QCoreApplication::translate("GraphWindow", "Kilometers", nullptr));
         homeButton->setText(QCoreApplication::translate("GraphWindow", "Home", nullptr));
         addError->setText(QCoreApplication::translate("GraphWindow", "There is a vertex in this position!", nullptr));

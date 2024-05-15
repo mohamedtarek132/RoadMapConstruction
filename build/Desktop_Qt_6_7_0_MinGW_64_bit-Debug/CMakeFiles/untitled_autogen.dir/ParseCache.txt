@@ -372,8 +372,12 @@ C:/Users/Anyone/Documents/DS-Project/RoadMapConstruction/GraphWindow.cpp
  uic:ui_GraphWindow.h
 C:/Users/Anyone/Documents/DS-Project/RoadMapConstruction/MainWindow.h
  mmc:Q_OBJECT
+ mdp:C:/Users/Anyone/Documents/DS-Project/RoadMapConstruction/AlgorithmWindow.h
+ mdp:C:/Users/Anyone/Documents/DS-Project/RoadMapConstruction/Graph.h
+ mdp:C:/Users/Anyone/Documents/DS-Project/RoadMapConstruction/GraphWindow.h
  mdp:C:/Users/Anyone/Documents/DS-Project/RoadMapConstruction/MainWindow.h
  mdp:C:/Users/Anyone/Documents/DS-Project/RoadMapConstruction/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/untitled_autogen/moc_predefs.h
+ mdp:C:/Users/Anyone/Documents/DS-Project/RoadMapConstruction/startwindowmenu.h
  mdp:D:/Programs/QT/6.7.0/mingw_64/include/QtCore/QTimer
  mdp:D:/Programs/QT/6.7.0/mingw_64/include/QtCore/q20functional.h
  mdp:D:/Programs/QT/6.7.0/mingw_64/include/QtCore/q20memory.h
@@ -494,6 +498,7 @@ C:/Users/Anyone/Documents/DS-Project/RoadMapConstruction/MainWindow.h
  mdp:D:/Programs/QT/6.7.0/mingw_64/include/QtCore/qversiontagging.h
  mdp:D:/Programs/QT/6.7.0/mingw_64/include/QtCore/qxptype_traits.h
  mdp:D:/Programs/QT/6.7.0/mingw_64/include/QtCore/qyieldcpu.h
+ mdp:D:/Programs/QT/6.7.0/mingw_64/include/QtGui/QPainter
  mdp:D:/Programs/QT/6.7.0/mingw_64/include/QtGui/qaction.h
  mdp:D:/Programs/QT/6.7.0/mingw_64/include/QtGui/qbitmap.h
  mdp:D:/Programs/QT/6.7.0/mingw_64/include/QtGui/qbrush.h
@@ -506,13 +511,16 @@ C:/Users/Anyone/Documents/DS-Project/RoadMapConstruction/MainWindow.h
  mdp:D:/Programs/QT/6.7.0/mingw_64/include/QtGui/qimage.h
  mdp:D:/Programs/QT/6.7.0/mingw_64/include/QtGui/qkeysequence.h
  mdp:D:/Programs/QT/6.7.0/mingw_64/include/QtGui/qpaintdevice.h
+ mdp:D:/Programs/QT/6.7.0/mingw_64/include/QtGui/qpainter.h
  mdp:D:/Programs/QT/6.7.0/mingw_64/include/QtGui/qpalette.h
+ mdp:D:/Programs/QT/6.7.0/mingw_64/include/QtGui/qpen.h
  mdp:D:/Programs/QT/6.7.0/mingw_64/include/QtGui/qpixelformat.h
  mdp:D:/Programs/QT/6.7.0/mingw_64/include/QtGui/qpixmap.h
  mdp:D:/Programs/QT/6.7.0/mingw_64/include/QtGui/qpolygon.h
  mdp:D:/Programs/QT/6.7.0/mingw_64/include/QtGui/qregion.h
  mdp:D:/Programs/QT/6.7.0/mingw_64/include/QtGui/qrgb.h
  mdp:D:/Programs/QT/6.7.0/mingw_64/include/QtGui/qrgba64.h
+ mdp:D:/Programs/QT/6.7.0/mingw_64/include/QtGui/qtextoption.h
  mdp:D:/Programs/QT/6.7.0/mingw_64/include/QtGui/qtgui-config.h
  mdp:D:/Programs/QT/6.7.0/mingw_64/include/QtGui/qtguiexports.h
  mdp:D:/Programs/QT/6.7.0/mingw_64/include/QtGui/qtguiglobal.h
@@ -520,9 +528,12 @@ C:/Users/Anyone/Documents/DS-Project/RoadMapConstruction/MainWindow.h
  mdp:D:/Programs/QT/6.7.0/mingw_64/include/QtGui/qwindowdefs.h
  mdp:D:/Programs/QT/6.7.0/mingw_64/include/QtGui/qwindowdefs_win.h
  mdp:D:/Programs/QT/6.7.0/mingw_64/include/QtWidgets/QMainWindow
+ mdp:D:/Programs/QT/6.7.0/mingw_64/include/QtWidgets/QPushButton
  mdp:D:/Programs/QT/6.7.0/mingw_64/include/QtWidgets/QStackedWidget
+ mdp:D:/Programs/QT/6.7.0/mingw_64/include/QtWidgets/qabstractbutton.h
  mdp:D:/Programs/QT/6.7.0/mingw_64/include/QtWidgets/qframe.h
  mdp:D:/Programs/QT/6.7.0/mingw_64/include/QtWidgets/qmainwindow.h
+ mdp:D:/Programs/QT/6.7.0/mingw_64/include/QtWidgets/qpushbutton.h
  mdp:D:/Programs/QT/6.7.0/mingw_64/include/QtWidgets/qsizepolicy.h
  mdp:D:/Programs/QT/6.7.0/mingw_64/include/QtWidgets/qstackedwidget.h
  mdp:D:/Programs/QT/6.7.0/mingw_64/include/QtWidgets/qtabwidget.h
@@ -545,6 +556,8 @@ C:/Users/Anyone/Documents/DS-Project/RoadMapConstruction/MainWindow.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/allocator.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/atomic_base.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/atomic_lockfree_defines.h
+ mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/basic_ios.h
+ mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/basic_ios.tcc
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/basic_string.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/basic_string.tcc
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/char_traits.h
@@ -553,6 +566,7 @@ C:/Users/Anyone/Documents/DS-Project/RoadMapConstruction/MainWindow.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/cpp_type_traits.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/cxxabi_forced.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/cxxabi_init_exception.h
+ mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/deque.tcc
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/enable_special_members.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/erase_if.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/exception.h
@@ -565,14 +579,18 @@ C:/Users/Anyone/Documents/DS-Project/RoadMapConstruction/MainWindow.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/hashtable_policy.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/invoke.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/ios_base.h
+ mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/istream.tcc
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/list.tcc
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/locale_classes.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/locale_classes.tcc
+ mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/locale_facets.h
+ mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/locale_facets.tcc
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/localefwd.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/memoryfwd.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/move.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/nested_exception.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/node_handle.h
+ mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/ostream.tcc
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/ostream_insert.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/parse_numbers.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/postypes.h
@@ -590,6 +608,7 @@ C:/Users/Anyone/Documents/DS-Project/RoadMapConstruction/MainWindow.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_algobase.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_bvector.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_construct.h
+ mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_deque.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_function.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_heap.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_iterator.h
@@ -600,6 +619,7 @@ C:/Users/Anyone/Documents/DS-Project/RoadMapConstruction/MainWindow.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_multimap.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_numeric.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_pair.h
+ mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_queue.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_raw_storage_iter.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_relops.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_tempbuf.h
@@ -629,8 +649,10 @@ C:/Users/Anyone/Documents/DS-Project/RoadMapConstruction/MainWindow.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/cstring
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/ctime
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/cwchar
+ mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/cwctype
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/debug/assertions.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/debug/debug.h
+ mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/deque
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/exception
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/ext/aligned_buffer.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/ext/alloc_traits.h
@@ -642,7 +664,10 @@ C:/Users/Anyone/Documents/DS-Project/RoadMapConstruction/MainWindow.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/ext/type_traits.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/functional
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/initializer_list
+ mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/ios
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/iosfwd
+ mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/iostream
+ mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/istream
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/iterator
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/limits
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/list
@@ -651,10 +676,12 @@ C:/Users/Anyone/Documents/DS-Project/RoadMapConstruction/MainWindow.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/new
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/numeric
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/optional
+ mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/ostream
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/pstl/execution_defs.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/pstl/glue_algorithm_defs.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/pstl/glue_memory_defs.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/pstl/glue_numeric_defs.h
+ mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/queue
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/ratio
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/stdexcept
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/stdlib.h
@@ -686,6 +713,8 @@ C:/Users/Anyone/Documents/DS-Project/RoadMapConstruction/MainWindow.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/c++config.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/c++locale.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/cpu_defines.h
+ mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/ctype_base.h
+ mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/ctype_inline.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/error_constants.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/gthr-default.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/gthr.h
@@ -729,6 +758,8 @@ C:/Users/Anyone/Documents/DS-Project/RoadMapConstruction/MainWindow.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/x86_64-w64-mingw32/include/time.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/x86_64-w64-mingw32/include/vadefs.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/x86_64-w64-mingw32/include/wchar.h
+ mdp:D:/Programs/QT/Tools/mingw1120_64/x86_64-w64-mingw32/include/wctype.h
+ uic:ui_MainWindow.h
 C:/Users/Anyone/Documents/DS-Project/RoadMapConstruction/Graph.h
 C:/Users/Anyone/Documents/DS-Project/RoadMapConstruction/MainWindow.cpp
  uic:ui_MainWindow.h
@@ -1108,6 +1139,7 @@ C:/Users/Anyone/Documents/DS-Project/RoadMapConstruction/Graph.cpp
 C:/Users/Anyone/Documents/DS-Project/RoadMapConstruction/main.cpp
 C:/Users/Anyone/Documents/DS-Project/RoadMapConstruction/startwindowmenu.h
  mmc:Q_OBJECT
+ mdp:C:/Users/Anyone/Documents/DS-Project/RoadMapConstruction/Graph.h
  mdp:C:/Users/Anyone/Documents/DS-Project/RoadMapConstruction/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/untitled_autogen/moc_predefs.h
  mdp:C:/Users/Anyone/Documents/DS-Project/RoadMapConstruction/startwindowmenu.h
  mdp:D:/Programs/QT/6.7.0/mingw_64/include/QtCore/q20functional.h
@@ -1275,6 +1307,8 @@ C:/Users/Anyone/Documents/DS-Project/RoadMapConstruction/startwindowmenu.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/allocator.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/atomic_base.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/atomic_lockfree_defines.h
+ mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/basic_ios.h
+ mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/basic_ios.tcc
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/basic_string.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/basic_string.tcc
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/char_traits.h
@@ -1283,6 +1317,7 @@ C:/Users/Anyone/Documents/DS-Project/RoadMapConstruction/startwindowmenu.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/cpp_type_traits.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/cxxabi_forced.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/cxxabi_init_exception.h
+ mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/deque.tcc
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/enable_special_members.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/erase_if.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/exception.h
@@ -1295,14 +1330,18 @@ C:/Users/Anyone/Documents/DS-Project/RoadMapConstruction/startwindowmenu.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/hashtable_policy.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/invoke.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/ios_base.h
+ mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/istream.tcc
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/list.tcc
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/locale_classes.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/locale_classes.tcc
+ mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/locale_facets.h
+ mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/locale_facets.tcc
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/localefwd.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/memoryfwd.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/move.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/nested_exception.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/node_handle.h
+ mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/ostream.tcc
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/ostream_insert.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/parse_numbers.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/postypes.h
@@ -1320,6 +1359,7 @@ C:/Users/Anyone/Documents/DS-Project/RoadMapConstruction/startwindowmenu.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_algobase.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_bvector.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_construct.h
+ mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_deque.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_function.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_heap.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_iterator.h
@@ -1330,6 +1370,7 @@ C:/Users/Anyone/Documents/DS-Project/RoadMapConstruction/startwindowmenu.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_multimap.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_numeric.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_pair.h
+ mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_queue.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_raw_storage_iter.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_relops.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_tempbuf.h
@@ -1359,8 +1400,10 @@ C:/Users/Anyone/Documents/DS-Project/RoadMapConstruction/startwindowmenu.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/cstring
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/ctime
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/cwchar
+ mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/cwctype
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/debug/assertions.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/debug/debug.h
+ mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/deque
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/exception
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/ext/aligned_buffer.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/ext/alloc_traits.h
@@ -1372,7 +1415,10 @@ C:/Users/Anyone/Documents/DS-Project/RoadMapConstruction/startwindowmenu.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/ext/type_traits.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/functional
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/initializer_list
+ mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/ios
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/iosfwd
+ mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/iostream
+ mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/istream
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/iterator
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/limits
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/list
@@ -1381,10 +1427,12 @@ C:/Users/Anyone/Documents/DS-Project/RoadMapConstruction/startwindowmenu.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/new
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/numeric
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/optional
+ mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/ostream
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/pstl/execution_defs.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/pstl/glue_algorithm_defs.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/pstl/glue_memory_defs.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/pstl/glue_numeric_defs.h
+ mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/queue
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/ratio
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/stdexcept
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/stdlib.h
@@ -1416,6 +1464,8 @@ C:/Users/Anyone/Documents/DS-Project/RoadMapConstruction/startwindowmenu.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/c++config.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/c++locale.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/cpu_defines.h
+ mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/ctype_base.h
+ mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/ctype_inline.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/error_constants.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/gthr-default.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/gthr.h
@@ -1459,5 +1509,6 @@ C:/Users/Anyone/Documents/DS-Project/RoadMapConstruction/startwindowmenu.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/x86_64-w64-mingw32/include/time.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/x86_64-w64-mingw32/include/vadefs.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/x86_64-w64-mingw32/include/wchar.h
+ mdp:D:/Programs/QT/Tools/mingw1120_64/x86_64-w64-mingw32/include/wctype.h
 C:/Users/Anyone/Documents/DS-Project/RoadMapConstruction/startwindowmenu.cpp
  uic:./ui_startwindowmenu.h

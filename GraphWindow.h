@@ -29,7 +29,9 @@ public slots:
     void deleteVertex();
     void addEdge();
     void deleteEdge();
-    void editCombobox();
+    void editAddCombobox();
+    void editDeleteCombobox();
+    void checkConnectivity();
 
 private:
     QTimer *timer;

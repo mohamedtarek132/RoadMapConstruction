@@ -4,6 +4,7 @@
 #include <algorithm>
 #include <queue>
 #include <stack>
+#include <set>
 #include <map>
 
 Edge::Edge(string vertex1, string vertex2, double length)
@@ -224,4 +225,23 @@ queue<Edge> DijkstraShortestPath(string start, string end)
     queue<Edge> edgeOrder;
 
     return edgeOrder;
+}
+queue<Edge> Graph::unconnectedTraversal()
+{
+    set<Edge> trying;
+    for(auto it = adjacencyList.begin(); it != adjacencyList.end(); it++)
+    {
+        queue<Edge> edge = DFStraversal(it->first);
+        while(!edge.empty())
+        {
+            trying.insert(edge.front());
+            edge.pop();
+        }
+    }
+    queue<Edge>edges;
+    for(auto it = trying.begin(); it != trying.end(); it++)
+    {
+        edges.push(*it);
+    }
+    return edges;
 }

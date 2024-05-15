@@ -40,6 +40,7 @@ public:
     queue<Edge> BFStraversal(string);
     queue<Edge> PrimMinimumSpanningTree(string);
     queue<Edge> DijkstraShortestPath(string, string);
+    queue<Edge> unconnectedTraversal();
 };
 
 

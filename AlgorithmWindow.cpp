@@ -241,22 +241,7 @@ void GraphDrawer::callPaintEvent(){
 
 void GraphDrawer::unconnectedGraph()
 {
-    set<Edge> trying;
-    for(auto it = graph->adjacencyList.begin(); it != graph->adjacencyList.end(); it++)
-    {
-        queue<Edge> edge = graph->DFStraversal(it->first);
-        while(!edge.empty())
-        {
-            trying.insert(edge.front());
-            edge.pop();
-        }
-    }
-    queue<Edge>edge;
-    for(auto it = trying.begin(); it != trying.end(); it++)
-    {
-        edge.push(*it);
-    }
-    edges = edge;
+    edges = graph->unconnectedTraversal();
     update();
 }
 
@@ -269,7 +254,6 @@ void GraphDrawer::changeToStatic()
 {
     dynamic = false;
 }
-
 
 AlgorithmWindow::AlgorithmWindow(Graph *graph, QWidget *parent)
     : QMainWindow(parent)
@@ -390,18 +374,11 @@ void AlgorithmWindow::changeStartingVertex()
     graphDrawer->changeStartingVertex(vertex, algorithm);
 }
 
-AlgorithmWindow::~AlgorithmWindow()
-{
-    delete ui;
-    delete graph;
-    delete xyPlaneDrawer;
-    delete timer;
-}
-
 void AlgorithmWindow::setStartPointCombo()
 {
     string algorithm = ui->comboBox->currentText().toStdString();
     string vertex = graph->adjacencyList.begin()->first;
+
     graphDrawer->changeStartingVertex(vertex, algorithm);
 
     for(auto i = graph->adjacencyList.begin();i != graph->adjacencyList.end();i++)
@@ -411,4 +388,11 @@ void AlgorithmWindow::setStartPointCombo()
         ui->startPointCombo->addItem(item);
         ui->endPointCombo->addItem(item);
     }
+}
+
+AlgorithmWindow::~AlgorithmWindow()
+{
+    delete ui;
+    delete xyPlaneDrawer;
+    delete timer;
 }

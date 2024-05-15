@@ -30,7 +30,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
 
         GraphWindow.h GraphWindow.cpp GraphWindow.ui
 
-        startwindowmenu.h startwindowmenu.cpp startwindowmenu.ui
+        HomeWindow.h HomeWindow.cpp HomeWindow.ui
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET untitled APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR

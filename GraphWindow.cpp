@@ -13,19 +13,6 @@ GraphWindow::GraphWindow(Graph *graph1, QWidget *parent)
 {
     ui->setupUi(this);
 
-//     for (auto i = graph->adjacencyList.begin(); i != graph->adjacencyList.end(); i++)
-//     {
-//         QString item = QString::fromStdString(i->first);
-
-//     ui->addEdgeV1Combo->addItem(item);
-//     ui->addEdgeV2Combo->addItem(item);
-//  ui->deleteEdgeV1Combo->addItem(item);
-// ui->deleteEdgeV2Combo->addItem(item);
-// ui->deleteVertexCombo->addItem(item);
-//     }
-
-    //queue<Edge> copiedEdges = graph->DFStraversal("alexandria");
-
     int xOffset =  ui->frame->x() + ui->frame->lineWidth() * 2;
     int yOffset = ui->frame->y() + ui->frame->lineWidth() * 2;
 
@@ -37,10 +24,10 @@ GraphWindow::GraphWindow(Graph *graph1, QWidget *parent)
     xyPlaneDrawer->resize(width + xOffset, height + 30 );
     xyPlaneDrawer->move(0, yOffset - 30);
 
-     staticGraphDrawer = new GraphDrawer(this, graph,  xOffset, 30, false);
-     staticGraphDrawer->resize(width + xOffset, height + 30 );
-     staticGraphDrawer->move(0, yOffset - 30);
-     staticGraphDrawer->unconnectedGraph();
+    staticGraphDrawer = new GraphDrawer(this, graph,  xOffset, 30, false);
+    staticGraphDrawer->resize(width + xOffset, height + 30 );
+    staticGraphDrawer->move(0, yOffset - 30);
+    staticGraphDrawer->unconnectedGraph();
 
 
     timer = new QTimer(this);
@@ -68,15 +55,13 @@ void GraphWindow::mousePressEvent(QMouseEvent *event)
         y2 = y1 + ui->frame->height() - 32;
 
     int x = point.x() - x1,
-    y = point.y() - y1;
+        y = point.y() - y1;
 
     QString xPos = QString::number(x),
         yPos = QString::number(y);
 
-    if (point.x() > x1 &&
-        point.x() < x2 &&
-        point.y() > y1 &&
-        point.y() < y2)
+    if (point.x() > x1 && point.x() < x2 &&
+        point.y() > y1 && point.y() < y2)
     {
         ui->xPosition->setText(xPos);
         ui->yPosition->setText(yPos);
@@ -89,7 +74,6 @@ void GraphWindow::addVertex()
 
     int x = ui->xPosition->text().toInt(),
         y = ui->yPosition->text().toInt();
-
 
     QString Name = QString::fromStdString(name);
 
@@ -114,18 +98,15 @@ void GraphWindow::addVertex()
         ui->deleteVertexCombo->addItem(Name);
     }
 
-
-
     graph->insertVertex(name, x, y);
 
     if(graph->adjacencyList.size()==1)
     {
         staticGraphDrawer->changeStartingVertex(graph->adjacencyList.begin()->first,"DFS");
     }
+
     staticGraphDrawer->unconnectedGraph();
     staticGraphDrawer->update();
-
-    // cout<<"Vertex: \""<<name<<"\" is now added\n";
 }
 
 void GraphWindow::deleteVertex()
@@ -141,48 +122,47 @@ void GraphWindow::deleteVertex()
     ui->deleteVertexCombo->removeItem(index);
 
     graph->deleteVertex(name);
+
     staticGraphDrawer->unconnectedGraph();
+
     staticGraphDrawer->update();
 }
 
 void GraphWindow::addEdge()
 {
     string vertex1 = ui->addEdgeV1Combo->currentText().toStdString(),
-        vertex2 = ui->addEdgeV2Combo->currentText().toStdString();
+           vertex2 = ui->addEdgeV2Combo->currentText().toStdString();
 
     double length = ui->edgeLength->text().toDouble();
 
     graph->insertEdge(vertex1, vertex2, length);
+
     staticGraphDrawer->unconnectedGraph();
+
     staticGraphDrawer->update();
 }
 
 void GraphWindow::deleteEdge()
 {
     string vertex1 = ui->deleteEdgeV1Combo->currentText().toStdString(),
-        vertex2 = ui->deleteEdgeV2Combo->currentText().toStdString();
+           vertex2 = ui->deleteEdgeV2Combo->currentText().toStdString();
 
     graph->deleteEdge(vertex1, vertex2);
+
     staticGraphDrawer->unconnectedGraph();
+
     staticGraphDrawer->update();
 }
 
+// what does this function do?
 void GraphWindow::editCombobox()
 {
     int addIndex = ui->addEdgeV1Combo->currentIndex();
     ui->addEdgeV2Combo->removeItem(addIndex);
+
     int deleteIndex = ui->deleteEdgeV1Combo->currentIndex();
     ui->addEdgeV2Combo->removeItem(deleteIndex);
 }
-
-GraphWindow::~GraphWindow()
-{
-    delete ui;
-    delete staticGraphDrawer;
-    delete timer;
-    delete xyPlaneDrawer;
-}
-
 
 void GraphWindow::setGraph(Graph* graph, string graphName)
 {
@@ -220,4 +200,13 @@ void GraphWindow::setGraph(Graph* graph, string graphName)
         ui->deleteEdgeV2Combo->addItem(item);
         ui->deleteVertexCombo->addItem(item);
     }
+}
+
+GraphWindow::~GraphWindow()
+{
+    delete ui;
+    delete staticGraphDrawer;
+    delete timer;
+    delete xyPlaneDrawer;
+    delete graph;
 }

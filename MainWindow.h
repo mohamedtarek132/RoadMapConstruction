@@ -7,10 +7,10 @@
 #include "ui_MainWindow.h"
 #include "AlgorithmWindow.h"
 #include "GraphWindow.h"
-#include "startwindowmenu.h"
+#include "HomeWindow.h"
 
 namespace Ui {
-class MainWindow2;
+class MainWindow;
 }
 
 class MainWindow : public QMainWindow
@@ -20,19 +20,25 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = nullptr);
     void mousePressEvent(QMouseEvent *);
+    void loadGraphs();
     ~MainWindow();
+
 public slots:
     void returnToPreviousWindow();
     void goToNextWindow();
     void saveGraph();
+    void saveGraphs();
+
 private:
-    Ui::MainWindow2 *ui;
+    Ui::MainWindow *ui;
     QStackedWidget *stackedWidget;
     QTimer *timer;
     Graph *graph;
     HomeWindow *homeWindow;
     AlgorithmWindow *algorithmWindow;
     GraphWindow *graphWindow;
+    unordered_map<string,Graph*> graphs;
+
 };
 
 #endif // MAINWINDOW_H

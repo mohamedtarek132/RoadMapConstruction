@@ -1,5 +1,5 @@
-#ifndef STARTWINDOWMENU_H
-#define STARTWINDOWMENU_H
+#ifndef HOMEWINDOW_H
+#define HOMEWINDOW_H
 
 #include <QMainWindow>
 #include<string>
@@ -18,7 +18,7 @@ class HomeWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    HomeWindow(QWidget *parent = nullptr);
+    HomeWindow(unordered_map<string,Graph*>, QWidget *parent = nullptr);
     ~HomeWindow();
     unordered_map<string,Graph*> graphs;
 
@@ -43,4 +43,4 @@ public slots:
 private:
     Ui::HomeWindow *ui;
 };
-#endif // STARTWINDOWMENU_H
+#endif // HOMEWINDOW_H

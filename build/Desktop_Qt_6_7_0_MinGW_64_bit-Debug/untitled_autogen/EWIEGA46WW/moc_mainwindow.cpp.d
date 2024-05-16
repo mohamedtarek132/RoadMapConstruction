@@ -3,7 +3,7 @@ C:/Users/Anyone/Documents/DS-Project/RoadMapConstruction/build/Desktop_Qt_6_7_0_
   C:/Users/Anyone/Documents/DS-Project/RoadMapConstruction/AlgorithmWindow.h \
   C:/Users/Anyone/Documents/DS-Project/RoadMapConstruction/Graph.h \
   C:/Users/Anyone/Documents/DS-Project/RoadMapConstruction/GraphWindow.h \
-  C:/Users/Anyone/Documents/DS-Project/RoadMapConstruction/startwindowmenu.h \
+  C:/Users/Anyone/Documents/DS-Project/RoadMapConstruction/HomeWindow.h \
   D:/Programs/QT/6.7.0/mingw_64/include/QtCore/QTimer \
   D:/Programs/QT/6.7.0/mingw_64/include/QtCore/q20functional.h \
   D:/Programs/QT/6.7.0/mingw_64/include/QtCore/q20memory.h \

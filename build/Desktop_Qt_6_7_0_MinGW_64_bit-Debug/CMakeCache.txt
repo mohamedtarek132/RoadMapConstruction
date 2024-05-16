@@ -26,7 +26,7 @@ CMAKE_BUILD_TYPE:STRING=Debug
 //Enable colored diagnostics throughout.
 CMAKE_COLOR_DIAGNOSTICS:BOOL=1
 
-//No help, variable specified on the command line.
+//CXX compiler
 CMAKE_CXX_COMPILER:STRING=D:/Programs/QT/Tools/mingw1120_64/bin/g++.exe
 
 //A wrapper around 'ar' adding the appropriate '--plugin' option

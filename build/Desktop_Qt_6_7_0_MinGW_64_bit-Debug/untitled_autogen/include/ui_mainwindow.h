@@ -16,34 +16,34 @@
 
 QT_BEGIN_NAMESPACE
 
-class Ui_MainWindow2
+class Ui_MainWindow
 {
 public:
     QWidget *centralwidget;
 
-    void setupUi(QMainWindow *MainWindow2)
+    void setupUi(QMainWindow *MainWindow)
     {
-        if (MainWindow2->objectName().isEmpty())
-            MainWindow2->setObjectName("MainWindow2");
-        MainWindow2->resize(1024, 720);
-        centralwidget = new QWidget(MainWindow2);
+        if (MainWindow->objectName().isEmpty())
+            MainWindow->setObjectName("MainWindow");
+        MainWindow->resize(1024, 720);
+        centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
-        MainWindow2->setCentralWidget(centralwidget);
+        MainWindow->setCentralWidget(centralwidget);
 
-        retranslateUi(MainWindow2);
+        retranslateUi(MainWindow);
 
-        QMetaObject::connectSlotsByName(MainWindow2);
+        QMetaObject::connectSlotsByName(MainWindow);
     } // setupUi
 
-    void retranslateUi(QMainWindow *MainWindow2)
+    void retranslateUi(QMainWindow *MainWindow)
     {
-        MainWindow2->setWindowTitle(QCoreApplication::translate("MainWindow2", "MainWindow", nullptr));
+        MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
     } // retranslateUi
 
 };
 
 namespace Ui {
-    class MainWindow2: public Ui_MainWindow2 {};
+    class MainWindow: public Ui_MainWindow {};
 } // namespace Ui
 
 QT_END_NAMESPACE

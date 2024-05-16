@@ -105,8 +105,8 @@ constexpr auto qt_meta_stringdata_CLASSGraphDrawerENDCLASS = QtMocHelpers::strin
     "GraphDrawer",
     "callPaintEvent",
     "",
-    "changeToDynamic",
-    "changeToStatic"
+    "setToDynamic",
+    "setToStatic"
 );
 #else  // !QT_MOC_HAS_STRINGDATA
 #error "qtmochelpers.h not found or too old."
@@ -150,9 +150,9 @@ Q_CONSTINIT const QMetaObject GraphDrawer::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<GraphDrawer, std::true_type>,
         // method 'callPaintEvent'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'changeToDynamic'
+        // method 'setToDynamic'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'changeToStatic'
+        // method 'setToStatic'
         QtPrivate::TypeAndForceComplete<void, std::false_type>
     >,
     nullptr
@@ -165,8 +165,8 @@ void GraphDrawer::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
         (void)_t;
         switch (_id) {
         case 0: _t->callPaintEvent(); break;
-        case 1: _t->changeToDynamic(); break;
-        case 2: _t->changeToStatic(); break;
+        case 1: _t->setToDynamic(); break;
+        case 2: _t->setToStatic(); break;
         default: ;
         }
     }
@@ -210,9 +210,10 @@ constexpr auto qt_meta_stringdata_CLASSAlgorithmWindowENDCLASS = QtMocHelpers::s
     "AlgorithmWindow",
     "backButtonPressed",
     "",
-    "changeAlgorithm",
-    "changeStartingVertex",
-    "setStartPointCombo"
+    "setAlgorithm",
+    "setStartingVertex",
+    "setStartPointCombo",
+    "setEndingVertex"
 );
 #else  // !QT_MOC_HAS_STRINGDATA
 #error "qtmochelpers.h not found or too old."
@@ -225,7 +226,7 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSAlgorithmWindowENDCLASS[] = {
       12,       // revision
        0,       // classname
        0,    0, // classinfo
-       4,   14, // methods
+       5,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -233,17 +234,19 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSAlgorithmWindowENDCLASS[] = {
        1,       // signalCount
 
  // signals: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    0,   38,    2, 0x06,    1 /* Public */,
+       1,    0,   44,    2, 0x06,    1 /* Public */,
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       3,    0,   39,    2, 0x0a,    2 /* Public */,
-       4,    0,   40,    2, 0x0a,    3 /* Public */,
-       5,    0,   41,    2, 0x0a,    4 /* Public */,
+       3,    0,   45,    2, 0x0a,    2 /* Public */,
+       4,    0,   46,    2, 0x0a,    3 /* Public */,
+       5,    0,   47,    2, 0x0a,    4 /* Public */,
+       6,    0,   48,    2, 0x0a,    5 /* Public */,
 
  // signals: parameters
     QMetaType::Void,
 
  // slots: parameters
+    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -262,11 +265,13 @@ Q_CONSTINIT const QMetaObject AlgorithmWindow::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<AlgorithmWindow, std::true_type>,
         // method 'backButtonPressed'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'changeAlgorithm'
+        // method 'setAlgorithm'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'changeStartingVertex'
+        // method 'setStartingVertex'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'setStartPointCombo'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'setEndingVertex'
         QtPrivate::TypeAndForceComplete<void, std::false_type>
     >,
     nullptr
@@ -279,9 +284,10 @@ void AlgorithmWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int 
         (void)_t;
         switch (_id) {
         case 0: _t->backButtonPressed(); break;
-        case 1: _t->changeAlgorithm(); break;
-        case 2: _t->changeStartingVertex(); break;
+        case 1: _t->setAlgorithm(); break;
+        case 2: _t->setStartingVertex(); break;
         case 3: _t->setStartPointCombo(); break;
+        case 4: _t->setEndingVertex(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -316,13 +322,13 @@ int AlgorithmWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 4)
+        if (_id < 5)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 4;
+        _id -= 5;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 4)
+        if (_id < 5)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 4;
+        _id -= 5;
     }
     return _id;
 }

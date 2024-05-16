@@ -80,13 +80,47 @@ void GraphWindow::mousePressEvent(QMouseEvent *event)
 void GraphWindow::addVertex()
 {
     string name = ui->vertexName->text().toStdString();
+    string xPos = ui->xPosition->text().toStdString();
+    string yPos = ui->yPosition->text().toStdString();
 
-    //if (name.empty())return;
+    if (!xPos.size() || !yPos.size())
+    {
+        ui->invalidPositionTypeError->show();
+        QTimer::singleShot(3000, ui->invalidPositionTypeError, &QLabel::hide);
+        return;
+    }
 
-    int x = ui->xPosition->text().toInt(),
-        y = ui->yPosition->text().toInt();
+    for (int i=0; i<xPos.size(); i++)
+    {
+        if (int(xPos[i])<48 || int(xPos[i])>57)
+        {
+            ui->invalidPositionTypeError->show();
+            QTimer::singleShot(3000, ui->invalidPositionTypeError, &QLabel::hide);
+            return;
+        }
+    }
+    for (int i=0; i<yPos.size(); i++)
+    {
+        if (int(yPos[i])<48 || int(yPos[i])>57)
+        {
+            ui->invalidPositionTypeError->show();
+            QTimer::singleShot(3000, ui->invalidPositionTypeError, &QLabel::hide);
+            return;
+        }
+    }
+    // if (name.empty())return;
+
+    int x = stoi(xPos),
+        y = stoi(yPos);
 
     QString Name = QString::fromStdString(name);
+
+    if ((x < 0) || (x > 740)|| (y < 0)|| (y > 430))
+    {
+        ui->outOfBoundsError->show();
+        QTimer::singleShot(3000, ui->outOfBoundsError, &QLabel::hide);
+        return;
+    }
 
     for (auto it = graph->positions.begin(); it != graph->positions.end(); it++)
     {
@@ -94,8 +128,8 @@ void GraphWindow::addVertex()
         int vY = it->second.second;
         if (pow((x-vX),2) + pow((y-vY),2) <= 36)
         {
-            ui->addError->show();
-            QTimer::singleShot(3000, ui->addError, &QLabel::hide);
+            ui->samePositionError->show();
+            QTimer::singleShot(3000, ui->samePositionError, &QLabel::hide);
             return;
         }
     }
@@ -162,15 +196,43 @@ void GraphWindow::addEdge()
 {
     string vertex1 = ui->addEdgeV1Combo->currentText().toStdString(),
            vertex2 = ui->addEdgeV2Combo->currentText().toStdString();
+    string strLength = ui->edgeLength->text().toStdString();
 
+    if (!strLength.size())
+    {
+        ui->invalidLengthTypeError->show();
+        QTimer::singleShot(3000, ui->invalidLengthTypeError, &QLabel::hide);
+        return;
+    }
+
+    for (int i=0; i<strLength.size(); i++)
+    {
+        if (int(strLength[i])<48 || int(strLength[i])>57)
+        {
+            ui->invalidLengthTypeError->show();
+            QTimer::singleShot(3000, ui->invalidLengthTypeError, &QLabel::hide);
+            return;
+        }
+    }
     //if (vertex1.empty() || vertex2.empty())return;
+    if (vertex1 == vertex2)
+    {
+        ui->sameVerticesAddError->show();
+        QTimer::singleShot(3000, ui->sameVerticesAddError, &QLabel::hide);
+        return;
+    }
 
     for (auto i = graph->adjacencyList[vertex1].begin(); i != graph->adjacencyList[vertex1].end(); i++)
     {
         if (i->getVertex2() == vertex2)
+        {
+            ui->alreadyExistsError->show();
+            QTimer::singleShot(3000, ui->alreadyExistsError, &QLabel::hide);
             return;
+        }
     }
-    double length = ui->edgeLength->text().toDouble();
+
+    double length = stod(strLength);
 
     graph->insertEdge(vertex1, vertex2, length);
 
@@ -185,6 +247,28 @@ void GraphWindow::deleteEdge()
            vertex2 = ui->deleteEdgeV2Combo->currentText().toStdString();
 
     //if (vertex1.empty() || vertex2.empty())return;
+    if (vertex1 == vertex2)
+    {
+        ui->sameVerticesDeleteError->show();
+        QTimer::singleShot(3000, ui->sameVerticesDeleteError, &QLabel::hide);
+        return;
+    }
+
+    bool exists = false;
+    for (auto i = graph->adjacencyList[vertex1].begin(); i != graph->adjacencyList[vertex1].end(); i++)
+    {
+        if (i->getVertex2() == vertex2)
+        {
+            exists = true;
+        }
+    }
+    if (!exists)
+    {
+        ui->doesntExistError->show();
+        QTimer::singleShot(3000, ui->doesntExistError, &QLabel::hide);
+        return;
+    }
+
 
     graph->deleteEdge(vertex1, vertex2);
 
@@ -195,141 +279,166 @@ void GraphWindow::deleteEdge()
 
 void GraphWindow::editAddCombobox()
 {
-    static QString removedVertex1;
-    static QString removedVertex2;
-    static bool vertex1;
-    static bool vertex2;
-
-    if (removedVertex1.size() != 0 && !vertex1)
+    int verticesNumber = graph->adjacencyList.size();
+    if (verticesNumber == 0)return;
+    if (ui->addEdgeV1Combo->currentText() == ui->addEdgeV2Combo->currentText())
     {
-        QString s = removedVertex1;
-        removedVertex1 = "";
-        for(auto it = graph->adjacencyList.begin(); it != graph->adjacencyList.end(); it++)
-        {
-            if(it->first == removedVertex1.toStdString())
-            {
-                ui->addEdgeV1Combo->addItem(s);
-                break;
-            }
-        }
+        int newIndex = (ui->addEdgeV2Combo->currentIndex() + 1) % verticesNumber;
+        ui->addEdgeV2Combo->setCurrentIndex(newIndex);
     }
 
-    if (removedVertex2.size() != 0 && !vertex2)
-    {
-        QString s2 = removedVertex2;
-        removedVertex2 = "";
-        for(auto it = graph->adjacencyList.begin(); it != graph->adjacencyList.end(); it++)
-        {
-            if(it->first == removedVertex2.toStdString())
-            {
-                ui->addEdgeV1Combo->addItem(s2);
-                break;
-            }
-        }
-    }
+    // static QString removedVertex1;
+    // static QString removedVertex2;
+    // static bool vertex1;
+    // static bool vertex2;
 
+    // if (removedVertex1.size() != 0 && !vertex1)
+    // {
+    //     QString s = removedVertex1;
+    //     removedVertex1 = "";
+    //     for(auto it = graph->adjacencyList.begin(); it != graph->adjacencyList.end(); it++)
+    //     {
+    //         if(it->first == removedVertex1.toStdString())
+    //         {
+    //             ui->addEdgeV1Combo->addItem(s);
+    //             break;
+    //         }
+    //     }
+    // }
 
-    QString vertex2Text = ui->addEdgeV2Combo->currentText();
-    int vertex1ToRemoveIndex = ui->addEdgeV1Combo->findText(vertex2Text);
+    // if (removedVertex2.size() != 0 && !vertex2)
+    // {
+    //     QString s2 = removedVertex2;
+    //     removedVertex2 = "";
+    //     for(auto it = graph->adjacencyList.begin(); it != graph->adjacencyList.end(); it++)
+    //     {
+    //         if(it->first == removedVertex2.toStdString())
+    //         {
+    //             ui->addEdgeV1Combo->addItem(s2);
+    //             break;
+    //         }
+    //     }
+    // }
 
-    // remove the item in combo box 1
-    if(!vertex1)
-    {
-        removedVertex1 = ui->addEdgeV1Combo->itemText(vertex1ToRemoveIndex);
-        vertex1 = true;
-        ui->addEdgeV1Combo->removeItem(vertex1ToRemoveIndex);
-    }
+    // QString vertex2Text = ui->addEdgeV2Combo->currentText();
+    // int vertex1ToRemoveIndex = ui->addEdgeV1Combo->findText(vertex2Text);
 
-    QString vertex1Text = ui->addEdgeV1Combo->currentText();
-    int vertex2ToRemoveIndex = ui->addEdgeV2Combo->findText(vertex1Text);
+    // // remove the item in combo box 1
+    // if(!vertex1)
+    // {
+    //     removedVertex1 = ui->addEdgeV1Combo->itemText(vertex1ToRemoveIndex);
+    //     vertex1 = true;
+    //     ui->addEdgeV1Combo->removeItem(vertex1ToRemoveIndex);
+    // }
 
-    // remove the item in combo box 2
-    if(!vertex2)
-    {
-        removedVertex2 = ui->addEdgeV2Combo->itemText(vertex2ToRemoveIndex);
-        vertex2 = true;
-        ui->addEdgeV2Combo->removeItem(vertex2ToRemoveIndex);
-    }
+    // QString vertex1Text = ui->addEdgeV1Combo->currentText();
+    // int vertex2ToRemoveIndex = ui->addEdgeV2Combo->findText(vertex1Text);
 
-    vertex1 = false;
-    vertex2 = false;
+    // // remove the item in combo box 2
+    // if(!vertex2)
+    // {
+    //     removedVertex2 = ui->addEdgeV2Combo->itemText(vertex2ToRemoveIndex);
+    //     vertex2 = true;
+    //     ui->addEdgeV2Combo->removeItem(vertex2ToRemoveIndex);
+    // }
 
-    ui->addEdgeV1Combo->update();
-    ui->addEdgeV2Combo->update();
+    // vertex1 = false;
+    // vertex2 = false;
+
+    // ui->addEdgeV1Combo->update();
+    // ui->addEdgeV2Combo->update();
 
 }
 
 void GraphWindow::editDeleteCombobox()
 {
-    static QString removedVertex1;
-    static QString removedVertex2;
-    static bool vertex1;
-    static bool vertex2;
-
-    if (removedVertex1.size() != 0 && !vertex1)
+    int verticesNumber = graph->adjacencyList.size();
+    if (verticesNumber == 0)return;
+    if (ui->deleteEdgeV1Combo->currentText() == ui->deleteEdgeV2Combo->currentText())
     {
-        QString s = removedVertex1;
-        removedVertex1 = "";
-        for(auto it = graph->adjacencyList.begin(); it != graph->adjacencyList.end(); it++)
-        {
-            if(it->first == removedVertex1.toStdString())
-            {
-                ui->deleteEdgeV1Combo->addItem(s);
-                break;
-            }
-        }
+        int newIndex = (ui->deleteEdgeV2Combo->currentIndex() + 1) % verticesNumber;
+        ui->deleteEdgeV2Combo->setCurrentIndex(newIndex);
     }
 
-    if (removedVertex2.size() != 0 && !vertex2)
-    {
-        QString s2 = removedVertex2;
-        removedVertex2 = "";
-        for(auto it = graph->adjacencyList.begin(); it != graph->adjacencyList.end(); it++)
-        {
-            if(it->first == removedVertex2.toStdString())
-            {
-                ui->deleteEdgeV2Combo->addItem(s2);
-                break;
-            }
-        }
-    }
+    // static QString removedVertex1;
+    // static QString removedVertex2;
+    // static bool vertex1;
+    // static bool vertex2;
+
+    // if (removedVertex1.size() != 0 && !vertex1)
+    // {
+    //     QString s = removedVertex1;
+    //     removedVertex1 = "";
+    //     for(auto it = graph->adjacencyList.begin(); it != graph->adjacencyList.end(); it++)
+    //     {
+    //         if(it->first == removedVertex1.toStdString())
+    //         {
+    //             ui->deleteEdgeV1Combo->addItem(s);
+    //             break;
+    //         }
+    //     }
+    // }
+
+    // if (removedVertex2.size() != 0 && !vertex2)
+    // {
+    //     QString s2 = removedVertex2;
+    //     removedVertex2 = "";
+    //     for(auto it = graph->adjacencyList.begin(); it != graph->adjacencyList.end(); it++)
+    //     {
+    //         if(it->first == removedVertex2.toStdString())
+    //         {
+    //             ui->deleteEdgeV2Combo->addItem(s2);
+    //             break;
+    //         }
+    //     }
+    // }
 
 
-    QString vertex2Text = ui->deleteEdgeV2Combo->currentText();
-    int vertex1ToRemoveIndex = ui->deleteEdgeV1Combo->findText(vertex2Text);
+    // QString vertex2Text = ui->deleteEdgeV2Combo->currentText();
+    // int vertex1ToRemoveIndex = ui->deleteEdgeV1Combo->findText(vertex2Text);
 
-    // remove the item in combo box 1
-    if(!vertex1)
-    {
-        removedVertex1 = ui->deleteEdgeV1Combo->itemText(vertex1ToRemoveIndex);
-        vertex1 = true;
-        ui->deleteEdgeV1Combo->removeItem(vertex1ToRemoveIndex);
-    }
+    // // remove the item in combo box 1
+    // if(!vertex1)
+    // {
+    //     removedVertex1 = ui->deleteEdgeV1Combo->itemText(vertex1ToRemoveIndex);
+    //     vertex1 = true;
+    //     ui->deleteEdgeV1Combo->removeItem(vertex1ToRemoveIndex);
+    // }
 
-    QString vertex1Text = ui->deleteEdgeV1Combo->currentText();
-    int vertex2ToRemoveIndex = ui->deleteEdgeV2Combo->findText(vertex1Text);
+    // QString vertex1Text = ui->deleteEdgeV1Combo->currentText();
+    // int vertex2ToRemoveIndex = ui->deleteEdgeV2Combo->findText(vertex1Text);
 
-    // remove the item in combo box 2
-    if(!vertex2)
-    {
-        removedVertex2 = ui->deleteEdgeV2Combo->itemText(vertex2ToRemoveIndex);
-        vertex2 = true;
-        ui->deleteEdgeV2Combo->removeItem(vertex2ToRemoveIndex);
-    }
+    // // remove the item in combo box 2
+    // if(!vertex2)
+    // {
+    //     removedVertex2 = ui->deleteEdgeV2Combo->itemText(vertex2ToRemoveIndex);
+    //     vertex2 = true;
+    //     ui->deleteEdgeV2Combo->removeItem(vertex2ToRemoveIndex);
+    // }
 
-    vertex1 = false;
-    vertex2 = false;
+    // vertex1 = false;
+    // vertex2 = false;
 
-    ui->deleteEdgeV1Combo->update();
-    ui->deleteEdgeV2Combo->update();
+    // ui->deleteEdgeV1Combo->update();
+    // ui->deleteEdgeV2Combo->update();
 }
 
 void GraphWindow::checkConnectivity()
 {
     //cout<<"will it come here?\n";
-    if (graph->adjacencyList.empty())return;
+    if (graph->adjacencyList.size()<2)
+    {
+        ui->algortihmsError->show();
+        QTimer::singleShot(3000, ui->algortihmsError, &QLabel::hide);
+        return;
+    }
     queue<Edge> prims = graph->PrimMinimumSpanningTree(graph->adjacencyList.begin()->first);
-    if (prims.size() != graph->adjacencyList.size()-1)return;
+    if (prims.size() != graph->adjacencyList.size()-1)
+    {
+        ui->algortihmsError->show();
+        QTimer::singleShot(3000, ui->algortihmsError, &QLabel::hide);
+        return;
+    }
     emit GraphWindow::algorithmsButtonPressed();
 }
 

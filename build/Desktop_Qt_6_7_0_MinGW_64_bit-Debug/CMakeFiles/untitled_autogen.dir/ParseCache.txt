@@ -375,9 +375,9 @@ C:/Users/Anyone/Documents/DS-Project/RoadMapConstruction/MainWindow.h
  mdp:C:/Users/Anyone/Documents/DS-Project/RoadMapConstruction/AlgorithmWindow.h
  mdp:C:/Users/Anyone/Documents/DS-Project/RoadMapConstruction/Graph.h
  mdp:C:/Users/Anyone/Documents/DS-Project/RoadMapConstruction/GraphWindow.h
+ mdp:C:/Users/Anyone/Documents/DS-Project/RoadMapConstruction/HomeWindow.h
  mdp:C:/Users/Anyone/Documents/DS-Project/RoadMapConstruction/MainWindow.h
  mdp:C:/Users/Anyone/Documents/DS-Project/RoadMapConstruction/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/untitled_autogen/moc_predefs.h
- mdp:C:/Users/Anyone/Documents/DS-Project/RoadMapConstruction/startwindowmenu.h
  mdp:D:/Programs/QT/6.7.0/mingw_64/include/QtCore/QTimer
  mdp:D:/Programs/QT/6.7.0/mingw_64/include/QtCore/q20functional.h
  mdp:D:/Programs/QT/6.7.0/mingw_64/include/QtCore/q20memory.h
@@ -761,8 +761,6 @@ C:/Users/Anyone/Documents/DS-Project/RoadMapConstruction/MainWindow.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/x86_64-w64-mingw32/include/wctype.h
  uic:ui_MainWindow.h
 C:/Users/Anyone/Documents/DS-Project/RoadMapConstruction/Graph.h
-C:/Users/Anyone/Documents/DS-Project/RoadMapConstruction/MainWindow.cpp
- uic:ui_MainWindow.h
 C:/Users/Anyone/Documents/DS-Project/RoadMapConstruction/AlgorithmWindow.cpp
  uic:./ui_AlgorithmWindow.h
 C:/Users/Anyone/Documents/DS-Project/RoadMapConstruction/GraphWindow.h
@@ -1135,13 +1133,11 @@ C:/Users/Anyone/Documents/DS-Project/RoadMapConstruction/GraphWindow.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/x86_64-w64-mingw32/include/time.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/x86_64-w64-mingw32/include/vadefs.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/x86_64-w64-mingw32/include/wchar.h
-C:/Users/Anyone/Documents/DS-Project/RoadMapConstruction/Graph.cpp
-C:/Users/Anyone/Documents/DS-Project/RoadMapConstruction/main.cpp
-C:/Users/Anyone/Documents/DS-Project/RoadMapConstruction/startwindowmenu.h
+C:/Users/Anyone/Documents/DS-Project/RoadMapConstruction/HomeWindow.h
  mmc:Q_OBJECT
  mdp:C:/Users/Anyone/Documents/DS-Project/RoadMapConstruction/Graph.h
+ mdp:C:/Users/Anyone/Documents/DS-Project/RoadMapConstruction/HomeWindow.h
  mdp:C:/Users/Anyone/Documents/DS-Project/RoadMapConstruction/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/untitled_autogen/moc_predefs.h
- mdp:C:/Users/Anyone/Documents/DS-Project/RoadMapConstruction/startwindowmenu.h
  mdp:D:/Programs/QT/6.7.0/mingw_64/include/QtCore/q20functional.h
  mdp:D:/Programs/QT/6.7.0/mingw_64/include/QtCore/q20memory.h
  mdp:D:/Programs/QT/6.7.0/mingw_64/include/QtCore/q20type_traits.h
@@ -1510,5 +1506,9 @@ C:/Users/Anyone/Documents/DS-Project/RoadMapConstruction/startwindowmenu.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/x86_64-w64-mingw32/include/vadefs.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/x86_64-w64-mingw32/include/wchar.h
  mdp:D:/Programs/QT/Tools/mingw1120_64/x86_64-w64-mingw32/include/wctype.h
-C:/Users/Anyone/Documents/DS-Project/RoadMapConstruction/startwindowmenu.cpp
- uic:./ui_startwindowmenu.h
+C:/Users/Anyone/Documents/DS-Project/RoadMapConstruction/Graph.cpp
+C:/Users/Anyone/Documents/DS-Project/RoadMapConstruction/HomeWindow.cpp
+ uic:./ui_HomeWindow.h
+C:/Users/Anyone/Documents/DS-Project/RoadMapConstruction/MainWindow.cpp
+ uic:ui_MainWindow.h
+C:/Users/Anyone/Documents/DS-Project/RoadMapConstruction/main.cpp

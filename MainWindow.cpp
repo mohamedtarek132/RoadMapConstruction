@@ -125,7 +125,7 @@ void MainWindow::loadGraphs()
 void MainWindow::saveGraphs()
 {
     ofstream file("C:\\Users\\hp\\Documents\\Programming projects\\C++ Projects\\RoadMapConstruction2\\RoadMapConstruction\\graphs.txt");
-
+    saveGraph();
     graphs = homeWindow->graphs;
 
     for(auto it = graphs.begin(); it != graphs.end(); it++)

@@ -44,17 +44,19 @@ public:
     int yOffset;
     bool dynamic;
     string startingVertex;
+    string endingVertex;
 
     GraphDrawer(QWidget *parent,   Graph *graph, int xOffset, int yOffset, bool dynamic);
     void paintEvent(QPaintEvent*);
-    void changeAlgorithm(string);
-    void changeStartingVertex(string, string);
+    void setAlgorithm(string);
+    void setStartingVertex(string);
+    void setEndingVertex(string);
     void unconnectedGraph();
 
     public slots:
     void callPaintEvent();
-    void changeToDynamic();
-    void changeToStatic();
+    void setToDynamic();
+    void setToStatic();
 };
 
 
@@ -73,9 +75,10 @@ signals:
     void backButtonPressed();
 
 public slots:
-    void changeAlgorithm();
-    void changeStartingVertex();
+    void setAlgorithm();
+    void setStartingVertex();
     void setStartPointCombo();
+    void setEndingVertex();
 
 private:
     GraphDrawer *graphDrawer;

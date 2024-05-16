@@ -7,6 +7,7 @@
 #include <set>
 #include <map>
 
+
 Edge::Edge(string vertex1, string vertex2, double length)
 {
     this->vertex1 = vertex1;
@@ -19,14 +20,18 @@ Edge::Edge()
     this->vertex2 = "";
     this->length = 0;
 }
+// to use it with the sort function
 bool Edge::	comparetor(Edge edge1, Edge edge2)
 {
     return edge1.length < edge2.length;
 }
+// to use it with the set data structure
 bool Edge::	operator < (Edge e) const
 {
     return ((vertex1 + vertex2) < (e.getVertex1() + e.getVertex2()));
 }
+
+// to use it with the set data structure
 bool Edge::operator == (Edge e)
 {
     return vertex1 == e.getVertex1() && vertex2 == e.getVertex2();
@@ -43,20 +48,25 @@ string Edge::getVertex2()
 
 void Graph::insertVertex(string vertex, int x, int y)
 {
-    adjacencyList.insert(make_pair(vertex, list<Edge>()));
+    adjacencyList[vertex] = list<Edge>();
     positions[vertex] = make_pair(x, y);
 }
+
 void Graph::insertEdge(string vertex_1, string vertex_2, double length)
 {
+    // to add an edge in the list of each vertex
     adjacencyList[vertex_1].push_back(Edge(vertex_1, vertex_2, length));
     adjacencyList[vertex_2].push_back(Edge(vertex_2, vertex_1, length));
 }
+
 void Graph::deleteVertex(string vertex)
 {
+    // to delete the edges in other verticies list
     for (auto i = adjacencyList[vertex].begin(); i != adjacencyList[vertex].end(); i++)
     {
         deleteEdge(i->getVertex1(), i->getVertex2());
     }
+
     adjacencyList.erase(vertex);
     positions.erase(vertex);
 }
@@ -220,12 +230,65 @@ queue<Edge> Graph::DFStraversal(string first_node) {
     return edgeOrder;
 }
 
-queue<Edge> DijkstraShortestPath(string start, string end)
+queue<Edge> Graph::DijkstraShortestPath(string start, string end)
 {
     queue<Edge> edgeOrder;
 
+    unordered_map<string, bool> visitedVerticies;
+
+    unordered_map<string, Edge> predecessors;
+
+    unordered_map<string, int> weight;
+
+    for(auto i = adjacencyList.begin(); i != adjacencyList.end(); i++)
+    {
+        weight[i->first] = INT_MAX;
+    }
+
+    int size = adjacencyList.size();
+
+    weight[end] = 0;
+
+    visitedVerticies[end] = true;
+
+    string currentVertex = end;
+    while(size--)
+    {
+        int smallestEdge = INT_MAX;
+        string nextVertex;
+            auto it = min_element(weight.begin(), weight.end(), [](const auto& l, const auto& r) { return l.second < r.second; });
+            visitedVerticies[it->first] = true;
+            currentVertex = it->first;
+            int currentWeight = weight[currentVertex];
+            weight.erase(currentVertex);
+            for(auto i = adjacencyList[currentVertex].begin(); i!= adjacencyList[currentVertex].end(); i++)
+            {
+                int newWeight = i->length + currentWeight;
+                string adjacentVertex = i->getVertex2();
+
+                if(!visitedVerticies[adjacentVertex] && (newWeight < weight[adjacentVertex]))
+                {
+                    weight[adjacentVertex] = newWeight;
+                    predecessors[adjacentVertex] = *i;
+                }
+            }
+
+    }
+
+    currentVertex = start;
+    int counter = 0;
+    cout << "counter" << endl;
+    while(currentVertex != end && counter!= adjacencyList.size())
+    {
+        cout << counter++ << endl;
+        string vertex1 = predecessors[currentVertex].getVertex1();
+        edgeOrder.push(predecessors[currentVertex]);
+        currentVertex = vertex1;
+    }
+
     return edgeOrder;
 }
+
 queue<Edge> Graph::unconnectedTraversal()
 {
     set<Edge> trying;

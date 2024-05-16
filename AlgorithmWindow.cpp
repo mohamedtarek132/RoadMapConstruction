@@ -206,35 +206,34 @@ void GraphDrawer::paintEvent(QPaintEvent* pQEvent)
     }
 }
 
-void GraphDrawer::changeAlgorithm(string algorithm)
+void GraphDrawer::setAlgorithm(string algorithm)
 {
     if (algorithm == "BFS")
     {
-
         edges = graph->BFStraversal(startingVertex);
     }
     else if (algorithm == "DFS")
     {
-
         edges = graph->DFStraversal(startingVertex);
     }
     else if (algorithm == "Prim")
     {
-
         edges = graph->PrimMinimumSpanningTree(startingVertex);
     }
     else
     {
-        //edges = graph->DijkstraShortestPath(startingVertex, "endingVertex");
+        edges = graph->DijkstraShortestPath(startingVertex, endingVertex);
     }
 }
 
-void GraphDrawer::changeStartingVertex(string vertex, string algorithm)
+void GraphDrawer::setStartingVertex(string vertex)
 {
     startingVertex = vertex;
-    changeAlgorithm(algorithm);
 }
-
+void GraphDrawer::setEndingVertex(string vertex)
+{
+    endingVertex = vertex;
+}
 void GraphDrawer::callPaintEvent(){
     this->update();
 }
@@ -245,12 +244,12 @@ void GraphDrawer::unconnectedGraph()
     update();
 }
 
-void GraphDrawer::changeToDynamic()
+void GraphDrawer::setToDynamic()
 {
     dynamic = true;
 }
 
-void GraphDrawer::changeToStatic()
+void GraphDrawer::setToStatic()
 {
     dynamic = false;
 }
@@ -332,11 +331,13 @@ AlgorithmWindow::AlgorithmWindow(Graph *graph, QWidget *parent)
 
     timer = new QTimer(this);
 
-    connect(ui->comboBox, &QComboBox::currentTextChanged, this, &AlgorithmWindow::changeAlgorithm);
-    connect(ui->dynamicButton, &QPushButton::clicked, graphDrawer, &GraphDrawer::changeToDynamic);
-    connect(ui->staticButton, &QPushButton::clicked, graphDrawer, &GraphDrawer::changeToStatic);
+    connect(ui->comboBox, &QComboBox::currentTextChanged, this, &AlgorithmWindow::setAlgorithm);
+    connect(ui->dynamicButton, &QPushButton::clicked, graphDrawer, &GraphDrawer::setToDynamic);
+    connect(ui->staticButton, &QPushButton::clicked, graphDrawer, &GraphDrawer::setToStatic);
     connect(ui->backButton, &QPushButton::clicked, this, &AlgorithmWindow::backButtonPressed);
-    connect(ui->startPointCombo, &QComboBox::currentIndexChanged, this, &AlgorithmWindow::changeStartingVertex);
+    connect(ui->startPointCombo, &QComboBox::currentIndexChanged, this, &AlgorithmWindow::setStartingVertex);
+    connect(ui->endPointCombo, &QComboBox::currentIndexChanged, this, &AlgorithmWindow::setEndingVertex);
+
 
     connect(timer, &QTimer::timeout, graphDrawer, &GraphDrawer::callPaintEvent);
 
@@ -359,21 +360,53 @@ void AlgorithmWindow::mousePressEvent(QMouseEvent *event)
     //stuff
 }
 
-void AlgorithmWindow::changeAlgorithm()
+void AlgorithmWindow::setAlgorithm()
 {
     string algorithm = ui->comboBox->currentText().toStdString();
 
-    graphDrawer->changeAlgorithm(algorithm);
+    if(algorithm == "Dijkstra")
+    {
+        ui->endPointCombo->show();
+        ui->endPoint->show();
+    }
+    else
+    {
+        ui->endPointCombo->hide();
+        ui->endPoint->hide();
+    }
+
+    graphDrawer->setAlgorithm(algorithm);
 }
 
-void AlgorithmWindow::changeStartingVertex()
+void AlgorithmWindow::setStartingVertex()
 {
 
     string algorithm = ui->comboBox->currentText().toStdString();
-    string vertex = ui->startPointCombo->currentText().toStdString();
-    if (vertex.size() == 0)return;
+    string startingVertex = ui->startPointCombo->currentText().toStdString();
+    string endingVertex = ui->endPointCombo->currentText().toStdString();
+    if (startingVertex.size() == 0)return;
 
-    graphDrawer->changeStartingVertex(vertex, algorithm);
+    graphDrawer->setStartingVertex(startingVertex);
+    if(algorithm == "Dijkstra")
+    {
+        graphDrawer->setEndingVertex(endingVertex);
+    }
+    graphDrawer->setAlgorithm(algorithm);
+}
+void AlgorithmWindow::setEndingVertex()
+{
+
+    string algorithm = ui->comboBox->currentText().toStdString();
+    string startingVertex = ui->startPointCombo->currentText().toStdString();
+    string endingVertex = ui->endPointCombo->currentText().toStdString();
+    if (startingVertex.size() == 0)return;
+
+    graphDrawer->setStartingVertex(startingVertex);
+    if(algorithm == "Dijkstra")
+    {
+        graphDrawer->setEndingVertex(endingVertex);
+    }
+    graphDrawer->setAlgorithm(algorithm);
 }
 
 void AlgorithmWindow::setStartPointCombo()
@@ -382,12 +415,6 @@ void AlgorithmWindow::setStartPointCombo()
 
     ui->startPointCombo->clear();
     ui->endPointCombo->clear();
-    string algorithm = ui->comboBox->currentText().toStdString();
-    string vertex = graph->adjacencyList.begin()->first;
-
-    graphDrawer->changeStartingVertex(vertex, algorithm);
-    graphDrawer->update();
-
 
     for(auto i = graph->adjacencyList.begin();i != graph->adjacencyList.end();i++)
     {
@@ -396,6 +423,21 @@ void AlgorithmWindow::setStartPointCombo()
         ui->startPointCombo->addItem(item);
         ui->endPointCombo->addItem(item);
     }
+
+    string algorithm = ui->comboBox->currentText().toStdString();
+    string startingvertex = graph->adjacencyList.begin()->first;
+
+    if(graph->adjacencyList.size() > 1)
+    {
+        string endingVertex = (++graph->adjacencyList.begin())->first;
+        graphDrawer->setEndingVertex(endingVertex);
+        ui->endPointCombo->setCurrentIndex(1);
+    }
+
+    graphDrawer->setStartingVertex(startingvertex);
+    graphDrawer->setAlgorithm(algorithm);
+
+    graphDrawer->update();
 }
 
 AlgorithmWindow::~AlgorithmWindow()

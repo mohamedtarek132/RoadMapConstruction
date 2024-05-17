@@ -108,7 +108,12 @@ void GraphWindow::addVertex()
             return;
         }
     }
-    // if (name.empty())return;
+    if (name.empty())
+    {
+        ui->nameEmptyError->show();
+        QTimer::singleShot(3000, ui->nameEmptyError, &QLabel::hide);
+        return;
+    }
 
     int x = stoi(xPos),
         y = stoi(yPos);

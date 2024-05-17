@@ -69,7 +69,13 @@ void MainWindow::goToNextWindow()
 
 void MainWindow::saveGraph()
 {
-    *homeWindow->graphs[graphWindow->graphName] = *(graphWindow->graph);
+    if(graphWindow->graphName.size()!=0)
+    {
+
+                *homeWindow->graphs[graphWindow->graphName] = *(graphWindow->graph);
+
+
+    }
 }
 
 void MainWindow::loadGraphs()

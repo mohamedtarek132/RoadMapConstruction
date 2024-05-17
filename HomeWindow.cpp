@@ -65,7 +65,7 @@ void HomeWindow::on_editButton_clicked()
 void HomeWindow::on_deleteButton_clicked()
 {
     QListWidgetItem *item = ui->graphList->takeItem(ui->graphList->currentRow());
-
+    // graphs.erase(item->text().toStdString());
     delete item;
 }
 

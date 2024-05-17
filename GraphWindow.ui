@@ -799,6 +799,30 @@ selection-background-color: rgb(53, 73, 84);
      <string>Edge doesn't exist!</string>
     </property>
    </widget>
+   <widget class="QLabel" name="nameEmptyError">
+    <property name="geometry">
+     <rect>
+      <x>830</x>
+      <y>150</y>
+      <width>161</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="visible">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(255, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>Name field is empty!</string>
+    </property>
+   </widget>
   </widget>
  </widget>
  <resources/>

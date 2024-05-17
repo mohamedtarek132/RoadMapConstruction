@@ -261,18 +261,20 @@ queue<Edge> Graph::DijkstraShortestPath(string start, string end)
             currentVertex = it->first;
             int currentWeight = weight[currentVertex];
             weight.erase(currentVertex);
-            for(auto i = adjacencyList[currentVertex].begin(); i!= adjacencyList[currentVertex].end(); i++)
+            if(currentVertex.size() != 0)
             {
-                int newWeight = i->length + currentWeight;
-                string adjacentVertex = i->getVertex2();
-
-                if(!visitedVerticies[adjacentVertex] && (newWeight < weight[adjacentVertex]))
+                for(auto i = adjacencyList[currentVertex].begin(); i!= adjacencyList[currentVertex].end(); i++)
                 {
-                    weight[adjacentVertex] = newWeight;
-                    predecessors[adjacentVertex] = *i;
+                    int newWeight = i->length + currentWeight;
+                    string adjacentVertex = i->getVertex2();
+
+                    if(!visitedVerticies[adjacentVertex] && (newWeight < weight[adjacentVertex]))
+                    {
+                        weight[adjacentVertex] = newWeight;
+                        predecessors[adjacentVertex] = *i;
+                    }
                 }
             }
-
     }
 
     currentVertex = start;

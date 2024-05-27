@@ -69,7 +69,6 @@ public:
     AlgorithmWindow(Graph *graph = nullptr, QWidget *parent = nullptr);
     // void paintEvent(QPaintEvent*);
     ~AlgorithmWindow();
-    void mousePressEvent(QMouseEvent *);
 
 signals:
     void backButtonPressed();

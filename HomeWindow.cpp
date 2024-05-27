@@ -23,7 +23,6 @@ HomeWindow::HomeWindow(unordered_map<string,Graph*> graphs, QWidget *parent)
 
     for(auto it = graphs.begin(); it != graphs.end(); it++)
     {
-        cout << it->first;
         QListWidgetItem *item = new QListWidgetItem(QString::fromStdString(it->first),ui->graphList);
 
         ui->graphList->addItem(item);
@@ -50,11 +49,6 @@ void HomeWindow::on_addButton_clicked()
     }
 }
 
-void HomeWindow::on_displayButton_clicked()
-{
-
-}
-
 void HomeWindow::on_editButton_clicked()
 {
     string graphName = ui->graphList->currentItem()->text().toStdString();
@@ -65,7 +59,7 @@ void HomeWindow::on_editButton_clicked()
 void HomeWindow::on_deleteButton_clicked()
 {
     QListWidgetItem *item = ui->graphList->takeItem(ui->graphList->currentRow());
-    // graphs.erase(item->text().toStdString());
+    graphs.erase(item->text().toStdString());
     delete item;
 }
 

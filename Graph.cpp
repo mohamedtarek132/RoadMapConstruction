@@ -91,12 +91,6 @@ void Graph::deleteEdge(string vertex_1, string vertex_2)
 
 queue<Edge> Graph::PrimMinimumSpanningTree(string vertex)
 {
-    ///
-    /// kjljl
-    /// lklk
-    ///
-    /// klklk
-    ///
     unordered_map<string,bool> visitedVerticies;
 
     queue<Edge> edgesOrder;
@@ -145,32 +139,9 @@ queue<Edge> Graph::PrimMinimumSpanningTree(string vertex)
     int size = edgesOrder.size();
 
     return edgesOrder;
-
-    // for (int i = 0; i < size; i++)
-    // {
-    //     cout << edgesOrder.front().getVertex1() << " " << edgesOrder.front().getVertex2() <<
-    //         " " << edgesOrder.front().length << endl;
-    //     edgesOrder.pop();
-    // }
 }
 queue<Edge> Graph::BFStraversal(string first_node)
 {
-    // insertVertex("a");
-    // insertVertex("b");
-    // insertVertex("c");
-    // insertVertex("d");
-    // insertVertex("e");
-    // insertVertex("f");
-
-    // insertEdge("a", "b", 4);
-    // insertEdge("a", "c", 4);
-    // insertEdge("b", "c", 2);
-    // insertEdge("c", "d", 3);
-    // insertEdge("c", "e", 2);
-    // insertEdge("c", "f", 4);
-    // insertEdge("d", "f", 3);
-    // insertEdge("e", "f", 3);
-
     queue<string> nodes;
     nodes.push(first_node);
     queue<Edge> edgeOrder;
@@ -181,9 +152,8 @@ queue<Edge> Graph::BFStraversal(string first_node)
     while (!nodes.empty())
     {
         string node = nodes.front();
-        // cout << node << endl;
         nodes.pop();
-        // visited[node] = true;
+
         for (auto i = adjacencyList[node].begin(); i != adjacencyList[node].end(); i++)
         {
             if (!visited[i->getVertex2()])
@@ -200,29 +170,47 @@ queue<Edge> Graph::BFStraversal(string first_node)
 queue<Edge> Graph::DFStraversal(string first_node) {
 
     unordered_map<string,bool> visited;
-    stack<string> edgeStack;
+    stack<string> vertexStack;
+    stack<Edge> edgeStack;
+
     queue<Edge> edgeOrder;
 
-    string current = first_node;
-    edgeStack.push(current);
+    string currentVertex = first_node;
+    Edge currentEdge;
 
-    while (!edgeStack.empty())
+    vertexStack.push(currentVertex);
+
+    while (!vertexStack.empty())
     {
-        current = edgeStack.top();
-        edgeStack.pop();
+        currentVertex = vertexStack.top();
+        vertexStack.pop();
 
-
-        if (!visited[current])
+        if(!edgeStack.empty())
         {
-            visited[current] = true;
+            currentEdge = edgeStack.top();
+            edgeStack.pop();
         }
 
-        for (auto it = adjacencyList[current].begin(); it != adjacencyList[current].end(); it++)
+        if (!visited[currentVertex])
+        {
+            visited[currentVertex] = true;
+
+            if(!edgeStack.empty())
+            {
+                edgeOrder.push(currentEdge);
+            }
+        }
+        else
+        {
+            continue;
+        }
+
+        for (auto it = adjacencyList[currentVertex].begin(); it != adjacencyList[currentVertex].end(); it++)
         {
             if (!visited[it->getVertex2()])
             {
-                edgeStack.push(it->getVertex2());
-                edgeOrder.push(*it);
+                vertexStack.push(it->getVertex2());
+                edgeStack.push(*it);
             }
         }
     }
@@ -255,34 +243,37 @@ queue<Edge> Graph::DijkstraShortestPath(string start, string end)
     while(size--)
     {
         int smallestEdge = INT_MAX;
-        string nextVertex;
-            auto it = min_element(weight.begin(), weight.end(), [](const auto& l, const auto& r) { return l.second < r.second; });
-            visitedVerticies[it->first] = true;
-            currentVertex = it->first;
-            int currentWeight = weight[currentVertex];
-            weight.erase(currentVertex);
-            if(currentVertex.size() != 0)
-            {
-                for(auto i = adjacencyList[currentVertex].begin(); i!= adjacencyList[currentVertex].end(); i++)
-                {
-                    int newWeight = i->length + currentWeight;
-                    string adjacentVertex = i->getVertex2();
+        // to get the smallest current weight vertex
+        auto it = min_element(weight.begin(), weight.end(), [](const auto& l, const auto& r) { return l.second < r.second; });
 
-                    if(!visitedVerticies[adjacentVertex] && (newWeight < weight[adjacentVertex]))
-                    {
-                        weight[adjacentVertex] = newWeight;
-                        predecessors[adjacentVertex] = *i;
-                    }
+        visitedVerticies[it->first] = true;
+        currentVertex = it->first;
+
+        int currentWeight = weight[currentVertex];
+
+        weight.erase(currentVertex);
+
+        if(currentVertex.size() != 0)
+        {
+            for(auto i = adjacencyList[currentVertex].begin(); i!= adjacencyList[currentVertex].end(); i++)
+            {
+                int newWeight = i->length + currentWeight;
+                string adjacentVertex = i->getVertex2();
+
+                if(!visitedVerticies[adjacentVertex] && (newWeight < weight[adjacentVertex]))
+                {
+                    weight[adjacentVertex] = newWeight;
+                    predecessors[adjacentVertex] = *i;
                 }
             }
+        }
     }
 
     currentVertex = start;
     int counter = 0;
-    cout << "counter" << endl;
+
     while(currentVertex != end && counter!= adjacencyList.size())
     {
-        cout << counter++ << endl;
         string vertex1 = predecessors[currentVertex].getVertex1();
         edgeOrder.push(predecessors[currentVertex]);
         currentVertex = vertex1;
@@ -296,7 +287,7 @@ queue<Edge> Graph::unconnectedTraversal()
     set<Edge> trying;
     for(auto it = adjacencyList.begin(); it != adjacencyList.end(); it++)
     {
-        queue<Edge> edge = DFStraversal(it->first);
+        queue<Edge> edge = BFStraversal(it->first);
         while(!edge.empty())
         {
             trying.insert(edge.front());

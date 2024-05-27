@@ -28,7 +28,9 @@ GraphWindow::GraphWindow(Graph *graph1, QWidget *parent)
     staticGraphDrawer = new GraphDrawer(this, graph,  xOffset, 30, false);
     staticGraphDrawer->resize(width + xOffset, height + 30 );
     staticGraphDrawer->move(0, yOffset - 30);
-    staticGraphDrawer->unconnectedGraph();
+    // staticGraphDrawer->unconnectedGraph();
+    // staticGraphDrawer->setStartingVertex(graph->adjacencyList.begin()->first);
+    // staticGraphDrawer->setAlgorithm("DFS");
 
 
     timer = new QTimer(this);
@@ -291,68 +293,6 @@ void GraphWindow::editAddCombobox()
         int newIndex = (ui->addEdgeV2Combo->currentIndex() + 1) % verticesNumber;
         ui->addEdgeV2Combo->setCurrentIndex(newIndex);
     }
-
-    // static QString removedVertex1;
-    // static QString removedVertex2;
-    // static bool vertex1;
-    // static bool vertex2;
-
-    // if (removedVertex1.size() != 0 && !vertex1)
-    // {
-    //     QString s = removedVertex1;
-    //     removedVertex1 = "";
-    //     for(auto it = graph->adjacencyList.begin(); it != graph->adjacencyList.end(); it++)
-    //     {
-    //         if(it->first == removedVertex1.toStdString())
-    //         {
-    //             ui->addEdgeV1Combo->addItem(s);
-    //             break;
-    //         }
-    //     }
-    // }
-
-    // if (removedVertex2.size() != 0 && !vertex2)
-    // {
-    //     QString s2 = removedVertex2;
-    //     removedVertex2 = "";
-    //     for(auto it = graph->adjacencyList.begin(); it != graph->adjacencyList.end(); it++)
-    //     {
-    //         if(it->first == removedVertex2.toStdString())
-    //         {
-    //             ui->addEdgeV1Combo->addItem(s2);
-    //             break;
-    //         }
-    //     }
-    // }
-
-    // QString vertex2Text = ui->addEdgeV2Combo->currentText();
-    // int vertex1ToRemoveIndex = ui->addEdgeV1Combo->findText(vertex2Text);
-
-    // // remove the item in combo box 1
-    // if(!vertex1)
-    // {
-    //     removedVertex1 = ui->addEdgeV1Combo->itemText(vertex1ToRemoveIndex);
-    //     vertex1 = true;
-    //     ui->addEdgeV1Combo->removeItem(vertex1ToRemoveIndex);
-    // }
-
-    // QString vertex1Text = ui->addEdgeV1Combo->currentText();
-    // int vertex2ToRemoveIndex = ui->addEdgeV2Combo->findText(vertex1Text);
-
-    // // remove the item in combo box 2
-    // if(!vertex2)
-    // {
-    //     removedVertex2 = ui->addEdgeV2Combo->itemText(vertex2ToRemoveIndex);
-    //     vertex2 = true;
-    //     ui->addEdgeV2Combo->removeItem(vertex2ToRemoveIndex);
-    // }
-
-    // vertex1 = false;
-    // vertex2 = false;
-
-    // ui->addEdgeV1Combo->update();
-    // ui->addEdgeV2Combo->update();
-
 }
 
 void GraphWindow::editDeleteCombobox()
@@ -364,73 +304,10 @@ void GraphWindow::editDeleteCombobox()
         int newIndex = (ui->deleteEdgeV2Combo->currentIndex() + 1) % verticesNumber;
         ui->deleteEdgeV2Combo->setCurrentIndex(newIndex);
     }
-
-    // static QString removedVertex1;
-    // static QString removedVertex2;
-    // static bool vertex1;
-    // static bool vertex2;
-
-    // if (removedVertex1.size() != 0 && !vertex1)
-    // {
-    //     QString s = removedVertex1;
-    //     removedVertex1 = "";
-    //     for(auto it = graph->adjacencyList.begin(); it != graph->adjacencyList.end(); it++)
-    //     {
-    //         if(it->first == removedVertex1.toStdString())
-    //         {
-    //             ui->deleteEdgeV1Combo->addItem(s);
-    //             break;
-    //         }
-    //     }
-    // }
-
-    // if (removedVertex2.size() != 0 && !vertex2)
-    // {
-    //     QString s2 = removedVertex2;
-    //     removedVertex2 = "";
-    //     for(auto it = graph->adjacencyList.begin(); it != graph->adjacencyList.end(); it++)
-    //     {
-    //         if(it->first == removedVertex2.toStdString())
-    //         {
-    //             ui->deleteEdgeV2Combo->addItem(s2);
-    //             break;
-    //         }
-    //     }
-    // }
-
-
-    // QString vertex2Text = ui->deleteEdgeV2Combo->currentText();
-    // int vertex1ToRemoveIndex = ui->deleteEdgeV1Combo->findText(vertex2Text);
-
-    // // remove the item in combo box 1
-    // if(!vertex1)
-    // {
-    //     removedVertex1 = ui->deleteEdgeV1Combo->itemText(vertex1ToRemoveIndex);
-    //     vertex1 = true;
-    //     ui->deleteEdgeV1Combo->removeItem(vertex1ToRemoveIndex);
-    // }
-
-    // QString vertex1Text = ui->deleteEdgeV1Combo->currentText();
-    // int vertex2ToRemoveIndex = ui->deleteEdgeV2Combo->findText(vertex1Text);
-
-    // // remove the item in combo box 2
-    // if(!vertex2)
-    // {
-    //     removedVertex2 = ui->deleteEdgeV2Combo->itemText(vertex2ToRemoveIndex);
-    //     vertex2 = true;
-    //     ui->deleteEdgeV2Combo->removeItem(vertex2ToRemoveIndex);
-    // }
-
-    // vertex1 = false;
-    // vertex2 = false;
-
-    // ui->deleteEdgeV1Combo->update();
-    // ui->deleteEdgeV2Combo->update();
 }
 
 void GraphWindow::checkConnectivity()
 {
-    //cout<<"will it come here?\n";
     if (graph->adjacencyList.size()<2)
     {
         ui->algortihmsError->show();
@@ -449,17 +326,9 @@ void GraphWindow::checkConnectivity()
 
 void GraphWindow::setGraph(Graph* graph, string graphName)
 {
-    //cout <<"does it gors here";
-
     *this->graph = *graph;
     this->graphName = graphName;
     this->ui->graphNameLabel->setText(QString::fromStdString(graphName));
-
-    if(!(graph->adjacencyList.empty()))
-    {
-        staticGraphDrawer->setStartingVertex(graph->adjacencyList.begin()->first);
-        staticGraphDrawer->setAlgorithm("DFS");
-    }
 
     staticGraphDrawer->unconnectedGraph();
     staticGraphDrawer->update();

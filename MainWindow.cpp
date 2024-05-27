@@ -43,16 +43,6 @@ MainWindow::MainWindow(QWidget *parent)
     connect(graphWindow, &GraphWindow::algorithmsButtonPressed, algorithmWindow, &AlgorithmWindow::setStartPointCombo);
 }
 
-void MainWindow::mousePressEvent(QMouseEvent *event)
-{
-    QPoint point = QWidget::mapFromGlobal(QCursor::pos());
-    // l->x2 = point.x();
-    // l->y2 = point.y();
-    // l->update();
-    // event->pos();
-    //stuff
-}
-
 void MainWindow::returnToPreviousWindow()
 {
     int index = this->stackedWidget->currentIndex() - 1;
@@ -69,12 +59,10 @@ void MainWindow::goToNextWindow()
 
 void MainWindow::saveGraph()
 {
-    if(graphWindow->graphName.size()!=0)
+    if(graphWindow->graphName.size()!=0 && homeWindow->graphs.find(graphWindow->graphName) != homeWindow->graphs.end())
     {
 
-                *homeWindow->graphs[graphWindow->graphName] = *(graphWindow->graph);
-
-
+        *homeWindow->graphs[graphWindow->graphName] = *(graphWindow->graph);
     }
 }
 

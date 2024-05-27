@@ -261,41 +261,6 @@ AlgorithmWindow::AlgorithmWindow(Graph *graph, QWidget *parent)
 {
     ui->setupUi(this);
 
-    // graph->insertVertex("a", 0, 0);
-    // graph->insertVertex("b", 60, 80);
-    // graph->insertVertex("c", 120, 140);
-    // graph->insertVertex("d", 20, 300);
-    // graph->insertVertex("e", 700, 50);
-    // graph->insertVertex("f", 50, 200);
-
-    // graph->insertEdge("a", "b", 4);
-    // graph->insertEdge("a", "c", 4);
-    // graph->insertEdge("b", "c", 2);
-    // graph->insertEdge("c", "d", 3);
-    // graph->insertEdge("c", "e", 2);
-    // graph->insertEdge("c", "f", 4);
-    // graph->insertEdge("d", "f", 3);
-    // graph->insertEdge("e", "f", 3);
-
-    // graph->insertVertex("alexandria", 0, 0);
-    // graph->insertVertex("banha", 60, 80);
-    // graph->insertVertex("cairo", 120, 140);
-    // graph->insertVertex("damanhoor", 20, 300);
-    // graph->insertVertex("elmansoura", 700, 50);
-    // graph->insertVertex("fayoum", 50, 200);
-    // graph->insertVertex("ana", 300, 300);
-    // //cout<<"Why are we here????\n";
-
-    // graph->insertEdge("alexandria", "banha", 4);
-    // graph->insertEdge("alexandria", "cairo", 4);
-    // graph->insertEdge("banha", "cairo", 2);
-    // graph->insertEdge("cairo", "damanhoor", 3);
-    // graph->insertEdge("cairo", "elmansoura", 2);
-    // graph->insertEdge("cairo", "fayoum", 4);
-    // graph->insertEdge("damanhoor", "fayoum", 3);
-    // graph->insertEdge("elmansoura", "fayoum", 3);
-
-    // cout<<"Why are we here\n";
     ui->comboBox->addItem("DFS");
     ui->comboBox->addItem("BFS");
     ui->comboBox->addItem("Prim");
@@ -323,8 +288,6 @@ AlgorithmWindow::AlgorithmWindow(Graph *graph, QWidget *parent)
     xOffset =  ui->frame->x() + ui->frame->lineWidth() * 2.5;
     yOffset = ui->frame->y() + ui->frame->lineWidth() * 2.5;
 
-    //string startingVertex = graph->adjacencyList.begin()->first;
-
     graphDrawer = new GraphDrawer(this, graph, xOffset, yOffset-60, true);
     graphDrawer->resize(1024, 550);
     graphDrawer->move(0, 60);
@@ -343,21 +306,6 @@ AlgorithmWindow::AlgorithmWindow(Graph *graph, QWidget *parent)
 
     timer->start(900);
 
-}
-
-void AlgorithmWindow::mousePressEvent(QMouseEvent *event)
-{
-
-    QPoint point = QWidget::mapFromGlobal(QCursor::pos());
-    // this->
-    // this->hide();
-    // dfd *d = new dfd(0);
-    // d->show();
-    // l->x2 = point.x();
-    // l->y2 = point.y();
-    // l->update();
-    // event->pos();
-    //stuff
 }
 
 void AlgorithmWindow::setAlgorithm()
@@ -393,6 +341,7 @@ void AlgorithmWindow::setStartingVertex()
     }
     graphDrawer->setAlgorithm(algorithm);
 }
+
 void AlgorithmWindow::setEndingVertex()
 {
 
@@ -411,8 +360,6 @@ void AlgorithmWindow::setEndingVertex()
 
 void AlgorithmWindow::setStartPointCombo()
 {
-    //<<"the first element is : "<<QString::toStdString(ui->startPointCombo->currentText())<<endl;
-
     ui->startPointCombo->clear();
     ui->endPointCombo->clear();
 

@@ -37,9 +37,6 @@ public slots:
 
     void on_exitButton_clicked();
 
-
-    void on_displayButton_clicked();
-
 private:
     Ui::HomeWindow *ui;
 };
